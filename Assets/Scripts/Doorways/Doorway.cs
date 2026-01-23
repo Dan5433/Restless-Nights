@@ -4,11 +4,12 @@ public class Doorway : MonoBehaviour
 {
     [SerializeField] Doorway currentDestination;
     [SerializeField] Doorway[] destinations = new Doorway[4];
-    [SerializeField] Vector3 selfDestinationOffset;
+    [SerializeField] Vector3 destinationSelfOffset;
 
     const string PLAYER_TAG = "Player";
+    const float GIZMO_OCCUPIED_INDICATOR_SIZE_DECREASE = 0.2f;
 
-    public Vector3 DestinationPosition => transform.position + selfDestinationOffset;
+    public Vector3 DestinationPosition => transform.position + destinationSelfOffset;
 
     void Awake()
     {
@@ -50,7 +51,7 @@ public class Doorway : MonoBehaviour
         currentDestination = destinations[randomIndex];
     }
 
-    private void OnDrawGizmos()
+    void OnDrawGizmosSelected()
     {
         //random doorways per difficulty
         if (destinations.Length < 1 || destinations[0] == null)
@@ -62,15 +63,33 @@ public class Doorway : MonoBehaviour
             return;
         Gizmos.color = Color.green;
         Gizmos.DrawLine(transform.position, destinations[1].transform.position);
+        Gizmos.DrawCube(destinations[1].transform.position,
+            new(
+                destinations[1].transform.localScale.x - GIZMO_OCCUPIED_INDICATOR_SIZE_DECREASE,
+                destinations[1].transform.localScale.y - GIZMO_OCCUPIED_INDICATOR_SIZE_DECREASE,
+                0
+                ));
 
         if (destinations.Length < 3 || destinations[2] == null)
             return;
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, destinations[2].transform.position);
+        Gizmos.DrawCube(destinations[2].transform.position,
+            new(
+                destinations[2].transform.localScale.x - GIZMO_OCCUPIED_INDICATOR_SIZE_DECREASE * 2,
+                destinations[2].transform.localScale.y - GIZMO_OCCUPIED_INDICATOR_SIZE_DECREASE * 2,
+                0
+                ));
 
         if (destinations.Length < 4 || destinations[3] == null)
             return;
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, destinations[3].transform.position);
+        Gizmos.DrawCube(destinations[3].transform.position,
+            new(
+                destinations[3].transform.localScale.x - GIZMO_OCCUPIED_INDICATOR_SIZE_DECREASE * 3,
+                destinations[3].transform.localScale.y - GIZMO_OCCUPIED_INDICATOR_SIZE_DECREASE * 3,
+                0
+                ));
     }
 }

@@ -15,6 +15,12 @@ public class DoorwayManager : MonoBehaviour
 
     public int DoorwayChoices
     {
+        /*
+         * 0 = 1 choice
+         * 1-6 = 2 choices
+         * 7-13 = 3 choices
+         * 14-20 = 4 choices
+         */
         get
         {
             if (difficulty == 0)

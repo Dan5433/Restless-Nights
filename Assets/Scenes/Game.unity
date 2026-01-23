@@ -122,6 +122,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &79452253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 79452254}
+  m_Layer: 0
+  m_Name: Power
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &79452254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79452253}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 821842050}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &174404416
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,10 +202,10 @@ MonoBehaviour:
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 1561440789}
+  - {fileID: 1513395009}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  selfDestinationOffset: {x: 1.1, y: 0, z: 0}
+  destinationSelfOffset: {x: 1.1, y: 0, z: 0}
 --- !u!212 &174404419
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -366,10 +397,10 @@ MonoBehaviour:
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 813952629}
+  - {fileID: 430761641}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  selfDestinationOffset: {x: 1.1, y: 0, z: 0}
+  destinationSelfOffset: {x: 1.1, y: 0, z: 0}
 --- !u!212 &224226450
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -471,10 +502,11 @@ MonoBehaviour:
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 490778886}
+  - {fileID: 1929772439}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  selfDestinationOffset: {x: 0, y: 1.1, z: 0}
+  destinationSelfOffset: {x: 0, y: 1.1, z: 0}
 --- !u!212 &313883548
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -606,10 +638,10 @@ MonoBehaviour:
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 1799086908}
-  - {fileID: 1929772439}
+  - {fileID: 1776697528}
   - {fileID: 0}
   - {fileID: 0}
-  selfDestinationOffset: {x: 0, y: -1.1, z: 0}
+  destinationSelfOffset: {x: 0, y: -1.1, z: 0}
 --- !u!61 &430761642
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -756,10 +788,11 @@ MonoBehaviour:
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 1776697528}
+  - {fileID: 1799086908}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  selfDestinationOffset: {x: 1.1, y: 0, z: 0}
+  destinationSelfOffset: {x: 1.1, y: 0, z: 0}
 --- !u!61 &458044701
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -921,10 +954,10 @@ MonoBehaviour:
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 313883547}
+  - {fileID: 1317066001}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  selfDestinationOffset: {x: 0, y: -1.1, z: 0}
+  destinationSelfOffset: {x: 0, y: -1.1, z: 0}
 --- !u!212 &490778887
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1311,10 +1344,10 @@ MonoBehaviour:
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 224226449}
+  - {fileID: 819141261}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  selfDestinationOffset: {x: -1.1, y: 0, z: 0}
+  destinationSelfOffset: {x: -1.1, y: 0, z: 0}
 --- !u!61 &813952630
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1476,10 +1509,10 @@ MonoBehaviour:
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 1513395009}
-  - {fileID: 1929772439}
-  - {fileID: 490778886}
   - {fileID: 1561440789}
-  selfDestinationOffset: {x: 0, y: -1.1, z: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  destinationSelfOffset: {x: 0, y: -1.1, z: 0}
 --- !u!212 &819141262
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1577,6 +1610,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &821842049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 821842050}
+  m_Layer: 0
+  m_Name: Tasks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &821842050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821842049}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 79452254}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &835875946
 GameObject:
   m_ObjectHideFlags: 0
@@ -3782,10 +3847,10 @@ MonoBehaviour:
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 1929772439}
+  - {fileID: 490778886}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  selfDestinationOffset: {x: -1.1, y: 0, z: 0}
+  destinationSelfOffset: {x: -1.1, y: 0, z: 0}
 --- !u!212 &1317066002
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3977,10 +4042,10 @@ MonoBehaviour:
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 819141261}
+  - {fileID: 224226449}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  selfDestinationOffset: {x: 0, y: 1.1, z: 0}
+  destinationSelfOffset: {x: 0, y: 1.1, z: 0}
 --- !u!212 &1513395010
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4127,10 +4192,10 @@ MonoBehaviour:
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 174404418}
+  - {fileID: 458044700}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  selfDestinationOffset: {x: -1.1, y: 0, z: 0}
+  destinationSelfOffset: {x: -1.1, y: 0, z: 0}
 --- !u!212 &1561440790
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4267,10 +4332,10 @@ Transform:
   - {fileID: 174404417}
   - {fileID: 1799086906}
   - {fileID: 224226447}
+  - {fileID: 1776697526}
   - {fileID: 1929772438}
   - {fileID: 490778885}
   - {fileID: 1561440788}
-  - {fileID: 1776697526}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1776697525
@@ -4367,10 +4432,10 @@ MonoBehaviour:
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 458044700}
+  - {fileID: 174404418}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  selfDestinationOffset: {x: -1.1, y: 0, z: 0}
+  destinationSelfOffset: {x: -1.1, y: 0, z: 0}
 --- !u!212 &1776697529
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4517,10 +4582,11 @@ MonoBehaviour:
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 430761641}
+  - {fileID: 813952629}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  selfDestinationOffset: {x: 0, y: 1.1, z: 0}
+  destinationSelfOffset: {x: 0, y: 1.1, z: 0}
 --- !u!212 &1799086909
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4874,10 +4940,10 @@ MonoBehaviour:
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 1317066001}
+  - {fileID: 313883547}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  selfDestinationOffset: {x: 1.1, y: 0, z: 0}
+  destinationSelfOffset: {x: 1.1, y: 0, z: 0}
 --- !u!212 &1929772440
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5074,3 +5140,4 @@ SceneRoots:
   - {fileID: 865639030}
   - {fileID: 1835010572}
   - {fileID: 1717172259}
+  - {fileID: 821842050}

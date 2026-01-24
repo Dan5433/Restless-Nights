@@ -256,7 +256,7 @@ MonoBehaviour:
   destinations:
   - {fileID: 1561440789}
   - {fileID: 1513395009}
-  - {fileID: 0}
+  - {fileID: 1776697528}
   - {fileID: 0}
   destinationSelfOffset: {x: 1.1, y: 0, z: 0}
 --- !u!212 &174404419
@@ -451,7 +451,7 @@ MonoBehaviour:
   destinations:
   - {fileID: 813952629}
   - {fileID: 430761641}
-  - {fileID: 0}
+  - {fileID: 1317066001}
   - {fileID: 0}
   destinationSelfOffset: {x: 1.1, y: 0, z: 0}
 --- !u!212 &224226450
@@ -556,7 +556,7 @@ MonoBehaviour:
   destinations:
   - {fileID: 490778886}
   - {fileID: 1929772439}
-  - {fileID: 0}
+  - {fileID: 458044700}
   - {fileID: 0}
   destinationSelfOffset: {x: 0, y: 1.1, z: 0}
 --- !u!212 &313883548
@@ -692,7 +692,7 @@ MonoBehaviour:
   - {fileID: 1799086908}
   - {fileID: 1776697528}
   - {fileID: 313883547}
-  - {fileID: 1799086908}
+  - {fileID: 0}
   destinationSelfOffset: {x: 0, y: -1.1, z: 0}
 --- !u!61 &430761642
 BoxCollider2D:
@@ -841,7 +841,7 @@ MonoBehaviour:
   destinations:
   - {fileID: 1776697528}
   - {fileID: 1799086908}
-  - {fileID: 0}
+  - {fileID: 1561440789}
   - {fileID: 0}
   destinationSelfOffset: {x: 1.1, y: 0, z: 0}
 --- !u!61 &458044701
@@ -1006,7 +1006,7 @@ MonoBehaviour:
   destinations:
   - {fileID: 313883547}
   - {fileID: 1317066001}
-  - {fileID: 0}
+  - {fileID: 1513395009}
   - {fileID: 0}
   destinationSelfOffset: {x: 0, y: -1.1, z: 0}
 --- !u!212 &490778887
@@ -1396,7 +1396,7 @@ MonoBehaviour:
   destinations:
   - {fileID: 224226449}
   - {fileID: 819141261}
-  - {fileID: 0}
+  - {fileID: 1929772439}
   - {fileID: 0}
   destinationSelfOffset: {x: -1.1, y: 0, z: 0}
 --- !u!61 &813952630
@@ -1561,7 +1561,7 @@ MonoBehaviour:
   destinations:
   - {fileID: 1513395009}
   - {fileID: 1561440789}
-  - {fileID: 0}
+  - {fileID: 1799086908}
   - {fileID: 0}
   destinationSelfOffset: {x: 0, y: -1.1, z: 0}
 --- !u!212 &819141262
@@ -3899,7 +3899,7 @@ MonoBehaviour:
   destinations:
   - {fileID: 1929772439}
   - {fileID: 490778886}
-  - {fileID: 0}
+  - {fileID: 224226449}
   - {fileID: 0}
   destinationSelfOffset: {x: -1.1, y: 0, z: 0}
 --- !u!212 &1317066002
@@ -4094,7 +4094,7 @@ MonoBehaviour:
   destinations:
   - {fileID: 819141261}
   - {fileID: 224226449}
-  - {fileID: 0}
+  - {fileID: 490778886}
   - {fileID: 0}
   destinationSelfOffset: {x: 0, y: 1.1, z: 0}
 --- !u!212 &1513395010
@@ -4244,7 +4244,7 @@ MonoBehaviour:
   destinations:
   - {fileID: 174404418}
   - {fileID: 458044700}
-  - {fileID: 0}
+  - {fileID: 313883547}
   - {fileID: 0}
   destinationSelfOffset: {x: -1.1, y: 0, z: 0}
 --- !u!212 &1561440790
@@ -4484,7 +4484,7 @@ MonoBehaviour:
   destinations:
   - {fileID: 458044700}
   - {fileID: 174404418}
-  - {fileID: 0}
+  - {fileID: 430761641}
   - {fileID: 0}
   destinationSelfOffset: {x: -1.1, y: 0, z: 0}
 --- !u!212 &1776697529
@@ -4634,7 +4634,7 @@ MonoBehaviour:
   destinations:
   - {fileID: 430761641}
   - {fileID: 813952629}
-  - {fileID: 0}
+  - {fileID: 819141261}
   - {fileID: 0}
   destinationSelfOffset: {x: 0, y: 1.1, z: 0}
 --- !u!212 &1799086909
@@ -4991,7 +4991,7 @@ MonoBehaviour:
   destinations:
   - {fileID: 1317066001}
   - {fileID: 313883547}
-  - {fileID: 0}
+  - {fileID: 813952629}
   - {fileID: 0}
   destinationSelfOffset: {x: 1.1, y: 0, z: 0}
 --- !u!212 &1929772440

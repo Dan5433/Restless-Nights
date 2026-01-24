@@ -70,7 +70,7 @@ public class Doorway : MonoBehaviour
 
         if (destinations.Length < 3 || destinations[2] == null)
             return;
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.Lerp(Color.yellow, Color.red, 0.4f); // why does Color not have orange?
         DrawGizmoIndicators(destinations[2].transform, 2);
 
         if (destinations.Length < 4 || destinations[3] == null)

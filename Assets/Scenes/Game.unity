@@ -257,7 +257,7 @@ MonoBehaviour:
   - {fileID: 1561440789}
   - {fileID: 1513395009}
   - {fileID: 1776697528}
-  - {fileID: 0}
+  - {fileID: 813952629}
   destinationSelfOffset: {x: 1.1, y: 0, z: 0}
 --- !u!212 &174404419
 SpriteRenderer:
@@ -452,7 +452,7 @@ MonoBehaviour:
   - {fileID: 813952629}
   - {fileID: 430761641}
   - {fileID: 1317066001}
-  - {fileID: 0}
+  - {fileID: 313883547}
   destinationSelfOffset: {x: 1.1, y: 0, z: 0}
 --- !u!212 &224226450
 SpriteRenderer:
@@ -557,7 +557,7 @@ MonoBehaviour:
   - {fileID: 490778886}
   - {fileID: 1929772439}
   - {fileID: 458044700}
-  - {fileID: 0}
+  - {fileID: 1776697528}
   destinationSelfOffset: {x: 0, y: 1.1, z: 0}
 --- !u!212 &313883548
 SpriteRenderer:
@@ -692,7 +692,7 @@ MonoBehaviour:
   - {fileID: 1799086908}
   - {fileID: 1776697528}
   - {fileID: 313883547}
-  - {fileID: 0}
+  - {fileID: 1929772439}
   destinationSelfOffset: {x: 0, y: -1.1, z: 0}
 --- !u!61 &430761642
 BoxCollider2D:
@@ -842,7 +842,7 @@ MonoBehaviour:
   - {fileID: 1776697528}
   - {fileID: 1799086908}
   - {fileID: 1561440789}
-  - {fileID: 0}
+  - {fileID: 1317066001}
   destinationSelfOffset: {x: 1.1, y: 0, z: 0}
 --- !u!61 &458044701
 BoxCollider2D:
@@ -1007,7 +1007,7 @@ MonoBehaviour:
   - {fileID: 313883547}
   - {fileID: 1317066001}
   - {fileID: 1513395009}
-  - {fileID: 0}
+  - {fileID: 458044700}
   destinationSelfOffset: {x: 0, y: -1.1, z: 0}
 --- !u!212 &490778887
 SpriteRenderer:
@@ -1397,7 +1397,7 @@ MonoBehaviour:
   - {fileID: 224226449}
   - {fileID: 819141261}
   - {fileID: 1929772439}
-  - {fileID: 0}
+  - {fileID: 490778886}
   destinationSelfOffset: {x: -1.1, y: 0, z: 0}
 --- !u!61 &813952630
 BoxCollider2D:
@@ -1562,7 +1562,7 @@ MonoBehaviour:
   - {fileID: 1513395009}
   - {fileID: 1561440789}
   - {fileID: 1799086908}
-  - {fileID: 0}
+  - {fileID: 224226449}
   destinationSelfOffset: {x: 0, y: -1.1, z: 0}
 --- !u!212 &819141262
 SpriteRenderer:
@@ -3900,7 +3900,7 @@ MonoBehaviour:
   - {fileID: 1929772439}
   - {fileID: 490778886}
   - {fileID: 224226449}
-  - {fileID: 0}
+  - {fileID: 1799086908}
   destinationSelfOffset: {x: -1.1, y: 0, z: 0}
 --- !u!212 &1317066002
 SpriteRenderer:
@@ -4095,7 +4095,7 @@ MonoBehaviour:
   - {fileID: 819141261}
   - {fileID: 224226449}
   - {fileID: 490778886}
-  - {fileID: 0}
+  - {fileID: 1561440789}
   destinationSelfOffset: {x: 0, y: 1.1, z: 0}
 --- !u!212 &1513395010
 SpriteRenderer:
@@ -4245,7 +4245,7 @@ MonoBehaviour:
   - {fileID: 174404418}
   - {fileID: 458044700}
   - {fileID: 313883547}
-  - {fileID: 0}
+  - {fileID: 430761641}
   destinationSelfOffset: {x: -1.1, y: 0, z: 0}
 --- !u!212 &1561440790
 SpriteRenderer:
@@ -4389,6 +4389,37 @@ Transform:
   - {fileID: 1561440788}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1734876269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1734876270}
+  m_Layer: 0
+  m_Name: Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1734876270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734876269}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1776697525
 GameObject:
   m_ObjectHideFlags: 0
@@ -4485,7 +4516,7 @@ MonoBehaviour:
   - {fileID: 458044700}
   - {fileID: 174404418}
   - {fileID: 430761641}
-  - {fileID: 0}
+  - {fileID: 819141261}
   destinationSelfOffset: {x: -1.1, y: 0, z: 0}
 --- !u!212 &1776697529
 SpriteRenderer:
@@ -4635,7 +4666,7 @@ MonoBehaviour:
   - {fileID: 430761641}
   - {fileID: 813952629}
   - {fileID: 819141261}
-  - {fileID: 0}
+  - {fileID: 174404418}
   destinationSelfOffset: {x: 0, y: 1.1, z: 0}
 --- !u!212 &1799086909
 SpriteRenderer:
@@ -4992,7 +5023,7 @@ MonoBehaviour:
   - {fileID: 1317066001}
   - {fileID: 313883547}
   - {fileID: 813952629}
-  - {fileID: 0}
+  - {fileID: 1513395009}
   destinationSelfOffset: {x: 1.1, y: 0, z: 0}
 --- !u!212 &1929772440
 SpriteRenderer:
@@ -5191,3 +5222,4 @@ SceneRoots:
   - {fileID: 1835010572}
   - {fileID: 1717172259}
   - {fileID: 821842050}
+  - {fileID: 1734876270}

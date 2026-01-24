@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class DoorwayManager : MonoBehaviour
@@ -8,8 +9,12 @@ public class DoorwayManager : MonoBehaviour
     const int MAX_DIFFICULTY = 20;
 
     [SerializeField][Range(MIN_DIFFICULTY, MAX_DIFFICULTY)] int difficulty;
+    [SerializeField] float movementLockExtraTime = 0.1f;
+    [SerializeField] PlayerMovement movement;
+    [SerializeField] DoorTransition transition;
 
     public int Difficulty => difficulty;
+    public DoorTransition Transition => transition;
     public static int MinDifficulty => MIN_DIFFICULTY;
     public static int MaxDifficulty => MAX_DIFFICULTY;
 
@@ -43,5 +48,15 @@ public class DoorwayManager : MonoBehaviour
         {
             Instance = this;
         }
+    }
+
+    public IEnumerator PlayDoorTransition()
+    {
+        movement.Locked = true;
+        transition.StartCoroutine(transition.FadeTransition());
+
+        yield return new WaitForSeconds(transition.EaseTime + transition.HoldTime + movementLockExtraTime);
+
+        movement.Locked = false;
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Doorway : MonoBehaviour
@@ -25,12 +26,20 @@ public class Doorway : MonoBehaviour
         if (!collision.CompareTag(PLAYER_TAG))
             return;
 
+        if (DoorwayManager.Instance.Difficulty > 0)
+            RollChanceToSwitchDoorway();
+
+        StartCoroutine(Transition(collision));
+    }
+
+    IEnumerator Transition(Collider2D collision)
+    {
+        DoorwayManager.Instance.StartCoroutine(
+            DoorwayManager.Instance.PlayDoorTransition());
+
+        yield return new WaitForSeconds(DoorwayManager.Instance.Transition.EaseTime);
+
         collision.transform.position = currentDestination.DestinationPosition;
-
-        if (DoorwayManager.Instance.Difficulty == 0)
-            return;
-
-        RollChanceToSwitchDoorway();
     }
 
     void RollChanceToSwitchDoorway()

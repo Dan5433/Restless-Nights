@@ -1,5 +1,5 @@
 using EditorAttributes;
-using UnityEditor;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterManager : MonoBehaviour
@@ -11,25 +11,11 @@ public class MonsterManager : MonoBehaviour
 
     [SerializeField][Range(MIN_DIFFICULTY, MAX_DIFFICULTY)] int difficulty;
     [SerializeField][MinMaxSlider(0, 60)] Vector2Int baseTaskAppearance;
-    [SerializeField] MonoBehaviour[] taskBehaviours;
+    [SerializeField] Task[] tasks;
 
     [SerializeField][DisableInEditMode, DisableInPlayMode] float taskTimer;
-
-#if UNITY_EDITOR
-    void OnValidate()
-    {
-        foreach (var task in taskBehaviours)
-        {
-            if (task == null || task is ITask)
-                continue;
-
-            if (EditorApplication.isPlaying)
-                EditorApplication.ExitPlaymode();
-            else
-                Debug.LogError($"{task.name} does not implement ITask", task);
-        }
-    }
-#endif
+    [SerializeField][DisableInEditMode, DisableInPlayMode] float panicMeter; //0-100
+    [SerializeField][DisableInEditMode, DisableInPlayMode] List<Task> activeTasks;
 
     private void Awake()
     {
@@ -39,11 +25,6 @@ public class MonsterManager : MonoBehaviour
         }
         else
         {
-
-#if UNITY_EDITOR
-            OnValidate();
-#endif
-
             Instance = this;
         }
     }
@@ -64,11 +45,21 @@ public class MonsterManager : MonoBehaviour
         SetNextTaskTimer();
     }
 
+    public static void TaskComplete(Task task)
+    {
+        if (!ValidateInstance())
+            return;
+
+        Instance.activeTasks.Remove(task);
+    }
+
     void TriggerRandomTask()
     {
-        int randomIndex = Random.Range(0, taskBehaviours.Length);
-        var task = taskBehaviours[randomIndex] as ITask;
+        int randomIndex = Random.Range(0, tasks.Length);
+
+        Task task = tasks[randomIndex];
         task.Trigger();
+        activeTasks.Add(task);
     }
 
     void SetNextTaskTimer()
@@ -77,6 +68,15 @@ public class MonsterManager : MonoBehaviour
         float nextTimer = Random.Range(timeRange.x, timeRange.y);
 
         taskTimer = nextTimer;
+    }
+
+    static bool ValidateInstance()
+    {
+        if (Instance != null)
+            return true;
+
+        Debug.LogError("Monster Manager is not initialized!");
+        return false;
     }
 
     [Button("Skip Task Timer", 36)]

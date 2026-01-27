@@ -219,8 +219,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86fe2842b9875ba4d9a0c33f8ed8a33d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainBreaker: {fileID: 0}
-  roomBreakers: []
+  mainBreaker: {fileID: 1766285882}
+  roomBreakers:
+  - {fileID: 1344247742}
+  - {fileID: 1172511462}
+  - {fileID: 949406311}
+  - {fileID: 1693649770}
+  - {fileID: 563685063}
+  - {fileID: 783489345}
+  - {fileID: 712529151}
+  - {fileID: 1649715116}
 --- !u!1 &101471120
 GameObject:
   m_ObjectHideFlags: 0
@@ -5329,9 +5337,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficulty: 0
   baseTaskAppearance: {x: 35, y: 45}
-  taskBehaviours:
+  tasks:
   - {fileID: 79452256}
   taskTimer: 0
+  panicMeter: 0
+  activeTasks: []
 --- !u!1 &1152707416
 GameObject:
   m_ObjectHideFlags: 0
@@ -6508,7 +6518,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1484788816}
-  - component: {fileID: 1484788817}
   m_Layer: 5
   m_Name: Handle Slide Area
   m_TagString: Untagged
@@ -6536,23 +6545,6 @@ RectTransform:
   m_AnchoredPosition: {x: -162.5, y: 0}
   m_SizeDelta: {x: -325, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1484788817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484788815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35f16d84558548c408790a7f84f9c43a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  relativeTransform: {fileID: 1766285881}
-  controlWidth: 0
-  widthMultiplier: 0.5
-  controlHeight: 0
-  heightMultiplier: 0.001
 --- !u!1 &1513395007
 GameObject:
   m_ObjectHideFlags: 0

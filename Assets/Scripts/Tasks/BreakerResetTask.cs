@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BreakerResetTask : MonoBehaviour, ITask
+public class BreakerResetTask : Task
 {
     [SerializeField] Slider mainBreaker;
     [SerializeField] Slider[] roomBreakers;
-    public void Trigger()
+    public override void Trigger()
     {
         Debug.Log("Circuit breaker reset task!");
     }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class Task : MonoBehaviour
 {
-    [SerializeField] protected bool active = false;
+    [SerializeField, DisableInEditMode, DisableInPlayMode] protected bool active = false;
 
     [Button("Complete", 36)]
     protected void Complete()
@@ -23,6 +23,5 @@ public abstract class Task : MonoBehaviour
         TriggerInternal();
     }
 
-    [Button("Trigger Internal Test", 36)]
     protected abstract void TriggerInternal();
 }

@@ -47,7 +47,7 @@ public class MonsterManager : MonoBehaviour
 
     public static void TaskComplete(Task task)
     {
-        if (!ValidateInstance())
+        if (!IsInstanceValid())
             return;
 
         Instance.activeTasks.Remove(task);
@@ -70,7 +70,7 @@ public class MonsterManager : MonoBehaviour
         taskTimer = nextTimer;
     }
 
-    static bool ValidateInstance()
+    static bool IsInstanceValid()
     {
         if (Instance != null)
             return true;

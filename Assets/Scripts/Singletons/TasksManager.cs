@@ -9,8 +9,7 @@ public class TasksManager : MonoBehaviour
 
     [SerializeField][Range(MIN_DIFFICULTY, MAX_DIFFICULTY)] int difficulty;
 
-    public int Difficulty => difficulty;
-    public static int MaxDifficulty => MAX_DIFFICULTY;
+    public float DifficultyFraction => (float)difficulty / MAX_DIFFICULTY;
 
     private void Awake()
     {

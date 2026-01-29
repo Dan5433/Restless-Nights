@@ -1,14 +1,11 @@
 using EditorAttributes;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterManager : DifficultySingleton<MonsterManager>
 {
     [SerializeField][MinMaxSlider(0, 60)] Vector2Int baseTaskAppearance;
-    [SerializeField] Task[] tasks;
 
     [SerializeField][DisableInEditMode, DisableInPlayMode] float taskTimer;
-    [SerializeField][DisableInEditMode, DisableInPlayMode] List<Task> activeTasks;
 
     private void Start()
     {
@@ -22,25 +19,8 @@ public class MonsterManager : DifficultySingleton<MonsterManager>
         if (taskTimer > 0)
             return;
 
-        TriggerRandomTask();
+        TasksManager.TriggerRandomTask();
         SetNextTaskTimer();
-    }
-
-    public static void TaskComplete(Task task)
-    {
-        if (!IsInstanceValid())
-            return;
-
-        Instance.activeTasks.Remove(task);
-    }
-
-    void TriggerRandomTask()
-    {
-        int randomIndex = Random.Range(0, tasks.Length);
-
-        Task task = tasks[randomIndex];
-        task.Trigger();
-        activeTasks.Add(task);
     }
 
     void SetNextTaskTimer()
@@ -49,15 +29,6 @@ public class MonsterManager : DifficultySingleton<MonsterManager>
         float nextTimer = Random.Range(timeRange.x, timeRange.y);
 
         taskTimer = nextTimer;
-    }
-
-    static bool IsInstanceValid()
-    {
-        if (Instance != null)
-            return true;
-
-        Debug.LogError("Monster Manager is not initialized!");
-        return false;
     }
 
     [Button("Skip Task Timer", 36)]

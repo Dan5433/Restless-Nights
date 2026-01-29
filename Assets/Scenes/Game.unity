@@ -6366,11 +6366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficulty: 0
   baseTaskAppearance: {x: 35, y: 45}
-  tasks:
-  - {fileID: 79452256}
   taskTimer: 0
-  panicMeter: 0
-  activeTasks: []
 --- !u!1 &1152707416
 GameObject:
   m_ObjectHideFlags: 0
@@ -7452,6 +7448,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficulty: 0
+  tasks:
+  - {fileID: 79452256}
+  activeTasks: []
 --- !u!1 &1410673415
 GameObject:
   m_ObjectHideFlags: 0

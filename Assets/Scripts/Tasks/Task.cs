@@ -11,7 +11,7 @@ public abstract class Task : MonoBehaviour
         Debug.Log($"{GetType().Name} complete!");
         active = false;
 
-        MonsterManager.TaskComplete(this);
+        TasksManager.TaskComplete(this);
     }
 
     [Button("Trigger", 36)]

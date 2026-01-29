@@ -9,7 +9,7 @@ public abstract class Singleton<T> : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Debug.LogWarning($"{nameof(T)} singleton already exists! Destroying this instance...");
+            Debug.LogWarning($"{typeof(T).Name} singleton already exists! Destroying this instance...");
             Destroy(this);
         }
         else
@@ -22,7 +22,7 @@ public abstract class Singleton<T> : MonoBehaviour
         if (Instance != null)
             return true;
 
-        Debug.LogError($"{nameof(T)} is not initialized!");
+        Debug.LogError($"{typeof(T).Name} is not initialized!");
         return false;
     }
 }

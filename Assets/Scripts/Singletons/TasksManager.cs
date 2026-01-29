@@ -1,5 +1,6 @@
 using EditorAttributes;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TasksManager : DifficultySingleton<TasksManager>
@@ -14,6 +15,14 @@ public class TasksManager : DifficultySingleton<TasksManager>
     {
         if (!IsInstanceValid())
             return;
+
+        Task[] availableTasks = Instance.tasks.Where(t => !t.Active).ToArray();
+
+        if (availableTasks.Length == 0)
+        {
+            Debug.Log("No available tasks");
+            return;
+        }
 
         int randomIndex = Random.Range(0, Instance.tasks.Length);
 

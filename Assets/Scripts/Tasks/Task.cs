@@ -5,6 +5,8 @@ public abstract class Task : MonoBehaviour
 {
     [SerializeField, DisableInEditMode, DisableInPlayMode] protected bool active = false;
 
+    public bool Active => active;
+
     [Button("Complete", 36)]
     protected void Complete()
     {

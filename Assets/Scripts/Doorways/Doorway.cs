@@ -44,7 +44,7 @@ public class Doorway : MonoBehaviour
 
     void RollChanceToSwitchDoorway()
     {
-        int choiceNumber = Random.Range(DoorwayManager.MinDifficulty, DoorwayManager.MaxDifficulty);
+        int choiceNumber = Random.Range(DoorwayManager.MIN_DIFFICULTY, DoorwayManager.MAX_DIFFICULTY);
         if (choiceNumber <= DoorwayManager.Instance.Difficulty)
         {
             SwitchDoorway();

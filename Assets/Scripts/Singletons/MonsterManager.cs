@@ -2,32 +2,13 @@ using EditorAttributes;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterManager : MonoBehaviour
+public class MonsterManager : DifficultySingleton<MonsterManager>
 {
-    public static MonsterManager Instance { get; private set; }
-
-    const int MIN_DIFFICULTY = 0;
-    const int MAX_DIFFICULTY = 20;
-
-    [SerializeField][Range(MIN_DIFFICULTY, MAX_DIFFICULTY)] int difficulty;
     [SerializeField][MinMaxSlider(0, 60)] Vector2Int baseTaskAppearance;
     [SerializeField] Task[] tasks;
 
     [SerializeField][DisableInEditMode, DisableInPlayMode] float taskTimer;
-    [SerializeField][DisableInEditMode, DisableInPlayMode] float panicMeter; //0-100
     [SerializeField][DisableInEditMode, DisableInPlayMode] List<Task> activeTasks;
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Debug.LogWarning($"{GetType().Name} singleton already exists!");
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
 
     private void Start()
     {

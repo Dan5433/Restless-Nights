@@ -8,6 +8,7 @@ public class TasksManager : DifficultySingleton<TasksManager>
     [SerializeField][DisableInEditMode, DisableInPlayMode] List<Task> activeTasks;
 
     public float DifficultyFraction => (float)difficulty / MAX_DIFFICULTY;
+    public int ActiveTasksCount => activeTasks.Count;
 
     public static void TriggerRandomTask()
     {

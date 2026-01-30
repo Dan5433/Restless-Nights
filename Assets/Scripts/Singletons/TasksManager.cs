@@ -16,6 +16,7 @@ public class TasksManager : DifficultySingleton<TasksManager>
         if (!IsInstanceValid())
             return;
 
+        //TODO: Remove allocation by using element at instead of array
         Task[] availableTasks = Instance.tasks.Where(t => !t.Active).ToArray();
 
         if (availableTasks.Length == 0)

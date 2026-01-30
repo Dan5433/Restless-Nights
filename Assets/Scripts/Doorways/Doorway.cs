@@ -6,6 +6,7 @@ public class Doorway : MonoBehaviour
     [SerializeField] Doorway currentDestination;
     [SerializeField] Doorway[] destinations = new Doorway[4];
     [SerializeField] Vector3 destinationSelfOffset;
+    [SerializeField] PolygonCollider2D destinationSelfCameraConfiner;
 
     const string PLAYER_TAG = "Player";
 
@@ -15,6 +16,7 @@ public class Doorway : MonoBehaviour
         gizmoDestinationChosenIndicatorSize + new Vector3(0.1f, 0.1f);
 
     public Vector3 DestinationPosition => transform.position + destinationSelfOffset;
+    public PolygonCollider2D DestinationCameraConfiner => destinationSelfCameraConfiner;
 
     void Awake()
     {
@@ -35,11 +37,12 @@ public class Doorway : MonoBehaviour
     IEnumerator Transition(Collider2D collision)
     {
         DoorwayManager.Instance.StartCoroutine(
-            DoorwayManager.Instance.PlayDoorTransition());
+            DoorwayManager.PlayDoorTransition());
 
         yield return new WaitForSeconds(DoorwayManager.Instance.Transition.EaseTime);
 
         collision.transform.position = currentDestination.DestinationPosition;
+        DoorwayManager.UpdateCameraConfiner(currentDestination);
     }
 
     void RollChanceToSwitchDoorway()

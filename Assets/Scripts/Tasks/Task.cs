@@ -8,7 +8,7 @@ public abstract class Task : MonoBehaviour
     public bool Active => active;
 
     [Button("Complete", 36)]
-    protected void Complete()
+    protected virtual void Complete()
     {
         Debug.Log($"{GetType().Name} complete!");
         active = false;

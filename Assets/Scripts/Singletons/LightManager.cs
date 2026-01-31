@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class LightManager : Singleton<LightManager>
 {
-    [SerializeField, DataTable] RoomLightGroup[] lightGroups;
+    [SerializeField] RoomLightGroup[] lightGroups;
     [SerializeField] BreakerResetTask circuitBreakerTask;
 
     public void UpdateAllRoomLights()
@@ -22,9 +22,9 @@ public class LightManager : Singleton<LightManager>
                 continue;
 
             if (breaker.value == 0)
-                lightGroup.roomLight.gameObject.SetActive(false);
+                lightGroup.ChangeLightsState(false);
             else
-                lightGroup.roomLight.gameObject.SetActive(true);
+                lightGroup.ChangeLightsState(true);
         }
     }
 
@@ -39,7 +39,7 @@ public class LightManager : Singleton<LightManager>
     void MainBreakerOff()
     {
         foreach (RoomLightGroup lightGroup in Instance.lightGroups)
-            lightGroup.roomLight.gameObject.SetActive(false);
+            lightGroup.ChangeLightsState(false);
     }
 
     public static void EnableAllRoomLights()
@@ -48,14 +48,25 @@ public class LightManager : Singleton<LightManager>
             return;
 
         foreach (RoomLightGroup lightGroup in Instance.lightGroups)
-            lightGroup.roomLight.gameObject.SetActive(true);
+            lightGroup.ChangeLightsState(true);
     }
 
     [Serializable]
     public struct RoomLightGroup
     {
+        [Title(nameof(RoomName), stringInputMode: StringInputMode.Dynamic)]
         public Light2D roomLight;
+        public Light2D[] doorwayLights;
         public GameObject lightSwitch;
         public Slider roomBreaker;
+
+        public string RoomName => roomLight.transform.parent.gameObject.name;
+
+        public readonly void ChangeLightsState(bool state)
+        {
+            roomLight.gameObject.SetActive(state);
+            foreach (Light2D light in doorwayLights)
+                light.gameObject.SetActive(state);
+        }
     }
 }

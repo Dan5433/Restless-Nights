@@ -16,7 +16,7 @@ public class PanicManager : DifficultySingleton<PanicManager>
     private void Update()
     {
         panicBase = difficulty * DIFFICULTY_TO_BASE_PANIC_RATIO;
-        panicBase += Mathf.Lerp(0, maxPanicBase - panicBase, TimeManager.Instance.NightTimePassedFraction);
+        panicBase += Mathf.Lerp(0, maxPanicBase - panicBase, NightTimeManager.Instance.NightTimePassedFraction);
 
         pressure = TasksManager.Instance.ActiveTasksCount * panicIncreasePerActiveTask;
 

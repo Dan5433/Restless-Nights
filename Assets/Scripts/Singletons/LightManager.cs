@@ -21,10 +21,10 @@ public class LightManager : Singleton<LightManager>
             if (circuitBreakerTask.DisabledBreakers.Contains(breaker))
                 continue;
 
-            if (breaker.value == 0)
-                lightGroup.ChangeLightsState(false);
-            else
+            if (breaker.value == 1 && lightGroup.lightSwitch.IsOn)
                 lightGroup.ChangeLightsState(true);
+            else
+                lightGroup.ChangeLightsState(false);
         }
     }
 
@@ -51,16 +51,24 @@ public class LightManager : Singleton<LightManager>
             lightGroup.ChangeLightsState(true);
     }
 
+    public static void LightSwitchStateUpdate()
+    {
+        if (!IsInstanceValid())
+            return;
+
+        Instance.UpdateAllRoomLights();
+    }
+
     [Serializable]
     public struct RoomLightGroup
     {
         [Title(nameof(RoomName), stringInputMode: StringInputMode.Dynamic)]
         public Light2D roomLight;
         public Light2D[] doorwayLights;
-        public GameObject lightSwitch;
+        public LightSwitch lightSwitch;
         public Slider roomBreaker;
 
-        public string RoomName => roomLight.transform.parent.gameObject.name;
+        public readonly string RoomName => roomLight.transform.parent.gameObject.name;
 
         public readonly void ChangeLightsState(bool state)
         {

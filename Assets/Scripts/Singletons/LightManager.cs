@@ -9,6 +9,11 @@ public class LightManager : Singleton<LightManager>
 {
     [SerializeField] RoomLightGroup[] lightGroups;
     [SerializeField] BreakerResetTask circuitBreakerTask;
+    [SerializeField] Sprite lightSwitchOn;
+    [SerializeField] Sprite lightSwitchOff;
+
+    public Sprite LightSwitchOn => lightSwitchOn;
+    public Sprite LightSwitchOff => lightSwitchOff;
 
     public void UpdateAllRoomLights()
     {

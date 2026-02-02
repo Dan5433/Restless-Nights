@@ -64,6 +64,16 @@ public class LightManager : Singleton<LightManager>
         Instance.UpdateAllRoomLights();
     }
 
+    public static bool IsBreakerDisabled(LightSwitch lightSwitch)
+    {
+        if (!IsInstanceValid())
+            return false;
+
+        RoomLightGroup group = Instance.lightGroups.First(g => g.lightSwitch == lightSwitch);
+
+        return group.roomBreaker.value == 0;
+    }
+
     [Serializable]
     public struct RoomLightGroup
     {

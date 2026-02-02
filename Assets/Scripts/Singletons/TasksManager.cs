@@ -6,30 +6,35 @@ using UnityEngine;
 public class TasksManager : DifficultySingleton<TasksManager>
 {
     [SerializeField] Task[] tasks;
-    [SerializeField][DisableInEditMode, DisableInPlayMode] List<Task> activeTasks;
+    [SerializeField][DisableInEditMode, DisableInPlayMode] List<Task> availableTasks;
 
     public float DifficultyFraction => (float)difficulty / MAX_DIFFICULTY;
-    public int ActiveTasksCount => activeTasks.Count;
+    public int ActiveTasksCount => tasks.Length - availableTasks.Count;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        availableTasks = tasks.ToList();
+    }
 
     public static void TriggerRandomTask()
     {
         if (!IsInstanceValid())
             return;
 
-        //TODO: Remove allocation by using element at instead of array
-        Task[] availableTasks = Instance.tasks.Where(t => !t.Active).ToArray();
 
-        if (availableTasks.Length == 0)
+        if (Instance.availableTasks.Count == 0)
         {
             Debug.Log("No available tasks");
             return;
         }
 
-        int randomIndex = Random.Range(0, Instance.tasks.Length);
+        int randomIndex = Random.Range(0, Instance.availableTasks.Count);
 
-        Task task = Instance.tasks[randomIndex];
+        Task task = Instance.availableTasks[randomIndex];
         task.Trigger();
-        Instance.activeTasks.Add(task);
+        Instance.availableTasks.Remove(task);
     }
 
     public static void TaskComplete(Task task)
@@ -37,7 +42,7 @@ public class TasksManager : DifficultySingleton<TasksManager>
         if (!IsInstanceValid())
             return;
 
-        Instance.activeTasks.Remove(task);
+        Instance.availableTasks.Add(task);
     }
 
 }

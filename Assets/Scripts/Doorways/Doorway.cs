@@ -9,8 +9,8 @@ public class Doorway : MonoBehaviour
     [SerializeField] Doorway[] destinations = new Doorway[4];
     [SerializeField] Vector3 destinationSelfOffset;
     [SerializeField] PolygonCollider2D destinationSelfCameraConfiner;
+    [SerializeField] GameObject doorFrame;
     Light2D doorwayLight;
-    SpriteRenderer doorFrameSpriteRenderer;
 
     const string PLAYER_TAG = "Player";
 
@@ -21,19 +21,18 @@ public class Doorway : MonoBehaviour
 
     public Vector3 DestinationPosition => transform.position + destinationSelfOffset;
     public PolygonCollider2D DestinationCameraConfiner => destinationSelfCameraConfiner;
-    public SpriteRenderer DoorFrameSpriteRenderer => doorFrameSpriteRenderer;
 
     void Awake()
     {
         currentDestination = destinations[0];
         doorwayLight = GetComponentInChildren<Light2D>();
-        doorFrameSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Start()
     {
         UpdateLightIntensity();
         UpdateDoorFrameSprite();
+        UpdatePositionForPixelAlignment();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -89,9 +88,27 @@ public class Doorway : MonoBehaviour
 
     void UpdateDoorFrameSprite()
     {
-        doorFrameSpriteRenderer.sprite = isClosed
+        doorFrame.GetComponent<SpriteRenderer>().sprite = isClosed
             ? DoorwayManager.Instance.ClosedDoorSprite
             : DoorwayManager.Instance.OpenDoorSprite;
+    }
+
+    void UpdatePositionForPixelAlignment()
+    {
+        Sprite sprite = isClosed
+            ? DoorwayManager.Instance.ClosedDoorSprite
+            : DoorwayManager.Instance.OpenDoorSprite;
+
+        Transform doorFrameTransform = doorFrame.transform;
+        float zAngle = doorFrameTransform.rotation.eulerAngles.z;
+
+        bool isDoorSideways = zAngle == 270 || zAngle == 90;
+
+        float offset = -sprite.textureRect.height / (sprite.pixelsPerUnit * 2);
+        if (isDoorSideways)
+            doorFrameTransform.localPosition = new(offset, 0);
+        else
+            doorFrameTransform.localPosition = new(0, offset);
     }
 
     void OnDrawGizmosSelected()

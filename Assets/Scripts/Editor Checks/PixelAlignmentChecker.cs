@@ -32,7 +32,7 @@ public class PixelAlignmentChecker : MonoBehaviour
             return;
 
         CheckAlignment(runtimeTransform.position, runtimeTransform.rotation, runtimeSpriteRenderer.sprite);
-        transform.hasChanged = false;
+        runtimeTransform.hasChanged = false;
     }
 
     void CheckAlignment(Vector2 position, Quaternion rotation, Sprite sprite)

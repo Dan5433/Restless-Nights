@@ -5,10 +5,18 @@ using UnityEngine;
 public class DoorwayManager : DifficultySingleton<DoorwayManager>
 {
     [SerializeField] float movementLockExtraTime = 0.1f;
+    [SerializeField] float closedDoorLightIntensity = 0.2f;
+    [SerializeField] float openDoorLightIntensity = 0.5f;
+    [SerializeField] Sprite openDoorSprite;
+    [SerializeField] Sprite closedDoorSprite;
     [SerializeField] PlayerMovement movement;
     [SerializeField] DoorTransition transition;
     [SerializeField] CinemachineConfiner2D cameraConfiner;
 
+    public float ClosedDoorLightIntensity => closedDoorLightIntensity;
+    public float OpenDoorLightIntensity => openDoorLightIntensity;
+    public Sprite ClosedDoorSprite => closedDoorSprite;
+    public Sprite OpenDoorSprite => openDoorSprite;
     public DoorTransition Transition => transition;
 
     public int DoorwayChoices

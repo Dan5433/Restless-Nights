@@ -27,6 +27,13 @@ public class LightSwitch : MonoBehaviour, IInteractable
         UpdateSprite();
     }
 
+    public void TurnOff()
+    {
+        isOn = false;
+        LightManager.LightSwitchStateUpdate();
+        UpdateSprite();
+    }
+
     void UpdateSprite()
     {
         if (isOn)

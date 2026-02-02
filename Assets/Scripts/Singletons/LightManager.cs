@@ -9,6 +9,7 @@ public class LightManager : Singleton<LightManager>
 {
     [SerializeField] RoomLightGroup[] lightGroups;
     [SerializeField] BreakerResetTask circuitBreakerTask;
+    [SerializeField] LightSwitchTask lightSwitchTask;
     [SerializeField] Sprite lightSwitchOn;
     [SerializeField] Sprite lightSwitchOff;
 
@@ -62,6 +63,9 @@ public class LightManager : Singleton<LightManager>
             return;
 
         Instance.UpdateAllRoomLights();
+
+        if (Instance.lightSwitchTask.Active)
+            Instance.lightSwitchTask.LightSwitchStateUpdate();
     }
 
     public static bool IsBreakerDisabled(LightSwitch lightSwitch)

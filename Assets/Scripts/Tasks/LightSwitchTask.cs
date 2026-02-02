@@ -4,10 +4,10 @@ using UnityEngine;
 public class LightSwitchTask : Task
 {
     [SerializeField] LightSwitch[] lightSwitches;
+    [SerializeField] float maxDisabledSwitchesRatio = 0.5f;
     [SerializeField][DisableInEditMode, DisableInPlayMode] List<LightSwitch> disabledSwitches;
 
     const int MIN_SWITCHES = 1;
-    const float MAX_SWITCHES_RATIO = 0.5f;
 
     protected override void TriggerInternal()
     {
@@ -17,7 +17,7 @@ public class LightSwitchTask : Task
 
         float difficulty = TasksManager.Instance.DifficultyFraction;
 
-        float maxSwitches = lightSwitches.Length * MAX_SWITCHES_RATIO;
+        float maxSwitches = lightSwitches.Length * maxDisabledSwitchesRatio;
 
         int disabledSwitchesAmount = Mathf.RoundToInt(
             Mathf.Lerp(MIN_SWITCHES, maxSwitches, difficulty));

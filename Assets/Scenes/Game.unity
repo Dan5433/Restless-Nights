@@ -9690,6 +9690,7 @@ MonoBehaviour:
   - {fileID: 1723116073}
   - {fileID: 1348753040}
   - {fileID: 1945721715}
+  maxDisabledSwitchesRatio: 0.75
   disabledSwitches: []
 --- !u!1 &936551387
 GameObject:
@@ -12567,7 +12568,7 @@ MonoBehaviour:
   tasks:
   - {fileID: 79452256}
   - {fileID: 932430211}
-  activeTasks: []
+  availableTasks: []
 --- !u!1 &1410673415
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class DoorwayManager : DifficultySingleton<DoorwayManager>
     [SerializeField] float movementLockExtraTime = 0.1f;
     [SerializeField] PlayerMovement movement;
     [SerializeField] DoorTransition transition;
+    [SerializeField] CinemachineConfiner2D cameraConfiner;
 
     public DoorTransition Transition => transition;
 
@@ -29,13 +31,25 @@ public class DoorwayManager : DifficultySingleton<DoorwayManager>
         }
     }
 
-    public IEnumerator PlayDoorTransition()
+    public static IEnumerator PlayDoorTransition()
     {
+        PlayerMovement movement = Instance.movement;
+        DoorTransition transition = Instance.transition;
+
         movement.Locked = true;
         transition.StartCoroutine(transition.FadeTransition());
 
-        yield return new WaitForSeconds(transition.EaseTime + transition.HoldTime + movementLockExtraTime);
+        yield return new WaitForSeconds(transition.EaseTime + transition.HoldTime + Instance.movementLockExtraTime);
 
         movement.Locked = false;
+    }
+
+    public static void UpdateCameraConfiner(Doorway doorway)
+    {
+        if (!IsInstanceValid())
+            return;
+
+        CinemachineConfiner2D cameraConfiner = Instance.cameraConfiner;
+        cameraConfiner.m_BoundingShape2D = doorway.DestinationCameraConfiner;
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TimeManager : Singleton<TimeManager>
+public class NightTimeManager : Singleton<NightTimeManager>
 {
     [SerializeField] int nightDurationSeconds;
 

@@ -1,12 +1,17 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Doorway : MonoBehaviour
 {
+    [SerializeField] bool isClosed = true;
+    [SerializeField] float closedDoorLightIntensity = 0.2f;
+    [SerializeField] float openDoorLightIntensity = 0.5f;
     [SerializeField] Doorway currentDestination;
     [SerializeField] Doorway[] destinations = new Doorway[4];
     [SerializeField] Vector3 destinationSelfOffset;
     [SerializeField] PolygonCollider2D destinationSelfCameraConfiner;
+    Light2D doorwayLight;
 
     const string PLAYER_TAG = "Player";
 
@@ -21,6 +26,9 @@ public class Doorway : MonoBehaviour
     void Awake()
     {
         currentDestination = destinations[0];
+        doorwayLight = GetComponentInChildren<Light2D>();
+
+        UpdateLightIntensity();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -65,6 +73,13 @@ public class Doorway : MonoBehaviour
         while (destinations[randomIndex] == currentDestination);
 
         currentDestination = destinations[randomIndex];
+    }
+
+    void UpdateLightIntensity()
+    {
+        doorwayLight.intensity = isClosed
+            ? closedDoorLightIntensity
+            : openDoorLightIntensity;
     }
 
     void OnDrawGizmosSelected()

@@ -1352,6 +1352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9624d13c170f1f3468853c2a7e92aea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClosed: 1
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 1561440789}
@@ -1719,6 +1720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9624d13c170f1f3468853c2a7e92aea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClosed: 1
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 813952629}
@@ -2575,6 +2577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9624d13c170f1f3468853c2a7e92aea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClosed: 1
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 490778886}
@@ -3108,6 +3111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9624d13c170f1f3468853c2a7e92aea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClosed: 1
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 819141261}
@@ -3796,6 +3800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9624d13c170f1f3468853c2a7e92aea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClosed: 1
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 1799086908}
@@ -4108,6 +4113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9624d13c170f1f3468853c2a7e92aea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClosed: 1
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 1776697528}
@@ -4478,6 +4484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9624d13c170f1f3468853c2a7e92aea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClosed: 1
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 313883547}
@@ -5025,7 +5032,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.4107144
+  orthographic size: 2.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6413,6 +6420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9624d13c170f1f3468853c2a7e92aea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClosed: 1
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 224226449}
@@ -6526,6 +6534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9624d13c170f1f3468853c2a7e92aea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClosed: 1
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 359994338}
@@ -12447,6 +12456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9624d13c170f1f3468853c2a7e92aea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClosed: 1
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 1929772439}
@@ -13527,6 +13537,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficulty: 0
   movementLockExtraTime: 0.075
+  closedDoorLightIntensity: 0.2
+  openDoorLightIntensity: 0.5
+  openDoorSprite: {fileID: 21300000, guid: 2063b53fe32145e489a5bfa6167b6c26, type: 3}
+  closedDoorSprite: {fileID: 21300000, guid: c47027c8b8f8d084f9ddcf8e2af7a278, type: 3}
   movement: {fileID: 1835010573}
   transition: {fileID: 1686179700}
   cameraConfiner: {fileID: 2123289428}
@@ -15079,6 +15093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9624d13c170f1f3468853c2a7e92aea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClosed: 1
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 174404418}
@@ -16331,7 +16346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1717172259}
   m_Layer: 0
-  m_Name: Doorways
+  m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16847,6 +16862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9624d13c170f1f3468853c2a7e92aea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClosed: 1
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 458044700}
@@ -17164,6 +17180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9624d13c170f1f3468853c2a7e92aea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClosed: 1
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 430761641}
@@ -18250,6 +18267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9624d13c170f1f3468853c2a7e92aea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClosed: 1
   currentDestination: {fileID: 0}
   destinations:
   - {fileID: 1317066001}

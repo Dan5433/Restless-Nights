@@ -29,10 +29,28 @@ public class LightSwitchTask : Task
             int switchIndex = switches[randomIndex];
 
             LightSwitch lightSwitch = lightSwitches[switchIndex];
-            lightSwitch.TurnOff();
             disabledSwitches.Add(lightSwitch);
+            lightSwitch.TurnOff();
 
             switches.Remove(switchIndex);
         }
+    }
+
+    protected override void Complete()
+    {
+        base.Complete();
+
+        disabledSwitches.Clear();
+    }
+
+    public void LightSwitchStateUpdate()
+    {
+        foreach (LightSwitch lightSwitch in disabledSwitches)
+        {
+            if (!lightSwitch.IsOn)
+                return;
+        }
+
+        Complete();
     }
 }

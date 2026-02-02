@@ -16725,6 +16725,7 @@ MonoBehaviour:
     lightSwitch: {fileID: 1945721715}
     roomBreaker: {fileID: 682389556}
   circuitBreakerTask: {fileID: 79452256}
+  lightSwitchTask: {fileID: 932430211}
   lightSwitchOn: {fileID: 21300000, guid: 93a2f965ef5a65246a1aa1a685594b7b, type: 3}
   lightSwitchOff: {fileID: 21300000, guid: 3df73590cdeac294b8744061b38e4f3c, type: 3}
 --- !u!4 &1901016426

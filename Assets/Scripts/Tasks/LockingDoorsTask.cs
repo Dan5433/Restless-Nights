@@ -1,3 +1,4 @@
+using EditorAttributes;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ public class LockingDoorsTask : Task
 {
     [SerializeField] Doorway[] doors;
     [SerializeField] float maxOpenedDoorsRatio = 0.5f;
+    [SerializeField][DisableInEditMode, DisableInPlayMode] List<Doorway> openedDoors;
     const int MIN_DOORS = 1;
 
     protected override void TriggerInternal()
@@ -26,9 +28,37 @@ public class LockingDoorsTask : Task
 
             int switchIndex = doorIndexes[randomIndex];
 
-            doors[switchIndex].OpenDoor();
+            Doorway door = doors[switchIndex];
+            door.OpenDoor();
+            openedDoors.Add(door);
 
             doorIndexes.Remove(switchIndex);
         }
+    }
+
+    private void Update()
+    {
+        if (openedDoors.Count == 0)
+            return;
+
+        CheckLockedDoors();
+    }
+
+    void CheckLockedDoors()
+    {
+        foreach (Doorway door in openedDoors)
+        {
+            if (!door.IsClosed)
+                return;
+        }
+
+        Complete();
+    }
+
+    protected override void Complete()
+    {
+        base.Complete();
+
+        openedDoors.Clear();
     }
 }

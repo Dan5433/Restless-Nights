@@ -13710,6 +13710,7 @@ MonoBehaviour:
   - {fileID: 490778886}
   - {fileID: 1561440789}
   maxOpenedDoorsRatio: 0.5
+  openedDoors: []
 --- !u!1 &1384344313
 GameObject:
   m_ObjectHideFlags: 0

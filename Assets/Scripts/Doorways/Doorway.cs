@@ -46,7 +46,7 @@ public class Doorway : MonoBehaviour
         if (DoorwayManager.Instance.DoorwayChoices > 1)
             RollChanceToSwitchDoorway();
 
-        LightManager.UpdateDoorwayLightAfterMovingRooms(this, currentDestination);
+        LightManager.UpdateDoorwayLightsAfterMovingRooms(this, currentDestination);
 
         StartCoroutine(Transition(collision));
     }

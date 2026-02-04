@@ -27,13 +27,10 @@ public class LightManager : Singleton<LightManager>
             if (circuitBreakerTask.DisabledBreakers.Contains(breaker))
                 continue;
 
-            bool isLightEnabled =
-                breaker.value == 1 && lightGroup.lightSwitch.IsOn;
-
-            if (lightGroup.IsLightEnabled == isLightEnabled)
+            if (lightGroup.IsLightEnabled == lightGroup.ShouldLightBeEnabled)
                 continue;
 
-            lightGroup.ChangeLightsState(isLightEnabled);
+            lightGroup.ChangeLightsState(lightGroup.ShouldLightBeEnabled);
         }
     }
 
@@ -50,16 +47,22 @@ public class LightManager : Singleton<LightManager>
             lightGroup.ChangeLightsState(false);
     }
 
-    public static void UpdateDoorwayLightAfterMovingRooms(Doorway origin, Doorway destination)
+    public static void UpdateDoorwayLightsAfterMovingRooms(Doorway origin, Doorway destination)
     {
         if (!IsInstanceValid())
             return;
 
         RoomLightGroup originGroup = Instance.lightGroups.First(g => g.doorways.Contains(origin));
 
-        bool isOriginLightEnabled = originGroup.roomBreaker.value == 1 && originGroup.lightSwitch.IsOn;
+        bool isOriginLightEnabled = originGroup.ShouldLightBeEnabled;
+        destination.DoorwayLight
+            .gameObject.SetActive(isOriginLightEnabled);
 
-        destination.DoorwayLight.gameObject.SetActive(isOriginLightEnabled);
+        RoomLightGroup destinationGroup = Instance.lightGroups.First(g => g.doorways.Contains(destination));
+
+        bool isDestinationLightEnabled = destinationGroup.ShouldLightBeEnabled;
+        origin.DoorwayLight
+            .gameObject.SetActive(isDestinationLightEnabled);
     }
     public static void EnableAllRoomLights()
     {
@@ -101,7 +104,8 @@ public class LightManager : Singleton<LightManager>
         public Slider roomBreaker;
 
         public readonly string RoomName => roomLight.transform.parent.gameObject.name;
-        public bool IsLightEnabled => roomLight.gameObject.activeSelf;
+        public readonly bool IsLightEnabled => roomLight.gameObject.activeSelf;
+        public readonly bool ShouldLightBeEnabled => roomBreaker.value == 1 && lightSwitch.IsOn;
 
         public readonly void ChangeLightsState(bool state)
         {

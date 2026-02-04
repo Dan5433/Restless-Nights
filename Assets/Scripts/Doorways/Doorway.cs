@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class Doorway : MonoBehaviour
+public class Doorway : MonoBehaviour, IInteractable
 {
     [SerializeField] bool isClosed = true;
     [SerializeField] Doorway currentDestination;
@@ -24,6 +24,7 @@ public class Doorway : MonoBehaviour
     public PolygonCollider2D DestinationCameraConfiner => destinationSelfCameraConfiner;
     public Light2D DoorwayLight => doorwayLight;
     public Doorway CurrentDestination => currentDestination;
+    public bool IsClosed => isClosed;
 
     void Awake()
     {
@@ -65,6 +66,19 @@ public class Doorway : MonoBehaviour
     public void OpenDoor()
     {
         isClosed = false;
+
+        UpdateLightIntensity();
+        UpdateDoorFrameSprite();
+        UpdatePositionForPixelAlignment();
+    }
+
+    public void Interact()
+    {
+        if (isClosed)
+            return;
+
+        isClosed = true;
+        //play sound effect
 
         UpdateLightIntensity();
         UpdateDoorFrameSprite();

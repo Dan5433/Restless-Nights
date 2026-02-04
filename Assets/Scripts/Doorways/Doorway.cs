@@ -59,7 +59,17 @@ public class Doorway : MonoBehaviour
         yield return new WaitForSeconds(DoorwayManager.Instance.Transition.EaseTime);
 
         collision.transform.position = currentDestination.DestinationPosition;
+
         DoorwayManager.UpdateCameraConfiner(currentDestination);
+    }
+
+    public void OpenDoor()
+    {
+        isClosed = false;
+
+        UpdateLightIntensity();
+        UpdateDoorFrameSprite();
+        UpdatePositionForPixelAlignment();
     }
 
     void RollChanceToSwitchDoorway()

@@ -16,8 +16,6 @@ public class PixelAlignmentChecker : MonoBehaviour
         var spriteRenderer = GetComponent<SpriteRenderer>();
 
         CheckAlignment(transform.position, transform.rotation, spriteRenderer.sprite);
-
-        //TODO: Add context to all other debug logs
     }
 
     private void Awake()

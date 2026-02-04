@@ -27,10 +27,13 @@ public class LightManager : Singleton<LightManager>
             if (circuitBreakerTask.DisabledBreakers.Contains(breaker))
                 continue;
 
-            if (breaker.value == 1 && lightGroup.lightSwitch.IsOn)
-                lightGroup.ChangeLightsState(true);
-            else
-                lightGroup.ChangeLightsState(false);
+            bool isLightEnabled =
+                breaker.value == 1 && lightGroup.lightSwitch.IsOn;
+
+            if (lightGroup.IsLightEnabled == isLightEnabled)
+                continue;
+
+            lightGroup.ChangeLightsState(isLightEnabled);
         }
     }
 
@@ -98,6 +101,7 @@ public class LightManager : Singleton<LightManager>
         public Slider roomBreaker;
 
         public readonly string RoomName => roomLight.transform.parent.gameObject.name;
+        public bool IsLightEnabled => roomLight.gameObject.activeSelf;
 
         public readonly void ChangeLightsState(bool state)
         {

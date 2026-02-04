@@ -1362,8 +1362,8 @@ MonoBehaviour:
   destinationSelfOffset: {x: 0.75, y: 0, z: 0}
   destinationSelfCameraConfiner: {fileID: 1250007915}
   doorFrame: {fileID: 475492419}
---- !u!68 &174404419
-EdgeCollider2D:
+--- !u!61 &174404419
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1394,15 +1394,19 @@ EdgeCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0625, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.125, y: 0.6875}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: 0, y: -0.3}
-  - {x: 0, y: 0.3}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &181613278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1731,8 +1735,8 @@ MonoBehaviour:
   destinationSelfOffset: {x: 0.75, y: 0, z: 0}
   destinationSelfCameraConfiner: {fileID: 1976054804}
   doorFrame: {fileID: 845030181}
---- !u!68 &224226450
-EdgeCollider2D:
+--- !u!61 &224226450
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1763,15 +1767,19 @@ EdgeCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0625, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.125, y: 0.6875}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: 0, y: -0.3}
-  - {x: 0, y: 0.3}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &234766423
 GameObject:
   m_ObjectHideFlags: 0
@@ -2423,8 +2431,8 @@ MonoBehaviour:
   destinationSelfOffset: {x: 0, y: 0.75, z: 0}
   destinationSelfCameraConfiner: {fileID: 1250007915}
   doorFrame: {fileID: 162282470}
---- !u!68 &313883548
-EdgeCollider2D:
+--- !u!61 &313883548
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2455,15 +2463,19 @@ EdgeCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.0625}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6875, y: 0.125}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.3, y: 0}
-  - {x: 0.3, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &316355501
 GameObject:
   m_ObjectHideFlags: 0
@@ -3034,7 +3046,7 @@ GameObject:
   m_Component:
   - component: {fileID: 359994336}
   - component: {fileID: 359994338}
-  - component: {fileID: 359994337}
+  - component: {fileID: 359994339}
   m_Layer: 0
   m_Name: Hallway South
   m_TagString: Untagged
@@ -3059,8 +3071,30 @@ Transform:
   - {fileID: 1706097840}
   m_Father: {fileID: 1717172259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!68 &359994337
-EdgeCollider2D:
+--- !u!114 &359994338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359994335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9624d13c170f1f3468853c2a7e92aea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isClosed: 1
+  currentDestination: {fileID: 0}
+  destinations:
+  - {fileID: 819141261}
+  - {fileID: 224226449}
+  - {fileID: 490778886}
+  - {fileID: 1561440789}
+  destinationSelfOffset: {x: 0, y: 0.75, z: 0}
+  destinationSelfCameraConfiner: {fileID: 84324299}
+  doorFrame: {fileID: 1706097839}
+--- !u!61 &359994339
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3091,37 +3125,19 @@ EdgeCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.0625}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6875, y: 0.125}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.3, y: 0}
-  - {x: 0.3, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
---- !u!114 &359994338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 359994335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9624d13c170f1f3468853c2a7e92aea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isClosed: 1
-  currentDestination: {fileID: 0}
-  destinations:
-  - {fileID: 819141261}
-  - {fileID: 224226449}
-  - {fileID: 490778886}
-  - {fileID: 1561440789}
-  destinationSelfOffset: {x: 0, y: 0.75, z: 0}
-  destinationSelfCameraConfiner: {fileID: 84324299}
-  doorFrame: {fileID: 1706097839}
 --- !u!1 &360808287
 GameObject:
   m_ObjectHideFlags: 0
@@ -3829,8 +3845,8 @@ Transform:
   - {fileID: 1789723910}
   m_Father: {fileID: 1717172259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &430761645
-EdgeCollider2D:
+--- !u!61 &430761645
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3861,15 +3877,19 @@ EdgeCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.0625}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6875, y: 0.125}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.3, y: 0}
-  - {x: 0.3, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &431885670
 GameObject:
   m_ObjectHideFlags: 0
@@ -4143,8 +4163,8 @@ Transform:
   - {fileID: 360808288}
   m_Father: {fileID: 1717172259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!68 &458044704
-EdgeCollider2D:
+--- !u!61 &458044704
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4175,15 +4195,19 @@ EdgeCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0625, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.125, y: 0.6875}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: 0, y: -0.3}
-  - {x: 0, y: 0.3}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &474578090
 GameObject:
   m_ObjectHideFlags: 0
@@ -4497,8 +4521,8 @@ MonoBehaviour:
   destinationSelfOffset: {x: 0, y: -0.75, z: 0}
   destinationSelfCameraConfiner: {fileID: 1769298758}
   doorFrame: {fileID: 181613278}
---- !u!68 &490778887
-EdgeCollider2D:
+--- !u!61 &490778887
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4529,15 +4553,19 @@ EdgeCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.0625}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6875, y: 0.125}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.3, y: 0}
-  - {x: 0.3, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &493792829
 GameObject:
   m_ObjectHideFlags: 0
@@ -6450,8 +6478,8 @@ Transform:
   - {fileID: 649374776}
   m_Father: {fileID: 1717172259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &813952633
-EdgeCollider2D:
+--- !u!61 &813952633
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6482,15 +6510,19 @@ EdgeCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0625, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.125, y: 0.6875}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: 0, y: -0.3}
-  - {x: 0, y: 0.3}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &819141259
 GameObject:
   m_ObjectHideFlags: 0
@@ -6548,8 +6580,8 @@ MonoBehaviour:
   destinationSelfOffset: {x: 0, y: -0.75, z: 0}
   destinationSelfCameraConfiner: {fileID: 1250007915}
   doorFrame: {fileID: 84232033}
---- !u!68 &819141262
-EdgeCollider2D:
+--- !u!61 &819141262
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6580,15 +6612,19 @@ EdgeCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.0625}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6875, y: 0.125}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.3, y: 0}
-  - {x: 0.3, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &826092092
 GameObject:
   m_ObjectHideFlags: 0
@@ -12632,8 +12668,8 @@ MonoBehaviour:
   destinationSelfOffset: {x: -0.75, y: 0, z: 0}
   destinationSelfCameraConfiner: {fileID: 1250007915}
   doorFrame: {fileID: 382976679}
---- !u!68 &1317066002
-EdgeCollider2D:
+--- !u!61 &1317066002
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -12664,15 +12700,19 @@ EdgeCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0625, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.125, y: 0.6875}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: 0, y: -0.3}
-  - {x: 0, y: 0.3}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &1317870203
 GameObject:
   m_ObjectHideFlags: 0
@@ -14938,8 +14978,8 @@ MonoBehaviour:
   destinationSelfOffset: {x: -0.75, y: 0, z: 0}
   destinationSelfCameraConfiner: {fileID: 1583426720}
   doorFrame: {fileID: 10741884}
---- !u!68 &1561440790
-EdgeCollider2D:
+--- !u!61 &1561440790
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -14970,15 +15010,19 @@ EdgeCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0625, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.125, y: 0.6875}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: 0, y: -0.3}
-  - {x: 0, y: 0.3}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &1562636987
 GameObject:
   m_ObjectHideFlags: 0
@@ -16542,8 +16586,8 @@ MonoBehaviour:
   destinationSelfOffset: {x: -0.75, y: 0, z: 0}
   destinationSelfCameraConfiner: {fileID: 68935421}
   doorFrame: {fileID: 1522880656}
---- !u!68 &1776697529
-EdgeCollider2D:
+--- !u!61 &1776697529
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -16574,15 +16618,19 @@ EdgeCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0625, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.125, y: 0.6875}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: 0, y: -0.3}
-  - {x: 0, y: 0.3}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &1786700513
 GameObject:
   m_ObjectHideFlags: 0
@@ -16861,8 +16909,8 @@ MonoBehaviour:
   destinationSelfOffset: {x: 0, y: 0.75, z: 0}
   destinationSelfCameraConfiner: {fileID: 42510958}
   doorFrame: {fileID: 974129459}
---- !u!68 &1799086909
-EdgeCollider2D:
+--- !u!61 &1799086909
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -16893,15 +16941,19 @@ EdgeCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.0625}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6875, y: 0.125}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.3, y: 0}
-  - {x: 0.3, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &1803400549
 GameObject:
   m_ObjectHideFlags: 0
@@ -18278,8 +18330,8 @@ MonoBehaviour:
   destinationSelfOffset: {x: 0.75, y: 0, z: 0}
   destinationSelfCameraConfiner: {fileID: 2077554995}
   doorFrame: {fileID: 899502153}
---- !u!68 &1929772440
-EdgeCollider2D:
+--- !u!61 &1929772440
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -18310,15 +18362,19 @@ EdgeCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0625, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.125, y: 0.6875}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: 0, y: -0.3}
-  - {x: 0, y: 0.3}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &1945721710
 GameObject:
   m_ObjectHideFlags: 0

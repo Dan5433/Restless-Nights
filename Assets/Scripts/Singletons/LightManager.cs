@@ -41,13 +41,23 @@ public class LightManager : Singleton<LightManager>
         else
             MainBreakerOff();
     }
-
     void MainBreakerOff()
     {
         foreach (RoomLightGroup lightGroup in Instance.lightGroups)
             lightGroup.ChangeLightsState(false);
     }
 
+    public static void UpdateDoorwayLightAfterMovingRooms(Doorway origin, Doorway destination)
+    {
+        if (!IsInstanceValid())
+            return;
+
+        RoomLightGroup originGroup = Instance.lightGroups.First(g => g.doorways.Contains(origin));
+
+        bool isOriginLightEnabled = originGroup.roomBreaker.value == 1 && originGroup.lightSwitch.IsOn;
+
+        destination.DoorwayLight.gameObject.SetActive(isOriginLightEnabled);
+    }
     public static void EnableAllRoomLights()
     {
         if (!IsInstanceValid())
@@ -83,7 +93,7 @@ public class LightManager : Singleton<LightManager>
     {
         [Title(nameof(RoomName), stringInputMode: StringInputMode.Dynamic)]
         public Light2D roomLight;
-        public Light2D[] doorwayLights;
+        public Doorway[] doorways;
         public LightSwitch lightSwitch;
         public Slider roomBreaker;
 
@@ -92,8 +102,9 @@ public class LightManager : Singleton<LightManager>
         public readonly void ChangeLightsState(bool state)
         {
             roomLight.gameObject.SetActive(state);
-            foreach (Light2D light in doorwayLights)
-                light.gameObject.SetActive(state);
+            foreach (Doorway doorway in doorways)
+                doorway.CurrentDestination
+                    .DoorwayLight.gameObject.SetActive(state);
         }
     }
 }

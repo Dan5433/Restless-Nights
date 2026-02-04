@@ -1,3 +1,4 @@
+using EditorAttributes;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -21,6 +22,8 @@ public class Doorway : MonoBehaviour
 
     public Vector3 DestinationPosition => transform.position + destinationSelfOffset;
     public PolygonCollider2D DestinationCameraConfiner => destinationSelfCameraConfiner;
+    public Light2D DoorwayLight => doorwayLight;
+    public Doorway CurrentDestination => currentDestination;
 
     void Awake()
     {
@@ -40,8 +43,10 @@ public class Doorway : MonoBehaviour
         if (!collision.CompareTag(PLAYER_TAG))
             return;
 
-        if (DoorwayManager.Instance.Difficulty > 0)
+        if (DoorwayManager.Instance.DoorwayChoices > 1)
             RollChanceToSwitchDoorway();
+
+        LightManager.UpdateDoorwayLightAfterMovingRooms(this, currentDestination);
 
         StartCoroutine(Transition(collision));
     }
@@ -62,14 +67,13 @@ public class Doorway : MonoBehaviour
         int choiceNumber = Random.Range(DoorwayManager.MIN_DIFFICULTY, DoorwayManager.MAX_DIFFICULTY);
         if (choiceNumber <= DoorwayManager.Instance.Difficulty)
         {
-            SwitchDoorway();
+            SwitchDoorway(DoorwayManager.Instance.DoorwayChoices);
         }
     }
 
-    void SwitchDoorway()
+    [Button("Roll Doorway Destination", 36)]
+    void SwitchDoorway(int choiceAmount)
     {
-        int choiceAmount = DoorwayManager.Instance.DoorwayChoices;
-
         int randomIndex;
         //ensure chosen doorway cannot be the same as current one
         do

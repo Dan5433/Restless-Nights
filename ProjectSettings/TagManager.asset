@@ -47,3 +47,6 @@ TagManager:
   - name: Wall Objects
     uniqueID: 939152059
     locked: 0
+  - name: Tall Objects
+    uniqueID: 3708776107
+    locked: 0

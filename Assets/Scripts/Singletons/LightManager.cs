@@ -27,10 +27,10 @@ public class LightManager : Singleton<LightManager>
             if (circuitBreakerTask.DisabledBreakers.Contains(breaker))
                 continue;
 
-            if (breaker.value == 1 && lightGroup.lightSwitch.IsOn)
-                lightGroup.ChangeLightsState(true);
-            else
-                lightGroup.ChangeLightsState(false);
+            if (lightGroup.IsLightEnabled == lightGroup.ShouldLightBeEnabled)
+                continue;
+
+            lightGroup.ChangeLightsState(lightGroup.ShouldLightBeEnabled);
         }
     }
 
@@ -41,13 +41,29 @@ public class LightManager : Singleton<LightManager>
         else
             MainBreakerOff();
     }
-
     void MainBreakerOff()
     {
         foreach (RoomLightGroup lightGroup in Instance.lightGroups)
             lightGroup.ChangeLightsState(false);
     }
 
+    public static void UpdateDoorwayLightsAfterMovingRooms(Doorway origin, Doorway destination)
+    {
+        if (!IsInstanceValid())
+            return;
+
+        RoomLightGroup originGroup = Instance.lightGroups.First(g => g.doorways.Contains(origin));
+
+        bool isOriginLightEnabled = originGroup.ShouldLightBeEnabled;
+        destination.DoorwayLight
+            .gameObject.SetActive(isOriginLightEnabled);
+
+        RoomLightGroup destinationGroup = Instance.lightGroups.First(g => g.doorways.Contains(destination));
+
+        bool isDestinationLightEnabled = destinationGroup.ShouldLightBeEnabled;
+        origin.DoorwayLight
+            .gameObject.SetActive(isDestinationLightEnabled);
+    }
     public static void EnableAllRoomLights()
     {
         if (!IsInstanceValid())
@@ -83,17 +99,20 @@ public class LightManager : Singleton<LightManager>
     {
         [Title(nameof(RoomName), stringInputMode: StringInputMode.Dynamic)]
         public Light2D roomLight;
-        public Light2D[] doorwayLights;
+        public Doorway[] doorways;
         public LightSwitch lightSwitch;
         public Slider roomBreaker;
 
         public readonly string RoomName => roomLight.transform.parent.gameObject.name;
+        public readonly bool IsLightEnabled => roomLight.gameObject.activeSelf;
+        public readonly bool ShouldLightBeEnabled => roomBreaker.value == 1 && lightSwitch.IsOn;
 
         public readonly void ChangeLightsState(bool state)
         {
             roomLight.gameObject.SetActive(state);
-            foreach (Light2D light in doorwayLights)
-                light.gameObject.SetActive(state);
+            foreach (Doorway doorway in doorways)
+                doorway.CurrentDestination
+                    .DoorwayLight.gameObject.SetActive(state);
         }
     }
 }

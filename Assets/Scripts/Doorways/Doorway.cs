@@ -1,12 +1,17 @@
+using EditorAttributes;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Doorway : MonoBehaviour
 {
+    [SerializeField] bool isClosed = true;
     [SerializeField] Doorway currentDestination;
     [SerializeField] Doorway[] destinations = new Doorway[4];
     [SerializeField] Vector3 destinationSelfOffset;
     [SerializeField] PolygonCollider2D destinationSelfCameraConfiner;
+    [SerializeField] GameObject doorFrame;
+    Light2D doorwayLight;
 
     const string PLAYER_TAG = "Player";
 
@@ -17,10 +22,20 @@ public class Doorway : MonoBehaviour
 
     public Vector3 DestinationPosition => transform.position + destinationSelfOffset;
     public PolygonCollider2D DestinationCameraConfiner => destinationSelfCameraConfiner;
+    public Light2D DoorwayLight => doorwayLight;
+    public Doorway CurrentDestination => currentDestination;
 
     void Awake()
     {
         currentDestination = destinations[0];
+        doorwayLight = GetComponentInChildren<Light2D>();
+    }
+
+    private void Start()
+    {
+        UpdateLightIntensity();
+        UpdateDoorFrameSprite();
+        UpdatePositionForPixelAlignment();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -28,8 +43,10 @@ public class Doorway : MonoBehaviour
         if (!collision.CompareTag(PLAYER_TAG))
             return;
 
-        if (DoorwayManager.Instance.Difficulty > 0)
+        if (DoorwayManager.Instance.DoorwayChoices > 1)
             RollChanceToSwitchDoorway();
+
+        LightManager.UpdateDoorwayLightsAfterMovingRooms(this, currentDestination);
 
         StartCoroutine(Transition(collision));
     }
@@ -50,14 +67,13 @@ public class Doorway : MonoBehaviour
         int choiceNumber = Random.Range(DoorwayManager.MIN_DIFFICULTY, DoorwayManager.MAX_DIFFICULTY);
         if (choiceNumber <= DoorwayManager.Instance.Difficulty)
         {
-            SwitchDoorway();
+            SwitchDoorway(DoorwayManager.Instance.DoorwayChoices);
         }
     }
 
-    void SwitchDoorway()
+    [Button("Roll Doorway Destination", 36)]
+    void SwitchDoorway(int choiceAmount)
     {
-        int choiceAmount = DoorwayManager.Instance.DoorwayChoices;
-
         int randomIndex;
         //ensure chosen doorway cannot be the same as current one
         do
@@ -65,6 +81,38 @@ public class Doorway : MonoBehaviour
         while (destinations[randomIndex] == currentDestination);
 
         currentDestination = destinations[randomIndex];
+    }
+
+    void UpdateLightIntensity()
+    {
+        doorwayLight.intensity = isClosed
+            ? DoorwayManager.Instance.ClosedDoorLightIntensity
+            : DoorwayManager.Instance.OpenDoorLightIntensity;
+    }
+
+    void UpdateDoorFrameSprite()
+    {
+        doorFrame.GetComponent<SpriteRenderer>().sprite = isClosed
+            ? DoorwayManager.Instance.ClosedDoorSprite
+            : DoorwayManager.Instance.OpenDoorSprite;
+    }
+
+    void UpdatePositionForPixelAlignment()
+    {
+        Sprite sprite = isClosed
+            ? DoorwayManager.Instance.ClosedDoorSprite
+            : DoorwayManager.Instance.OpenDoorSprite;
+
+        Transform doorFrameTransform = doorFrame.transform;
+        float zAngle = doorFrameTransform.rotation.eulerAngles.z;
+
+        bool isDoorSideways = zAngle == 270 || zAngle == 90;
+
+        float offset = -sprite.textureRect.height / (sprite.pixelsPerUnit * 2);
+        if (isDoorSideways)
+            doorFrameTransform.localPosition = new(offset, 0);
+        else
+            doorFrameTransform.localPosition = new(0, offset);
     }
 
     void OnDrawGizmosSelected()

@@ -46,8 +46,6 @@ public class Doorway : MonoBehaviour
         if (DoorwayManager.Instance.DoorwayChoices > 1)
             RollChanceToSwitchDoorway();
 
-        LightManager.UpdateDoorwayLightsAfterMovingRooms(this, currentDestination);
-
         StartCoroutine(Transition(collision));
     }
 
@@ -61,6 +59,7 @@ public class Doorway : MonoBehaviour
         collision.transform.position = currentDestination.DestinationPosition;
 
         DoorwayManager.UpdateCameraConfiner(currentDestination);
+        LightManager.UpdateDoorwayLightsAfterMovingRooms(this, currentDestination);
     }
 
     public void OpenDoor()

@@ -16,7 +16,7 @@ public class LightSwitch : MonoBehaviour, IInteractable
     {
         if (LightManager.IsBreakerDisabled(this))
         {
-            Debug.Log("Breaker disabled!");
+            Debug.Log("Breaker disabled!", this);
             //play electricity sound effect
             return;
         }

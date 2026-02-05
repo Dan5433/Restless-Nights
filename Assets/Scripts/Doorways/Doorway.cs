@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class Doorway : MonoBehaviour, IInteractable
+public class Doorway : Interactable
 {
     [SerializeField] bool isClosed = true;
     [SerializeField] Doorway currentDestination;
@@ -72,7 +72,7 @@ public class Doorway : MonoBehaviour, IInteractable
         UpdatePositionForPixelAlignment();
     }
 
-    public void Interact()
+    public override void Interact()
     {
         if (isClosed)
             return;

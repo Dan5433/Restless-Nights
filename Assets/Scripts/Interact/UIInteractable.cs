@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UIInteractable : MonoBehaviour, IInteractable
+public class UIInteractable : Interactable
 {
     [SerializeField] GameObject ui;
 
@@ -9,7 +9,7 @@ public class UIInteractable : MonoBehaviour, IInteractable
         ui.SetActive(false);
     }
 
-    public void Interact()
+    public override void Interact()
     {
         ui.SetActive(true);
     }

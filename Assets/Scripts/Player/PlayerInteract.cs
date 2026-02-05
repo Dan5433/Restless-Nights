@@ -30,7 +30,7 @@ public class PlayerInteract : MonoBehaviour
         if (!Input.GetKeyDown(KeyCode.Mouse1) || !hit)
             return;
 
-        if (!hit.transform.TryGetComponent(out IInteractable interactable))
+        if (!hit.transform.TryGetComponent(out Interactable interactable))
             return;
 
         interactable.Interact();

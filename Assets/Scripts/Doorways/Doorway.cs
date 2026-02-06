@@ -25,6 +25,7 @@ public class Doorway : Interactable
     public Light2D DoorwayLight => doorwayLight;
     public Doorway CurrentDestination => currentDestination;
     public bool IsClosed => isClosed;
+    protected override bool CanInteract => isClosed;
 
     void Awake()
     {

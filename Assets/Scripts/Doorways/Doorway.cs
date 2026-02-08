@@ -37,7 +37,6 @@ public class Doorway : Interactable
     {
         UpdateLightIntensity();
         UpdateDoorFrameSprite();
-        UpdatePositionForPixelAlignment();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -70,7 +69,7 @@ public class Doorway : Interactable
 
         UpdateLightIntensity();
         UpdateDoorFrameSprite();
-        UpdatePositionForPixelAlignment();
+        UpdateMaterialPropertyBlock();
     }
 
     public override void Interact()
@@ -78,12 +77,17 @@ public class Doorway : Interactable
         if (isClosed)
             return;
 
+        CloseDoor();
+    }
+    void CloseDoor()
+    {
+        RaycastExit();
+
         isClosed = true;
         //play sound effect
 
         UpdateLightIntensity();
         UpdateDoorFrameSprite();
-        UpdatePositionForPixelAlignment();
     }
 
     void RollChanceToSwitchDoorway()
@@ -119,24 +123,6 @@ public class Doorway : Interactable
         doorFrame.GetComponent<SpriteRenderer>().sprite = isClosed
             ? DoorwayManager.Instance.ClosedDoorSprite
             : DoorwayManager.Instance.OpenDoorSprite;
-    }
-
-    void UpdatePositionForPixelAlignment()
-    {
-        Sprite sprite = isClosed
-            ? DoorwayManager.Instance.ClosedDoorSprite
-            : DoorwayManager.Instance.OpenDoorSprite;
-
-        Transform doorFrameTransform = doorFrame.transform;
-        float zAngle = doorFrameTransform.rotation.eulerAngles.z;
-
-        bool isDoorSideways = zAngle == 270 || zAngle == 90;
-
-        float offset = -sprite.textureRect.height / (sprite.pixelsPerUnit * 2);
-        if (isDoorSideways)
-            doorFrameTransform.localPosition = new(offset, 0);
-        else
-            doorFrameTransform.localPosition = new(0, offset);
     }
 
     void OnDrawGizmosSelected()

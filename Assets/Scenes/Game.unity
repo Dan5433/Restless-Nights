@@ -17752,6 +17752,7 @@ MonoBehaviour:
   interactLayer: Interact
   movement: {fileID: 1835010573}
   activeUi: {fileID: 0}
+  highlightedInteractable: {fileID: 0}
 --- !u!212 &1835010577
 SpriteRenderer:
   m_ObjectHideFlags: 0

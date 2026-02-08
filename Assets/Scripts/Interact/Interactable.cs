@@ -21,7 +21,7 @@ public abstract class Interactable : MonoBehaviour
         if (materialProperties == null)
         {
             materialProperties = new MaterialPropertyBlock();
-            spriteRenderer.GetPropertyBlock(materialProperties);
+            UpdateMaterialPropertyBlock();
         }
 
         if (!spriteRenderer.sharedMaterial.name.Equals(OUTLINE_MATERIAL_NAME))
@@ -51,5 +51,11 @@ public abstract class Interactable : MonoBehaviour
         materialProperties.SetInteger(OUTLINE_ENABLED_PROPERTY_NAME, 0);
         spriteRenderer.SetPropertyBlock(materialProperties);
     }
+
+    protected void UpdateMaterialPropertyBlock()
+    {
+        spriteRenderer.GetPropertyBlock(materialProperties);
+    }
+
     public abstract void Interact();
 }

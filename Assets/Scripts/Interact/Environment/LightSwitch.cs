@@ -3,14 +3,8 @@ using UnityEngine;
 public class LightSwitch : Interactable
 {
     [SerializeField] bool isOn = true;
-    SpriteRenderer spriteRenderer;
 
     public bool IsOn => isOn;
-
-    private void Awake()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
 
     public override void Interact()
     {

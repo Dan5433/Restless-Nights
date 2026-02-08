@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class Interactable : MonoBehaviour
 {
     [SerializeField] protected Color outlineColor = Color.white;
-    SpriteRenderer spriteRenderer;
+    protected SpriteRenderer spriteRenderer;
     MaterialPropertyBlock materialProperties;
 
     protected virtual bool CanInteract => true;

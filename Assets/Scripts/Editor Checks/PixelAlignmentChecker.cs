@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class PixelAlignmentChecker : MonoBehaviour
 {
+    const string OUTLINE_MATERIAL_NAME = "Sprite Lit Outline";
+    const int OUTLINE_WIDTH = 1;
     static readonly Vector2Int pixelArtSize = new(16, 16);
     static readonly int oddSizeMultiplier = 2;
     Transform runtimeTransform;
@@ -15,7 +17,7 @@ public class PixelAlignmentChecker : MonoBehaviour
         var transform = GetComponent<Transform>();
         var spriteRenderer = GetComponent<SpriteRenderer>();
 
-        CheckAlignment(transform.position, transform.rotation, spriteRenderer.sprite);
+        CheckAlignment(transform.position, transform.rotation, spriteRenderer);
     }
 
     private void Awake()
@@ -29,22 +31,26 @@ public class PixelAlignmentChecker : MonoBehaviour
         if (!runtimeTransform.hasChanged)
             return;
 
-        CheckAlignment(runtimeTransform.position, runtimeTransform.rotation, runtimeSpriteRenderer.sprite);
+        CheckAlignment(runtimeTransform.position, runtimeTransform.rotation, runtimeSpriteRenderer);
         runtimeTransform.hasChanged = false;
     }
 
-    void CheckAlignment(Vector2 position, Quaternion rotation, Sprite sprite)
+    void CheckAlignment(Vector2 position, Quaternion rotation, SpriteRenderer spriteRenderer)
     {
-        if (IsPixelAligned(position, rotation, sprite))
+        if (IsPixelAligned(position, rotation, spriteRenderer.sprite, spriteRenderer.sharedMaterial.name == OUTLINE_MATERIAL_NAME))
             return;
 
         Debug.LogWarning($"{gameObject.name} is not pixel aligned!", this);
     }
 
-    bool IsPixelAligned(Vector2 position, Quaternion rotation, Sprite sprite)
+    bool IsPixelAligned(Vector2 position, Quaternion rotation, Sprite sprite, bool outlinedSprite)
     {
         Rect textureRect = sprite.textureRect;
-        Vector2 size = textureRect.size;
+        Vector2 size;
+        if (outlinedSprite)
+            size = (sprite.pivot - new Vector2(OUTLINE_WIDTH, OUTLINE_WIDTH)) * 2;
+        else
+            size = textureRect.size;
 
         if (IsRotationSideways(rotation))
             size = new(size.y, size.x);

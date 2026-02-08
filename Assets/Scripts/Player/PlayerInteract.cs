@@ -9,6 +9,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] PlayerMovement movement;
 
     [SerializeField, DisableInEditMode, DisableInPlayMode] UIInteractable activeUi;
+    [SerializeField, DisableInEditMode, DisableInPlayMode] Interactable highlightedInteractable;
 
     private void Update()
     {
@@ -19,6 +20,9 @@ public class PlayerInteract : MonoBehaviour
             activeUi = null;
         }
 
+        if (movement.Locked)
+            return;
+
         if (activeUi)
             return;
 
@@ -27,10 +31,24 @@ public class PlayerInteract : MonoBehaviour
 
         Debug.DrawRay(origin.position, origin.up * reach, Color.green);
 
-        if (!Input.GetKeyDown(KeyCode.Mouse1) || !hit)
+        if (!hit)
+        {
+            if (highlightedInteractable)
+            {
+                highlightedInteractable.RaycastExit();
+                highlightedInteractable = null;
+            }
+
+            return;
+        }
+
+        if (!hit.transform.TryGetComponent(out Interactable interactable))
             return;
 
-        if (!hit.transform.TryGetComponent(out IInteractable interactable))
+        interactable.RaycastEnter();
+        highlightedInteractable = interactable;
+
+        if (!Input.GetKeyDown(KeyCode.Mouse1))
             return;
 
         interactable.Interact();

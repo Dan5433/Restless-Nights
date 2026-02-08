@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class Doorway : MonoBehaviour, IInteractable
+public class Doorway : Interactable
 {
     [SerializeField] bool isClosed = true;
     [SerializeField] Doorway currentDestination;
@@ -25,6 +25,7 @@ public class Doorway : MonoBehaviour, IInteractable
     public Light2D DoorwayLight => doorwayLight;
     public Doorway CurrentDestination => currentDestination;
     public bool IsClosed => isClosed;
+    protected override bool CanInteract => !isClosed;
 
     void Awake()
     {
@@ -36,7 +37,6 @@ public class Doorway : MonoBehaviour, IInteractable
     {
         UpdateLightIntensity();
         UpdateDoorFrameSprite();
-        UpdatePositionForPixelAlignment();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -69,20 +69,25 @@ public class Doorway : MonoBehaviour, IInteractable
 
         UpdateLightIntensity();
         UpdateDoorFrameSprite();
-        UpdatePositionForPixelAlignment();
+        UpdateMaterialPropertyBlock();
     }
 
-    public void Interact()
+    public override void Interact()
     {
         if (isClosed)
             return;
+
+        CloseDoor();
+    }
+    void CloseDoor()
+    {
+        RaycastExit();
 
         isClosed = true;
         //play sound effect
 
         UpdateLightIntensity();
         UpdateDoorFrameSprite();
-        UpdatePositionForPixelAlignment();
     }
 
     void RollChanceToSwitchDoorway()
@@ -118,24 +123,6 @@ public class Doorway : MonoBehaviour, IInteractable
         doorFrame.GetComponent<SpriteRenderer>().sprite = isClosed
             ? DoorwayManager.Instance.ClosedDoorSprite
             : DoorwayManager.Instance.OpenDoorSprite;
-    }
-
-    void UpdatePositionForPixelAlignment()
-    {
-        Sprite sprite = isClosed
-            ? DoorwayManager.Instance.ClosedDoorSprite
-            : DoorwayManager.Instance.OpenDoorSprite;
-
-        Transform doorFrameTransform = doorFrame.transform;
-        float zAngle = doorFrameTransform.rotation.eulerAngles.z;
-
-        bool isDoorSideways = zAngle == 270 || zAngle == 90;
-
-        float offset = -sprite.textureRect.height / (sprite.pixelsPerUnit * 2);
-        if (isDoorSideways)
-            doorFrameTransform.localPosition = new(offset, 0);
-        else
-            doorFrameTransform.localPosition = new(0, offset);
     }
 
     void OnDrawGizmosSelected()

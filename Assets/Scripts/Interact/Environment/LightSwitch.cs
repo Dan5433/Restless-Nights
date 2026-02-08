@@ -1,18 +1,12 @@
 using UnityEngine;
 
-public class LightSwitch : MonoBehaviour, IInteractable
+public class LightSwitch : Interactable
 {
     [SerializeField] bool isOn = true;
-    SpriteRenderer spriteRenderer;
 
     public bool IsOn => isOn;
 
-    private void Awake()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    public void Interact()
+    public override void Interact()
     {
         if (LightManager.IsBreakerDisabled(this))
         {

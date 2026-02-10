@@ -27,7 +27,10 @@ public class LightSwitch : Interactable
 
     public void TurnOff()
     {
+        PlayInteractSFX();
+
         isOn = false;
+
         LightManager.LightSwitchStateUpdate();
         UpdateSprite();
     }

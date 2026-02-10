@@ -43,10 +43,15 @@ public abstract class Interactable : MonoBehaviour
 
     public void Interact()
     {
-        audioSource.clip = InteractSFX;
-        audioSource.Play();
+        PlayInteractSFX();
 
         InteractInternal();
+    }
+
+    protected void PlayInteractSFX()
+    {
+        audioSource.clip = InteractSFX;
+        audioSource.Play();
     }
 
     [Button(nameof(RaycastEnter), 36)]

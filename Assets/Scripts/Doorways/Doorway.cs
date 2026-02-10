@@ -74,12 +74,13 @@ public class Doorway : Interactable
         UpdateMaterialPropertyBlock();
     }
 
-    protected override void InteractInternal()
+    protected override bool InteractInternal()
     {
         if (isClosed)
-            return;
+            return false;
 
         CloseDoor();
+        return true;
     }
 
     void CloseDoor()

@@ -10,19 +10,21 @@ public class LightSwitch : Interactable
 
     protected override AudioClip InteractSFX => isOn ? lightSwitchOff : lightSwitchOn;
 
-    protected override void InteractInternal()
+    protected override bool InteractInternal()
     {
         if (LightManager.IsBreakerDisabled(this))
         {
             Debug.Log("Breaker disabled!", this);
             //play electricity sound effect
-            return;
+            return false;
         }
 
         isOn = !isOn;
 
         LightManager.LightSwitchStateUpdate();
         UpdateSprite();
+
+        return true;
     }
 
     public void TurnOff()

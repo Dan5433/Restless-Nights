@@ -43,9 +43,8 @@ public abstract class Interactable : MonoBehaviour
 
     public void Interact()
     {
-        PlayInteractSFX();
-
-        InteractInternal();
+        if (InteractInternal())
+            PlayInteractSFX();
     }
 
     protected void PlayInteractSFX()
@@ -79,5 +78,5 @@ public abstract class Interactable : MonoBehaviour
         spriteRenderer.GetPropertyBlock(materialProperties);
     }
 
-    protected abstract void InteractInternal();
+    protected abstract bool InteractInternal();
 }

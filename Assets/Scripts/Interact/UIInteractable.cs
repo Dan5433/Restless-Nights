@@ -12,8 +12,9 @@ public class UIInteractable : Interactable
         ui.SetActive(false);
     }
 
-    protected override void InteractInternal()
+    protected override bool InteractInternal()
     {
         ui.SetActive(true);
+        return true;
     }
 }

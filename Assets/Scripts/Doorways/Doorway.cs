@@ -27,6 +27,8 @@ public class Doorway : Interactable
     public bool IsClosed => isClosed;
     protected override bool CanInteract => !isClosed;
 
+    protected override AudioClip InteractSFX => null;
+
     void Awake()
     {
         currentDestination = destinations[0];
@@ -72,13 +74,14 @@ public class Doorway : Interactable
         UpdateMaterialPropertyBlock();
     }
 
-    public override void Interact()
+    protected override void InteractInternal()
     {
         if (isClosed)
             return;
 
         CloseDoor();
     }
+
     void CloseDoor()
     {
         RaycastExit();

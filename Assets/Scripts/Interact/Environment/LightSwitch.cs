@@ -2,11 +2,15 @@ using UnityEngine;
 
 public class LightSwitch : Interactable
 {
+    [SerializeField] AudioClip lightSwitchOn;
+    [SerializeField] AudioClip lightSwitchOff;
     [SerializeField] bool isOn = true;
 
     public bool IsOn => isOn;
 
-    public override void Interact()
+    protected override AudioClip InteractSFX => isOn ? lightSwitchOff : lightSwitchOn;
+
+    protected override void InteractInternal()
     {
         if (LightManager.IsBreakerDisabled(this))
         {

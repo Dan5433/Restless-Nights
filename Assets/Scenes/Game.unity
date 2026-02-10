@@ -2755,8 +2755,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineColor: {r: 1, g: 0.9470588, b: 0.9, a: 1}
-  lightSwitchOn: {fileID: 0}
-  lightSwitchOff: {fileID: 0}
+  lightSwitchOn: {fileID: 8300000, guid: c059d304d964cb6498b0852feb1f68a3, type: 3}
+  lightSwitchOff: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
   isOn: 1
 --- !u!82 &279257379
 AudioSource:
@@ -2767,19 +2767,19 @@ AudioSource:
   m_GameObject: {fileID: 279257373}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  OutputAudioMixerGroup: {fileID: -3524170287731032160, guid: 629fe577beb2ea049ac53fdefbbf3552, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  Priority: 0
+  DopplerLevel: 0
+  MinDistance: 0.5
+  MaxDistance: 35
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -2814,7 +2814,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -10622,8 +10622,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineColor: {r: 1, g: 0.9470588, b: 0.9, a: 1}
-  lightSwitchOn: {fileID: 0}
-  lightSwitchOff: {fileID: 0}
+  lightSwitchOn: {fileID: 8300000, guid: c059d304d964cb6498b0852feb1f68a3, type: 3}
+  lightSwitchOff: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
   isOn: 1
 --- !u!82 &839450846
 AudioSource:
@@ -10634,19 +10634,19 @@ AudioSource:
   m_GameObject: {fileID: 839450840}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  OutputAudioMixerGroup: {fileID: -3524170287731032160, guid: 629fe577beb2ea049ac53fdefbbf3552, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  Priority: 0
+  DopplerLevel: 0
+  MinDistance: 0.5
+  MaxDistance: 35
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -10681,7 +10681,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -11070,8 +11070,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineColor: {r: 1, g: 0.9470588, b: 0.9, a: 1}
-  lightSwitchOn: {fileID: 0}
-  lightSwitchOff: {fileID: 0}
+  lightSwitchOn: {fileID: 8300000, guid: c059d304d964cb6498b0852feb1f68a3, type: 3}
+  lightSwitchOff: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
   isOn: 1
 --- !u!82 &849051752
 AudioSource:
@@ -11082,19 +11082,19 @@ AudioSource:
   m_GameObject: {fileID: 849051746}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  OutputAudioMixerGroup: {fileID: -3524170287731032160, guid: 629fe577beb2ea049ac53fdefbbf3552, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  Priority: 0
+  DopplerLevel: 0
+  MinDistance: 0.5
+  MaxDistance: 35
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -11129,7 +11129,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -11737,8 +11737,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineColor: {r: 1, g: 0.9470588, b: 0.9, a: 1}
-  lightSwitchOn: {fileID: 0}
-  lightSwitchOff: {fileID: 0}
+  lightSwitchOn: {fileID: 8300000, guid: c059d304d964cb6498b0852feb1f68a3, type: 3}
+  lightSwitchOff: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
   isOn: 1
 --- !u!82 &917553031
 AudioSource:
@@ -11749,19 +11749,19 @@ AudioSource:
   m_GameObject: {fileID: 917553025}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  OutputAudioMixerGroup: {fileID: -3524170287731032160, guid: 629fe577beb2ea049ac53fdefbbf3552, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  Priority: 0
+  DopplerLevel: 0
+  MinDistance: 0.5
+  MaxDistance: 35
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -11796,7 +11796,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -13505,8 +13505,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineColor: {r: 1, g: 0.9470588, b: 0.9, a: 1}
-  lightSwitchOn: {fileID: 0}
-  lightSwitchOff: {fileID: 0}
+  lightSwitchOn: {fileID: 8300000, guid: c059d304d964cb6498b0852feb1f68a3, type: 3}
+  lightSwitchOff: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
   isOn: 1
 --- !u!82 &1291682356
 AudioSource:
@@ -13517,19 +13517,19 @@ AudioSource:
   m_GameObject: {fileID: 1291682350}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  OutputAudioMixerGroup: {fileID: -3524170287731032160, guid: 629fe577beb2ea049ac53fdefbbf3552, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  Priority: 0
+  DopplerLevel: 0
+  MinDistance: 0.5
+  MaxDistance: 35
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -13564,7 +13564,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -14654,8 +14654,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineColor: {r: 1, g: 0.9470588, b: 0.9, a: 1}
-  lightSwitchOn: {fileID: 0}
-  lightSwitchOff: {fileID: 0}
+  lightSwitchOn: {fileID: 8300000, guid: c059d304d964cb6498b0852feb1f68a3, type: 3}
+  lightSwitchOff: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
   isOn: 1
 --- !u!82 &1348753041
 AudioSource:
@@ -14666,19 +14666,19 @@ AudioSource:
   m_GameObject: {fileID: 1348753035}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  OutputAudioMixerGroup: {fileID: -3524170287731032160, guid: 629fe577beb2ea049ac53fdefbbf3552, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  Priority: 0
+  DopplerLevel: 0
+  MinDistance: 0.5
+  MaxDistance: 35
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -14713,7 +14713,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -18251,8 +18251,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineColor: {r: 1, g: 0.9470588, b: 0.9, a: 1}
-  lightSwitchOn: {fileID: 0}
-  lightSwitchOff: {fileID: 0}
+  lightSwitchOn: {fileID: 8300000, guid: c059d304d964cb6498b0852feb1f68a3, type: 3}
+  lightSwitchOff: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
   isOn: 1
 --- !u!82 &1723116074
 AudioSource:
@@ -18263,19 +18263,19 @@ AudioSource:
   m_GameObject: {fileID: 1723116068}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  OutputAudioMixerGroup: {fileID: -3524170287731032160, guid: 629fe577beb2ea049ac53fdefbbf3552, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  Priority: 0
+  DopplerLevel: 0
+  MinDistance: 0.5
+  MaxDistance: 35
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -18310,7 +18310,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -20770,8 +20770,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineColor: {r: 1, g: 0.9470588, b: 0.9, a: 1}
-  lightSwitchOn: {fileID: 0}
-  lightSwitchOff: {fileID: 0}
+  lightSwitchOn: {fileID: 8300000, guid: c059d304d964cb6498b0852feb1f68a3, type: 3}
+  lightSwitchOff: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
   isOn: 1
 --- !u!82 &1945721716
 AudioSource:
@@ -20782,19 +20782,19 @@ AudioSource:
   m_GameObject: {fileID: 1945721710}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  OutputAudioMixerGroup: {fileID: -3524170287731032160, guid: 629fe577beb2ea049ac53fdefbbf3552, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  Priority: 0
+  DopplerLevel: 0
+  MinDistance: 0.5
+  MaxDistance: 35
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -20829,7 +20829,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -1,4 +1,5 @@
 using EditorAttributes;
+using Extensions;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -49,8 +50,7 @@ public abstract class Interactable : MonoBehaviour
 
     protected void PlayInteractSFX()
     {
-        audioSource.clip = InteractSFX;
-        audioSource.Play();
+        audioSource.PlayWithRandomPitch(InteractSFX);
     }
 
     [Button(nameof(RaycastEnter), 36)]

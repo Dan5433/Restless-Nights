@@ -8,7 +8,7 @@ public abstract class Interactable : MonoBehaviour
     [SerializeField] protected Color outlineColor = Color.white;
     protected SpriteRenderer spriteRenderer;
     MaterialPropertyBlock materialProperties;
-    AudioSource audioSource;
+    protected AudioSource audioSource;
 
     protected virtual bool CanInteract => true;
 

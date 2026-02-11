@@ -1,9 +1,11 @@
+using Extensions;
 using UnityEngine;
 
 public class LightSwitch : Interactable
 {
     [SerializeField] AudioClip lightSwitchOn;
     [SerializeField] AudioClip lightSwitchOff;
+    [SerializeField] AudioClip lightSwitchFail;
     [SerializeField] bool isOn = true;
 
     public bool IsOn => isOn;
@@ -15,7 +17,7 @@ public class LightSwitch : Interactable
         if (LightManager.IsBreakerDisabled(this))
         {
             Debug.Log("Breaker disabled!", this);
-            //play electricity sound effect
+            audioSource.PlayWithRandomPitch(lightSwitchFail);
             return false;
         }
 

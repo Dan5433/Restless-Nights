@@ -27,7 +27,7 @@ public class Doorway : Interactable
     public bool IsClosed => isClosed;
     protected override bool CanInteract => !isClosed;
 
-    protected override AudioClip InteractSFX => null;
+    public override AudioClip InteractSFX => null;
 
     void Awake()
     {

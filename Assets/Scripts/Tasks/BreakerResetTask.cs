@@ -1,4 +1,6 @@
 using EditorAttributes;
+using Extensions;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +10,9 @@ public class BreakerResetTask : Task
     [SerializeField] Slider mainBreaker;
     [SerializeField] Slider[] roomBreakers;
     [SerializeField][DisableInEditMode, DisableInPlayMode] Slider[] disabledBreakers;
+    [SerializeField] UIInteractable circuitBreakerInteractable;
+    [SerializeField] AudioClip shakeCircuitBreakerBox;
+    [SerializeField] AudioSource breakerAudioSource;
 
     const int MIN_BREAKERS = 1;
 
@@ -16,7 +21,27 @@ public class BreakerResetTask : Task
 
     protected override void TriggerInternal()
     {
-        RandomizeBreakers();
+        StartCoroutine(TriggerTaskCoroutine());
+    }
+
+    IEnumerator TriggerTaskCoroutine()
+    {
+        AudioSource audioSource = circuitBreakerInteractable.AudioSource;
+        audioSource.PlayOneShotWithRandomPitch(shakeCircuitBreakerBox);
+
+        while (audioSource.isPlaying)
+            yield return null;
+
+        AudioClip openCircuitBox = circuitBreakerInteractable.InteractSFX;
+        audioSource.PlayOneShotWithRandomPitch(openCircuitBox);
+
+        while (audioSource.isPlaying)
+            yield return null;
+
+        yield return StartCoroutine(RandomizeBreakers());
+
+        AudioClip closeCircuitBox = circuitBreakerInteractable.CloseUiSFX;
+        audioSource.PlayOneShotWithRandomPitch(closeCircuitBox);
     }
 
     protected override void Complete()
@@ -28,8 +53,12 @@ public class BreakerResetTask : Task
         LightManager.EnableAllRoomLights();
     }
 
-    void RandomizeBreakers()
+    IEnumerator RandomizeBreakers()
     {
+        WaitForSeconds waitBetweenActions = new(0.25f);
+
+        yield return waitBetweenActions;
+
         List<int> breakers = new(roomBreakers.Length);
         for (int i = 0; i < roomBreakers.Length; i++)
             breakers.Add(i);
@@ -49,10 +78,16 @@ public class BreakerResetTask : Task
 
             Slider slider = roomBreakers[breakerIndex];
             slider.value = 0;
+
+            while (breakerAudioSource.isPlaying)
+                yield return null;
+
             disabledBreakers[i] = slider;
 
             breakers.Remove(breakerIndex);
         }
+
+        yield return waitBetweenActions;
     }
 
     bool AllRoomBreakersEnabled()

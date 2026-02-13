@@ -11,12 +11,13 @@ public abstract class Interactable : MonoBehaviour
     protected AudioSource audioSource;
 
     protected virtual bool CanInteract => true;
+    public AudioSource AudioSource => audioSource;
 
     const string OUTLINE_MATERIAL_NAME = "Sprite Lit Outline";
     const string OUTLINE_COLOR_PROPERTY_NAME = "_OutlineColor";
     const string OUTLINE_ENABLED_PROPERTY_NAME = "_OutlineEnabled";
 
-    protected abstract AudioClip InteractSFX { get; }
+    public abstract AudioClip InteractSFX { get; }
 
     private void Awake()
     {

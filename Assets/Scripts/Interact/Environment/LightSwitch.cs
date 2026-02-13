@@ -10,7 +10,7 @@ public class LightSwitch : Interactable
 
     public bool IsOn => isOn;
 
-    protected override AudioClip InteractSFX => isOn ? lightSwitchOff : lightSwitchOn;
+    public override AudioClip InteractSFX => isOn ? lightSwitchOff : lightSwitchOn;
 
     protected override bool InteractInternal()
     {

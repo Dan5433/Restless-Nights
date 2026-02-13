@@ -7,7 +7,8 @@ public class UIInteractable : Interactable
     [SerializeField] AudioClip closeUiSFX;
     [SerializeField] GameObject ui;
 
-    protected override AudioClip InteractSFX => interactSFX;
+    public override AudioClip InteractSFX => interactSFX;
+    public AudioClip CloseUiSFX => closeUiSFX;
 
     public void Close()
     {

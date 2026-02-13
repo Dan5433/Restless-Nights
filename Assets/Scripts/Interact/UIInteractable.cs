@@ -4,7 +4,7 @@ using UnityEngine;
 public class UIInteractable : Interactable
 {
     [SerializeField] AudioClip interactSFX;
-    [SerializeField] AudioClip closeUISFX;
+    [SerializeField] AudioClip closeUiSFX;
     [SerializeField] GameObject ui;
 
     protected override AudioClip InteractSFX => interactSFX;
@@ -12,7 +12,7 @@ public class UIInteractable : Interactable
     public void Close()
     {
         ui.SetActive(false);
-        audioSource.PlayOneShotWithRandomPitch(closeUISFX);
+        audioSource.PlayOneShotWithRandomPitch(closeUiSFX);
     }
 
     protected override bool InteractInternal()

@@ -50,7 +50,7 @@ public abstract class Interactable : MonoBehaviour
 
     protected void PlayInteractSFX()
     {
-        audioSource.PlayWithRandomPitch(InteractSFX);
+        audioSource.PlayOneShotWithRandomPitch(InteractSFX);
     }
 
     [Button(nameof(RaycastEnter), 36)]

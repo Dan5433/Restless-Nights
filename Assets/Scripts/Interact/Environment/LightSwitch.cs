@@ -17,7 +17,7 @@ public class LightSwitch : Interactable
         if (LightManager.IsBreakerDisabled(this))
         {
             Debug.Log("Breaker disabled!", this);
-            audioSource.PlayWithRandomPitch(lightSwitchFail);
+            audioSource.PlayOneShotWithRandomPitch(lightSwitchFail);
             return false;
         }
 

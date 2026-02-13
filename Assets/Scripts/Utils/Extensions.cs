@@ -6,11 +6,10 @@ namespace Extensions
 {
     public static class AudioSourceExtensions
     {
-        public static void PlayWithRandomPitch(this AudioSource audioSource, AudioClip clip, float minPitch = 0.9f, float maxPitch = 1.1f)
+        public static void PlayOneShotWithRandomPitch(this AudioSource audioSource, AudioClip clip, float minPitch = 0.95f, float maxPitch = 1.05f)
         {
-            audioSource.clip = clip;
             audioSource.pitch = Random.Range(minPitch, maxPitch);
-            audioSource.Play();
+            audioSource.PlayOneShot(clip);
         }
     }
 }

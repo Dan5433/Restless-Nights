@@ -512,10 +512,10 @@ RectTransform:
   - {fileID: 1757989587}
   m_Father: {fileID: 952486208}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 115}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -102.5}
+  m_SizeDelta: {x: 345, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &54223321
 MonoBehaviour:
@@ -586,6 +586,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: LightManager, Assembly-CSharp
         m_MethodName: UpdateAllRoomLights
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 208886979}
+        m_TargetAssemblyTypeName: BreakerFlipAudio, Assembly-CSharp
+        m_MethodName: BreakerStateUpdate
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -789,6 +801,7 @@ Transform:
   m_Children:
   - {fileID: 474578091}
   - {fileID: 769548925}
+  - {fileID: 1666275367}
   m_Father: {fileID: 1803400550}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &79452255
@@ -1247,10 +1260,10 @@ RectTransform:
   - {fileID: 1171252646}
   m_Father: {fileID: 1152707417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 542.5, y: -420}
+  m_SizeDelta: {x: 345, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &86731683
 MonoBehaviour:
@@ -1786,13 +1799,14 @@ GameObject:
   - component: {fileID: 208886976}
   - component: {fileID: 208886978}
   - component: {fileID: 208886977}
+  - component: {fileID: 208886979}
   m_Layer: 5
   m_Name: Circuit Breaker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &208886975
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1878,6 +1892,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208886974}
   m_CullTransparentMesh: 1
+--- !u!114 &208886979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208886974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba1aaaac5023d14dba4fc3a5fd957b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circuitBreakerAudioSource: {fileID: 1666275368}
+  breakerOn: {fileID: 8300000, guid: e068e0a37074a854e9360be3a25b6c2e, type: 3}
+  breakerOff: {fileID: 8300000, guid: 6062557887ca5344cac49dd9d1beb41a, type: 3}
 --- !u!1 &224226446
 GameObject:
   m_ObjectHideFlags: 0
@@ -2276,8 +2305,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 925269633}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 172.5, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -2533,10 +2562,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1476302321}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 45}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -22.5}
+  m_SizeDelta: {x: 345, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &243508475
 MonoBehaviour:
@@ -2668,10 +2697,10 @@ RectTransform:
   - {fileID: 682389554}
   m_Father: {fileID: 1152707417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -590}
+  m_SizeDelta: {x: 345, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &252747213
 MonoBehaviour:
@@ -2732,10 +2761,10 @@ RectTransform:
   - {fileID: 1344247741}
   m_Father: {fileID: 1152707417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -80}
+  m_SizeDelta: {x: 345, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &255576139
 MonoBehaviour:
@@ -3638,8 +3667,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1540587577}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 172.5, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -4370,10 +4399,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 952486208}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 45}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -22.5}
+  m_SizeDelta: {x: 345, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &385163115
 MonoBehaviour:
@@ -4862,10 +4891,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1666814656}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 45}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -22.5}
+  m_SizeDelta: {x: 345, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &445003843
 MonoBehaviour:
@@ -5685,10 +5714,10 @@ RectTransform:
   - {fileID: 27203378}
   m_Father: {fileID: 1666814656}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 115}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -102.5}
+  m_SizeDelta: {x: 345, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &514223299
 MonoBehaviour:
@@ -5759,6 +5788,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: LightManager, Assembly-CSharp
         m_MethodName: UpdateAllRoomLights
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 208886979}
+        m_TargetAssemblyTypeName: BreakerFlipAudio, Assembly-CSharp
+        m_MethodName: BreakerStateUpdate
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5952,10 +5993,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1499750381}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 45}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -22.5}
+  m_SizeDelta: {x: 345, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &519163468
 MonoBehaviour:
@@ -6134,7 +6175,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7, y: 8.639999, z: -10}
+  m_LocalPosition: {x: -9.664071, y: 8.639999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6433,10 +6474,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 255576137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 45}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -22.5}
+  m_SizeDelta: {x: 345, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &584346113
 MonoBehaviour:
@@ -6702,10 +6743,10 @@ RectTransform:
   - {fileID: 1515670803}
   m_Father: {fileID: 252747212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 115}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -102.5}
+  m_SizeDelta: {x: 345, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &682389555
 MonoBehaviour:
@@ -6776,6 +6817,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: LightManager, Assembly-CSharp
         m_MethodName: UpdateAllRoomLights
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 208886979}
+        m_TargetAssemblyTypeName: BreakerFlipAudio, Assembly-CSharp
+        m_MethodName: BreakerStateUpdate
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7134,10 +7187,10 @@ RectTransform:
   - {fileID: 925269633}
   m_Father: {fileID: 1345280045}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 115}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -102.5}
+  m_SizeDelta: {x: 345, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &737869711
 MonoBehaviour:
@@ -7208,6 +7261,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: LightManager, Assembly-CSharp
         m_MethodName: UpdateAllRoomLights
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 208886979}
+        m_TargetAssemblyTypeName: BreakerFlipAudio, Assembly-CSharp
+        m_MethodName: BreakerStateUpdate
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7345,7 +7410,7 @@ GameObject:
   - component: {fileID: 769548925}
   - component: {fileID: 769548926}
   m_Layer: 3
-  m_Name: Hum
+  m_Name: Hum Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7386,8 +7451,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 100
   DopplerLevel: 0
-  MinDistance: 0.5
-  MaxDistance: 2
+  MinDistance: 1
+  MaxDistance: 4
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -11051,8 +11116,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1313008862}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 172.5, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -11500,8 +11565,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1757989587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 172.5, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -12348,8 +12413,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1515670803}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 172.5, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -12441,10 +12506,10 @@ RectTransform:
   - {fileID: 54223320}
   m_Father: {fileID: 1152707417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -420}
+  m_SizeDelta: {x: 345, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &952486209
 MonoBehaviour:
@@ -13255,7 +13320,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 375, y: -655.8334}
-  m_SizeDelta: {x: 715, y: 0}
+  m_SizeDelta: {x: 715, y: 670}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1152707418
 MonoBehaviour:
@@ -13360,10 +13425,10 @@ RectTransform:
   - {fileID: 1094918781}
   m_Father: {fileID: 86731682}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 115}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -102.5}
+  m_SizeDelta: {x: 345, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1171252647
 MonoBehaviour:
@@ -13434,6 +13499,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: LightManager, Assembly-CSharp
         m_MethodName: UpdateAllRoomLights
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 208886979}
+        m_TargetAssemblyTypeName: BreakerFlipAudio, Assembly-CSharp
+        m_MethodName: BreakerStateUpdate
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13915,8 +13992,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 27203378}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 172.5, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -14653,8 +14730,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 746939924}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 172.5, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -14786,8 +14863,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1484788816}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 325, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -14979,10 +15056,10 @@ RectTransform:
   - {fileID: 746939924}
   m_Father: {fileID: 255576137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 115}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -102.5}
+  m_SizeDelta: {x: 345, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1344247742
 MonoBehaviour:
@@ -15047,6 +15124,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 208886979}
+        m_TargetAssemblyTypeName: BreakerFlipAudio, Assembly-CSharp
+        m_MethodName: BreakerStateUpdate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1344247743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15094,10 +15183,10 @@ RectTransform:
   - {fileID: 737869710}
   m_Father: {fileID: 1152707417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 542.5, y: -250}
+  m_SizeDelta: {x: 345, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1345280046
 MonoBehaviour:
@@ -15421,7 +15510,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 375, y: -155.83334}
-  m_SizeDelta: {x: 650, y: 0}
+  m_SizeDelta: {x: 650, y: 291.6667}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1349709667
 MonoBehaviour:
@@ -15817,10 +15906,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1349709666}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 75}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 325, y: -37.5}
+  m_SizeDelta: {x: 650, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1411318312
 MonoBehaviour:
@@ -15951,10 +16040,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1345280045}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 45}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -22.5}
+  m_SizeDelta: {x: 345, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1417277023
 MonoBehaviour:
@@ -16463,10 +16552,10 @@ RectTransform:
   - {fileID: 2140550385}
   m_Father: {fileID: 1152707417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -250}
+  m_SizeDelta: {x: 345, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1476302322
 MonoBehaviour:
@@ -16893,10 +16982,10 @@ RectTransform:
   - {fileID: 1805000239}
   m_Father: {fileID: 1152707417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 542.5, y: -80}
+  m_SizeDelta: {x: 345, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1499750382
 MonoBehaviour:
@@ -17518,10 +17607,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 86731682}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 45}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -22.5}
+  m_SizeDelta: {x: 345, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1562636989
 MonoBehaviour:
@@ -18064,6 +18153,134 @@ Transform:
   - {fileID: 1291682351}
   m_Father: {fileID: 1786700514}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1666275366
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1666275367}
+  - component: {fileID: 1666275368}
+  m_Layer: 3
+  m_Name: Breaker Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1666275367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666275366}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 79452254}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1666275368
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666275366}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -3524170287731032160, guid: 629fe577beb2ea049ac53fdefbbf3552, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 90
+  DopplerLevel: 0
+  MinDistance: 0.4
+  MaxDistance: 1
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.33333334
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1666814655
 GameObject:
   m_ObjectHideFlags: 0
@@ -18097,10 +18314,10 @@ RectTransform:
   - {fileID: 514223298}
   m_Father: {fileID: 1152707417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 542.5, y: -590}
+  m_SizeDelta: {x: 345, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1666814657
 MonoBehaviour:
@@ -18918,10 +19135,10 @@ RectTransform:
   - {fileID: 1484788816}
   m_Father: {fileID: 1349709666}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 216.66667}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 325, y: -183.33334}
+  m_SizeDelta: {x: 650, y: 216.66667}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1766285882
 MonoBehaviour:
@@ -18977,6 +19194,18 @@ MonoBehaviour:
       - m_Target: {fileID: 79452256}
         m_TargetAssemblyTypeName: BreakerResetTask, Assembly-CSharp
         m_MethodName: MainBreakerStateUpdate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 208886979}
+        m_TargetAssemblyTypeName: BreakerFlipAudio, Assembly-CSharp
+        m_MethodName: BreakerStateUpdate
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19781,10 +20010,10 @@ RectTransform:
   - {fileID: 1540587577}
   m_Father: {fileID: 1499750381}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 115}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -102.5}
+  m_SizeDelta: {x: 345, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1805000240
 MonoBehaviour:
@@ -19855,6 +20084,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: LightManager, Assembly-CSharp
         m_MethodName: UpdateAllRoomLights
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 208886979}
+        m_TargetAssemblyTypeName: BreakerFlipAudio, Assembly-CSharp
+        m_MethodName: BreakerStateUpdate
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -19972,8 +20213,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1094918781}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 172.5, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -20356,10 +20597,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 252747212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 45}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -22.5}
+  m_SizeDelta: {x: 345, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1875862271
 MonoBehaviour:
@@ -22394,10 +22635,10 @@ RectTransform:
   - {fileID: 1313008862}
   m_Father: {fileID: 1476302321}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 115}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.5, y: -102.5}
+  m_SizeDelta: {x: 345, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2140550386
 MonoBehaviour:
@@ -22468,6 +22709,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: LightManager, Assembly-CSharp
         m_MethodName: UpdateAllRoomLights
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 208886979}
+        m_TargetAssemblyTypeName: BreakerFlipAudio, Assembly-CSharp
+        m_MethodName: BreakerStateUpdate
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

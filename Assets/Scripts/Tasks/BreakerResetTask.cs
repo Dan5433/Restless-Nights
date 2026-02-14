@@ -18,12 +18,7 @@ public class BreakerResetTask : Task
     public Slider MainBreaker => mainBreaker;
     public Slider[] DisabledBreakers => disabledBreakers;
 
-    protected override void TriggerInternal()
-    {
-        StartCoroutine(TriggerTaskCoroutine());
-    }
-
-    IEnumerator TriggerTaskCoroutine()
+    protected override IEnumerator TriggerTaskCoroutine()
     {
         circuitBreakerInteractable.PlaySFX(shakeCircuitBreakerBox);
 
@@ -70,12 +65,11 @@ public class BreakerResetTask : Task
 
             Slider slider = roomBreakers[breakerIndex];
             slider.value = 0;
-
-            yield return new WaitWhile(() => breakerFlipAudio.IsPlaying);
-
             disabledBreakers[i] = slider;
 
             breakers.Remove(breakerIndex);
+
+            yield return new WaitWhile(() => breakerFlipAudio.IsPlaying);
         }
 
         yield return waitBetweenActions;

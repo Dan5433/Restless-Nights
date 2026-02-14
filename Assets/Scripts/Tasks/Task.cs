@@ -1,4 +1,5 @@
 using EditorAttributes;
+using System.Collections;
 using UnityEngine;
 
 public abstract class Task : MonoBehaviour
@@ -22,8 +23,8 @@ public abstract class Task : MonoBehaviour
         Debug.Log($"{GetType().Name} triggered!");
         active = true;
 
-        TriggerInternal();
+        StartCoroutine(TriggerTaskCoroutine());
     }
 
-    protected abstract void TriggerInternal();
+    protected abstract IEnumerator TriggerTaskCoroutine();
 }

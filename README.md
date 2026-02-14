@@ -13,3 +13,6 @@ Survive a timed night inside a house where tasks appear, panic rises, and space 
 
 ### Screenshots
 ![](https://img.itch.zone/aW1nLzI1MzQ1MDU3LnBuZw==/original/zABm6L.png "Dark Basement")
+
+### Inspiration
+Main inspiration is "FNAF 4, but you can walk around the house, and tasks replace the animatronics"

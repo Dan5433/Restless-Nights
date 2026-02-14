@@ -11,7 +11,7 @@ public abstract class Interactable : MonoBehaviour
     protected AudioSource audioSource;
 
     protected virtual bool CanInteract => true;
-    public AudioSource AudioSource => audioSource;
+    public bool IsAudioPlaying => audioSource.isPlaying;
 
     const string OUTLINE_MATERIAL_NAME = "Sprite Lit Outline";
     const string OUTLINE_COLOR_PROPERTY_NAME = "_OutlineColor";
@@ -49,7 +49,7 @@ public abstract class Interactable : MonoBehaviour
             PlayInteractSFX();
     }
 
-    protected void PlayInteractSFX()
+    public void PlayInteractSFX()
     {
         audioSource.PlayOneShotWithRandomPitch(InteractSFX);
     }
@@ -77,6 +77,11 @@ public abstract class Interactable : MonoBehaviour
     protected void UpdateMaterialPropertyBlock()
     {
         spriteRenderer.GetPropertyBlock(materialProperties);
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        audioSource.PlayOneShotWithRandomPitch(clip);
     }
 
     protected abstract bool InteractInternal();

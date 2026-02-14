@@ -1,5 +1,4 @@
 using EditorAttributes;
-using Extensions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +11,7 @@ public class BreakerResetTask : Task
     [SerializeField][DisableInEditMode, DisableInPlayMode] Slider[] disabledBreakers;
     [SerializeField] UIInteractable circuitBreakerInteractable;
     [SerializeField] AudioClip shakeCircuitBreakerBox;
-    [SerializeField] AudioSource breakerAudioSource;
+    [SerializeField] BreakerFlipAudio breakerFlipAudio;
 
     const int MIN_BREAKERS = 1;
 
@@ -26,19 +25,15 @@ public class BreakerResetTask : Task
 
     IEnumerator TriggerTaskCoroutine()
     {
-        AudioSource audioSource = circuitBreakerInteractable.AudioSource;
+        circuitBreakerInteractable.PlaySFX(shakeCircuitBreakerBox);
 
-        audioSource.PlayOneShotWithRandomPitch(shakeCircuitBreakerBox);
+        circuitBreakerInteractable.PlayInteractSFX();
 
-        AudioClip openCircuitBox = circuitBreakerInteractable.InteractSFX;
-        audioSource.PlayOneShotWithRandomPitch(openCircuitBox);
-
-        yield return new WaitWhile(() => audioSource.isPlaying);
+        yield return new WaitWhile(() => circuitBreakerInteractable.IsAudioPlaying);
 
         yield return StartCoroutine(RandomizeBreakers());
 
-        AudioClip closeCircuitBox = circuitBreakerInteractable.CloseUiSFX;
-        audioSource.PlayOneShotWithRandomPitch(closeCircuitBox);
+        circuitBreakerInteractable.PlayCloseSFX();
     }
 
     protected override void Complete()
@@ -76,7 +71,7 @@ public class BreakerResetTask : Task
             Slider slider = roomBreakers[breakerIndex];
             slider.value = 0;
 
-            yield return new WaitWhile(() => breakerAudioSource.isPlaying);
+            yield return new WaitWhile(() => breakerFlipAudio.IsPlaying);
 
             disabledBreakers[i] = slider;
 

@@ -13,6 +13,11 @@ public class UIInteractable : Interactable
     public void Close()
     {
         ui.SetActive(false);
+        PlayCloseSFX();
+    }
+
+    public void PlayCloseSFX()
+    {
         audioSource.PlayOneShotWithRandomPitch(closeUiSFX);
     }
 

@@ -1,6 +1,4 @@
 using Extensions;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BreakerFlipAudio : MonoBehaviour
@@ -8,9 +6,12 @@ public class BreakerFlipAudio : MonoBehaviour
     [SerializeField] AudioSource circuitBreakerAudioSource;
     [SerializeField] AudioClip breakerOn;
     [SerializeField] AudioClip breakerOff;
+
+    public bool IsPlaying => circuitBreakerAudioSource.isPlaying;
+
     public void BreakerStateUpdate(float value)
     {
-        if(value == 0)
+        if (value == 0)
         {
             circuitBreakerAudioSource.PlayOneShotWithRandomPitch(breakerOff);
         }

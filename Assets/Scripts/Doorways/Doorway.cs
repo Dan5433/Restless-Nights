@@ -1,4 +1,5 @@
 using EditorAttributes;
+using Extensions;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -29,8 +30,10 @@ public class Doorway : Interactable
 
     public override AudioClip InteractSFX => AudioManager.Instance.CloseDoor;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         currentDestination = destinations[0];
         doorwayLight = GetComponentInChildren<Light2D>();
     }
@@ -67,6 +70,8 @@ public class Doorway : Interactable
 
     public void OpenDoor()
     {
+        audioSource.PlayOneShotWithRandomPitch(AudioManager.Instance.OpenDoor);
+
         isClosed = false;
 
         UpdateLightIntensity();
@@ -76,6 +81,7 @@ public class Doorway : Interactable
 
     protected override bool InteractInternal()
     {
+        //TODO: move this logic to interactable using can interact property
         if (isClosed)
             return false;
 
@@ -88,7 +94,6 @@ public class Doorway : Interactable
         RaycastExit();
 
         isClosed = true;
-        //play sound effect
 
         UpdateLightIntensity();
         UpdateDoorFrameSprite();

@@ -19,7 +19,7 @@ public abstract class Interactable : MonoBehaviour
 
     public abstract AudioClip InteractSFX { get; }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         audioSource = GetComponent<AudioSource>();
     }

@@ -27,16 +27,13 @@ public class BreakerResetTask : Task
     IEnumerator TriggerTaskCoroutine()
     {
         AudioSource audioSource = circuitBreakerInteractable.AudioSource;
-        audioSource.PlayOneShotWithRandomPitch(shakeCircuitBreakerBox);
 
-        while (audioSource.isPlaying)
-            yield return null;
+        audioSource.PlayOneShotWithRandomPitch(shakeCircuitBreakerBox);
 
         AudioClip openCircuitBox = circuitBreakerInteractable.InteractSFX;
         audioSource.PlayOneShotWithRandomPitch(openCircuitBox);
 
-        while (audioSource.isPlaying)
-            yield return null;
+        yield return new WaitWhile(() => audioSource.isPlaying);
 
         yield return StartCoroutine(RandomizeBreakers());
 
@@ -79,8 +76,7 @@ public class BreakerResetTask : Task
             Slider slider = roomBreakers[breakerIndex];
             slider.value = 0;
 
-            while (breakerAudioSource.isPlaying)
-                yield return null;
+            yield return new WaitWhile(() => breakerAudioSource.isPlaying);
 
             disabledBreakers[i] = slider;
 

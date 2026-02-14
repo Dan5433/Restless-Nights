@@ -2624,9 +2624,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineColor: {r: 1, g: 0.9470588, b: 0.9, a: 1}
-  lightSwitchOn: {fileID: 8300000, guid: c059d304d964cb6498b0852feb1f68a3, type: 3}
-  lightSwitchOff: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
-  lightSwitchFail: {fileID: 8300000, guid: c947b912b27bbc74c802e5068abdff7c, type: 3}
   isOn: 1
 --- !u!82 &279257379
 AudioSource:
@@ -10958,9 +10955,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineColor: {r: 1, g: 0.9470588, b: 0.9, a: 1}
-  lightSwitchOn: {fileID: 8300000, guid: c059d304d964cb6498b0852feb1f68a3, type: 3}
-  lightSwitchOff: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
-  lightSwitchFail: {fileID: 8300000, guid: c947b912b27bbc74c802e5068abdff7c, type: 3}
   isOn: 1
 --- !u!82 &839450846
 AudioSource:
@@ -11407,9 +11401,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineColor: {r: 1, g: 0.9470588, b: 0.9, a: 1}
-  lightSwitchOn: {fileID: 8300000, guid: c059d304d964cb6498b0852feb1f68a3, type: 3}
-  lightSwitchOff: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
-  lightSwitchFail: {fileID: 8300000, guid: c947b912b27bbc74c802e5068abdff7c, type: 3}
   isOn: 1
 --- !u!82 &849051752
 AudioSource:
@@ -12075,9 +12066,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineColor: {r: 1, g: 0.9470588, b: 0.9, a: 1}
-  lightSwitchOn: {fileID: 8300000, guid: c059d304d964cb6498b0852feb1f68a3, type: 3}
-  lightSwitchOff: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
-  lightSwitchFail: {fileID: 8300000, guid: c947b912b27bbc74c802e5068abdff7c, type: 3}
   isOn: 1
 --- !u!82 &917553031
 AudioSource:
@@ -14021,9 +14009,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineColor: {r: 1, g: 0.9470588, b: 0.9, a: 1}
-  lightSwitchOn: {fileID: 8300000, guid: c059d304d964cb6498b0852feb1f68a3, type: 3}
-  lightSwitchOff: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
-  lightSwitchFail: {fileID: 8300000, guid: c947b912b27bbc74c802e5068abdff7c, type: 3}
   isOn: 1
 --- !u!82 &1291682356
 AudioSource:
@@ -15183,9 +15168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineColor: {r: 1, g: 0.9470588, b: 0.9, a: 1}
-  lightSwitchOn: {fileID: 8300000, guid: c059d304d964cb6498b0852feb1f68a3, type: 3}
-  lightSwitchOff: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
-  lightSwitchFail: {fileID: 8300000, guid: c947b912b27bbc74c802e5068abdff7c, type: 3}
   isOn: 1
 --- !u!82 &1348753041
 AudioSource:
@@ -15443,6 +15425,55 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: -0.75, y: 0.3, z: 0}
   - {x: -0.75, y: -0.3, z: 0}
+--- !u!1 &1367541219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1367541221}
+  - component: {fileID: 1367541220}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1367541220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367541219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af5bd9d0a46cff747b550ea726d3e71d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSwitchOn: {fileID: 8300000, guid: c059d304d964cb6498b0852feb1f68a3, type: 3}
+  lightSwitchOff: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
+  lightSwitchFail: {fileID: 8300000, guid: c947b912b27bbc74c802e5068abdff7c, type: 3}
+  openDoor: {fileID: 8300000, guid: db366aff5c4bfbd4cbbd57e6ef365b1f, type: 3}
+  closeDoor: {fileID: 8300000, guid: d71566b48ad397c49b56dd29d292f114, type: 3}
+--- !u!4 &1367541221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367541219}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1367617447
 GameObject:
   m_ObjectHideFlags: 0
@@ -18909,9 +18940,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineColor: {r: 1, g: 0.9470588, b: 0.9, a: 1}
-  lightSwitchOn: {fileID: 8300000, guid: c059d304d964cb6498b0852feb1f68a3, type: 3}
-  lightSwitchOff: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
-  lightSwitchFail: {fileID: 8300000, guid: c947b912b27bbc74c802e5068abdff7c, type: 3}
   isOn: 1
 --- !u!82 &1723116074
 AudioSource:
@@ -21454,9 +21482,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineColor: {r: 1, g: 0.9470588, b: 0.9, a: 1}
-  lightSwitchOn: {fileID: 8300000, guid: c059d304d964cb6498b0852feb1f68a3, type: 3}
-  lightSwitchOff: {fileID: 8300000, guid: 956863aaabb1d4c47891fc6f15c7cb64, type: 3}
-  lightSwitchFail: {fileID: 8300000, guid: c947b912b27bbc74c802e5068abdff7c, type: 3}
   isOn: 1
 --- !u!82 &1945721716
 AudioSource:
@@ -22881,6 +22906,7 @@ SceneRoots:
   - {fileID: 1146252595}
   - {fileID: 1384344314}
   - {fileID: 2020677436}
+  - {fileID: 1367541221}
   - {fileID: 791891531}
   - {fileID: 536960894}
   - {fileID: 1159232462}

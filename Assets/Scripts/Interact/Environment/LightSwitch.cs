@@ -3,21 +3,18 @@ using UnityEngine;
 
 public class LightSwitch : Interactable
 {
-    [SerializeField] AudioClip lightSwitchOn;
-    [SerializeField] AudioClip lightSwitchOff;
-    [SerializeField] AudioClip lightSwitchFail;
     [SerializeField] bool isOn = true;
 
     public bool IsOn => isOn;
 
-    public override AudioClip InteractSFX => isOn ? lightSwitchOff : lightSwitchOn;
+    public override AudioClip InteractSFX => isOn ? AudioManager.Instance.LightSwitchOff : AudioManager.Instance.LightSwitchOn;
 
     protected override bool InteractInternal()
     {
         if (LightManager.IsBreakerDisabled(this))
         {
             Debug.Log("Breaker disabled!", this);
-            audioSource.PlayOneShotWithRandomPitch(lightSwitchFail);
+            audioSource.PlayOneShotWithRandomPitch(AudioManager.Instance.LightSwitchFail);
             return false;
         }
 

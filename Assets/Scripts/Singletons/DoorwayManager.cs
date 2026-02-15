@@ -47,7 +47,7 @@ public class DoorwayManager : DifficultySingleton<DoorwayManager>
         movement.Locked = true;
         transition.StartCoroutine(transition.FadeTransition());
 
-        yield return new WaitForSeconds(transition.EaseTime + transition.HoldTime + Instance.movementLockExtraTime);
+        yield return new WaitForSeconds(transition.HoldTime + transition.EaseTime * 2 + Instance.movementLockExtraTime);
 
         movement.Locked = false;
     }

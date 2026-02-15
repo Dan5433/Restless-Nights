@@ -60,16 +60,39 @@ public class Doorway : Interactable
         DoorwayManager.Instance.StartCoroutine(
             DoorwayManager.PlayDoorTransition());
 
+        bool isCurrentDoorClosed = IsClosed;
+        bool isCurrentDestinationClosed = currentDestination.IsClosed;
+
+        OpenDoor();
+        currentDestination.OpenDoor();
+
         yield return new WaitForSeconds(DoorwayManager.Instance.Transition.EaseTime);
 
         collision.transform.position = currentDestination.DestinationPosition;
-
         DoorwayManager.UpdateCameraConfiner(currentDestination);
+
+        yield return new WaitForSeconds(DoorwayManager.Instance.Transition.HoldTime);
+
+        if (isCurrentDoorClosed)
+            PlayInteractSFX();
+        if (isCurrentDestinationClosed)
+            currentDestination.PlayInteractSFX();
+
+        yield return new WaitForSeconds(DoorwayManager.Instance.Transition.EaseTime);
+
+        if (isCurrentDoorClosed)
+            CloseDoor();
+        if (isCurrentDestinationClosed)
+            currentDestination.CloseDoor();
+
         LightManager.UpdateDoorwayLightsAfterMovingRooms(this, currentDestination);
     }
 
     public void OpenDoor()
     {
+        if (!isClosed)
+            return;
+
         audioSource.PlayOneShotWithRandomPitch(AudioManager.Instance.OpenDoor);
 
         isClosed = false;

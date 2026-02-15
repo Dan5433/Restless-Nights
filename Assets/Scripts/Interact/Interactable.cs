@@ -45,6 +45,9 @@ public abstract class Interactable : MonoBehaviour
 
     public void Interact()
     {
+        if (!CanInteract)
+            return;
+
         if (InteractInternal())
             PlayInteractSFX();
     }

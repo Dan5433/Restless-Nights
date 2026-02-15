@@ -1,5 +1,6 @@
 # Restless Nights
-**_(Version 0.1) <br> In Development_**
+**_(Version 0.2) 
+<br> In Development_**
 
 ### About
 A 2D, top-down, psychological horror game. <br>

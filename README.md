@@ -7,9 +7,10 @@ A 2D, top-down, psychological horror game. <br>
 Survive a timed night inside a house where tasks appear, panic rises, and space is unpredictable.
 
 ### How to Play or Download
-- Go to https://4btu.itch.io/restless-nights?secret=nliBrdeVjkPeAORX92ZZaLn9os
+- Go to https://4btu.itch.io/restless-nights
+- Input password: campfire flagship
 - You can:
-  - ~~Play the web version by clicking "Run Game"~~ WebGL build doesn't work right now...
+  - Play the web version by clicking "Run Game"
   - Download and play natively on:
     - Windows
     - Linux

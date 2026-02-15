@@ -6,9 +6,9 @@ using UnityEngine;
 public abstract class Interactable : MonoBehaviour
 {
     [SerializeField] protected Color outlineColor = Color.white;
-    protected SpriteRenderer spriteRenderer;
-    MaterialPropertyBlock materialProperties;
-    protected AudioSource audioSource;
+    [SerializeField] protected SpriteRenderer spriteRenderer;
+    [SerializeField] MaterialPropertyBlock materialProperties;
+    [SerializeField] protected AudioSource audioSource;
 
     protected virtual bool CanInteract => true;
     public bool IsAudioPlaying => audioSource.isPlaying;
@@ -22,9 +22,16 @@ public abstract class Interactable : MonoBehaviour
     protected virtual void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+
+        InitalizeFields();
     }
 
     private void OnValidate()
+    {
+        InitalizeFields();
+    }
+
+    void InitalizeFields()
     {
         if (!spriteRenderer)
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();

@@ -9,8 +9,10 @@ Survive a timed night inside a house where tasks appear, panic rises, and space 
 ### How to Play or Download
 - Go to https://4btu.itch.io/restless-nights?secret=nliBrdeVjkPeAORX92ZZaLn9os
 - You can:
-  - Play the web version by clicking "Run Game"
-  - Download and play natively (only Windows for now)
+  - ~~Play the web version by clicking "Run Game"~~ WebGL build doesn't work right now...
+  - Download and play natively on:
+    - Windows
+    - Linux
 
 ### Screenshots
 ![](https://img.itch.zone/aW1nLzI1MzQ1MDU3LnBuZw==/original/zABm6L.png "Dark Basement")

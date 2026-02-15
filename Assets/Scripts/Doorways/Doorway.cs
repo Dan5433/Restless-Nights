@@ -104,10 +104,6 @@ public class Doorway : Interactable
 
     protected override bool InteractInternal()
     {
-        //TODO: move this logic to interactable using can interact property
-        if (isClosed)
-            return false;
-
         CloseDoor();
         return true;
     }

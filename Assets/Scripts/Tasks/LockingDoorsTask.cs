@@ -1,4 +1,5 @@
 using EditorAttributes;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class LockingDoorsTask : Task
     [SerializeField][DisableInEditMode, DisableInPlayMode] List<Doorway> openedDoors;
     const int MIN_DOORS = 1;
 
-    protected override void TriggerInternal()
+    protected override IEnumerator TriggerTaskCoroutine()
     {
         List<int> doorIndexes = new(doors.Length);
         for (int i = 0; i < doors.Length; i++)
@@ -33,6 +34,8 @@ public class LockingDoorsTask : Task
             openedDoors.Add(door);
 
             doorIndexes.Remove(switchIndex);
+
+            yield return new WaitWhile(() => door.IsAudioPlaying);
         }
     }
 

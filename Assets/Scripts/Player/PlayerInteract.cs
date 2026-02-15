@@ -18,6 +18,7 @@ public class PlayerInteract : MonoBehaviour
             activeUi.Close();
             movement.Locked = false;
             activeUi = null;
+            return;
         }
 
         if (movement.Locked)

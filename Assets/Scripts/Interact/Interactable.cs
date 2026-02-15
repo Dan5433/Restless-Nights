@@ -1,17 +1,28 @@
 using EditorAttributes;
+using Extensions;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public abstract class Interactable : MonoBehaviour
 {
     [SerializeField] protected Color outlineColor = Color.white;
     protected SpriteRenderer spriteRenderer;
     MaterialPropertyBlock materialProperties;
+    protected AudioSource audioSource;
 
     protected virtual bool CanInteract => true;
+    public bool IsAudioPlaying => audioSource.isPlaying;
 
     const string OUTLINE_MATERIAL_NAME = "Sprite Lit Outline";
     const string OUTLINE_COLOR_PROPERTY_NAME = "_OutlineColor";
     const string OUTLINE_ENABLED_PROPERTY_NAME = "_OutlineEnabled";
+
+    public abstract AudioClip InteractSFX { get; }
+
+    protected virtual void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnValidate()
     {
@@ -30,6 +41,17 @@ public abstract class Interactable : MonoBehaviour
         materialProperties.SetColor(OUTLINE_COLOR_PROPERTY_NAME, outlineColor);
 
         spriteRenderer.SetPropertyBlock(materialProperties);
+    }
+
+    public void Interact()
+    {
+        if (InteractInternal())
+            PlayInteractSFX();
+    }
+
+    public void PlayInteractSFX()
+    {
+        audioSource.PlayOneShotWithRandomPitch(InteractSFX);
     }
 
     [Button(nameof(RaycastEnter), 36)]
@@ -57,5 +79,10 @@ public abstract class Interactable : MonoBehaviour
         spriteRenderer.GetPropertyBlock(materialProperties);
     }
 
-    public abstract void Interact();
+    public void PlaySFX(AudioClip clip)
+    {
+        audioSource.PlayOneShotWithRandomPitch(clip);
+    }
+
+    protected abstract bool InteractInternal();
 }

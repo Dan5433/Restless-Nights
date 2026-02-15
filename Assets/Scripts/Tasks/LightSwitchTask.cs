@@ -1,4 +1,5 @@
 using EditorAttributes;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public class LightSwitchTask : Task
@@ -9,8 +10,10 @@ public class LightSwitchTask : Task
 
     const int MIN_SWITCHES = 1;
 
-    protected override void TriggerInternal()
+    protected override IEnumerator TriggerTaskCoroutine()
     {
+        WaitForSeconds waitAfterSwitchFlip = new(0.1f);
+
         List<int> switches = new(lightSwitches.Length);
         for (int i = 0; i < lightSwitches.Length; i++)
             switches.Add(i);
@@ -33,6 +36,9 @@ public class LightSwitchTask : Task
             lightSwitch.TurnOff();
 
             switches.Remove(switchIndex);
+
+            yield return new WaitWhile(() => lightSwitch.IsAudioPlaying);
+            yield return waitAfterSwitchFlip;
         }
     }
 

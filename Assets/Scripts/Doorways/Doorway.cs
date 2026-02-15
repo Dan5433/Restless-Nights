@@ -1,4 +1,5 @@
 using EditorAttributes;
+using Extensions;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -27,8 +28,12 @@ public class Doorway : Interactable
     public bool IsClosed => isClosed;
     protected override bool CanInteract => !isClosed;
 
-    void Awake()
+    public override AudioClip InteractSFX => AudioManager.Instance.CloseDoor;
+
+    protected override void Awake()
     {
+        base.Awake();
+
         currentDestination = destinations[0];
         doorwayLight = GetComponentInChildren<Light2D>();
     }
@@ -55,16 +60,41 @@ public class Doorway : Interactable
         DoorwayManager.Instance.StartCoroutine(
             DoorwayManager.PlayDoorTransition());
 
+        bool isCurrentDoorClosed = IsClosed;
+        bool isCurrentDestinationClosed = currentDestination.IsClosed;
+
+        OpenDoor();
+        currentDestination.OpenDoor();
+
         yield return new WaitForSeconds(DoorwayManager.Instance.Transition.EaseTime);
 
         collision.transform.position = currentDestination.DestinationPosition;
-
         DoorwayManager.UpdateCameraConfiner(currentDestination);
+
+        yield return new WaitForSeconds(DoorwayManager.Instance.Transition.HoldTime);
+
+        if (isCurrentDoorClosed)
+            PlayInteractSFX();
+        if (isCurrentDestinationClosed)
+            currentDestination.PlayInteractSFX();
+
+        yield return new WaitForSeconds(DoorwayManager.Instance.Transition.EaseTime);
+
+        if (isCurrentDoorClosed)
+            CloseDoor();
+        if (isCurrentDestinationClosed)
+            currentDestination.CloseDoor();
+
         LightManager.UpdateDoorwayLightsAfterMovingRooms(this, currentDestination);
     }
 
     public void OpenDoor()
     {
+        if (!isClosed)
+            return;
+
+        audioSource.PlayOneShotWithRandomPitch(AudioManager.Instance.OpenDoor);
+
         isClosed = false;
 
         UpdateLightIntensity();
@@ -72,19 +102,21 @@ public class Doorway : Interactable
         UpdateMaterialPropertyBlock();
     }
 
-    public override void Interact()
+    protected override bool InteractInternal()
     {
+        //TODO: move this logic to interactable using can interact property
         if (isClosed)
-            return;
+            return false;
 
         CloseDoor();
+        return true;
     }
+
     void CloseDoor()
     {
         RaycastExit();
 
         isClosed = true;
-        //play sound effect
 
         UpdateLightIntensity();
         UpdateDoorFrameSprite();

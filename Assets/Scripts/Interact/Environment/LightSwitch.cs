@@ -1,3 +1,4 @@
+using Extensions;
 using UnityEngine;
 
 public class LightSwitch : Interactable
@@ -6,24 +7,31 @@ public class LightSwitch : Interactable
 
     public bool IsOn => isOn;
 
-    public override void Interact()
+    public override AudioClip InteractSFX => isOn ? AudioManager.Instance.LightSwitchOff : AudioManager.Instance.LightSwitchOn;
+
+    protected override bool InteractInternal()
     {
         if (LightManager.IsBreakerDisabled(this))
         {
             Debug.Log("Breaker disabled!", this);
-            //play electricity sound effect
-            return;
+            audioSource.PlayOneShotWithRandomPitch(AudioManager.Instance.LightSwitchFail);
+            return false;
         }
 
         isOn = !isOn;
 
         LightManager.LightSwitchStateUpdate();
         UpdateSprite();
+
+        return true;
     }
 
     public void TurnOff()
     {
+        PlayInteractSFX();
+
         isOn = false;
+
         LightManager.LightSwitchStateUpdate();
         UpdateSprite();
     }

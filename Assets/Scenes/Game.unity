@@ -22081,6 +22081,7 @@ MonoBehaviour:
   panicIncreasePerActiveTask: 10
   maxPanicBase: 85
   panicChangeSpeed: 1
+  maxPanicThreshold: 0.75
   panicMeter: 0
   pressure: 0
   panicBase: 0

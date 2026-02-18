@@ -24,6 +24,8 @@ public class PanicManager : DifficultySingleton<PanicManager>
     const float LOSE_STATE_PANIC_THRESHOLD = 100f;
     const float DIFFICULTY_TO_BASE_PANIC_RATIO = 0.5f;
 
+    public float PanicFraction => panicMeter / LOSE_STATE_PANIC_THRESHOLD;
+
     private void Update()
     {
         float maxAddedPanic = maxPanicBase - MAX_DIFFICULTY * DIFFICULTY_TO_BASE_PANIC_RATIO;

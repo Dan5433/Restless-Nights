@@ -7,6 +7,8 @@ public class TasksManager : DifficultySingleton<TasksManager>
 {
     [SerializeField] Task[] tasks;
     [SerializeField][DisableInEditMode, DisableInPlayMode] List<Task> availableTasks;
+    [SerializeField] AudioSource completeTaskAudio;
+    [SerializeField][MinMaxSlider(0, 1)] Vector2 completeTaskAudioVolumeRange;
 
     public float DifficultyFraction => (float)difficulty / MAX_DIFFICULTY;
     public int ActiveTasksCount => tasks.Length - availableTasks.Count;
@@ -43,6 +45,12 @@ public class TasksManager : DifficultySingleton<TasksManager>
             return;
 
         Instance.availableTasks.Add(task);
-    }
 
+        Instance.completeTaskAudio.volume = Mathf.Lerp(
+            Instance.completeTaskAudioVolumeRange.x,
+            Instance.completeTaskAudioVolumeRange.y,
+            PanicManager.Instance.PanicFraction);
+
+        Instance.completeTaskAudio.PlayOneShot(Instance.completeTaskAudio.clip);
+    }
 }

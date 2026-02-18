@@ -15532,8 +15532,10 @@ MonoBehaviour:
   - {fileID: 932430211}
   - {fileID: 1378434560}
   availableTasks: []
-  completeTaskAudio: {fileID: 1384344316}
-  completeTaskAudioVolumeRange: {x: 0.35, y: 1}
+  taskReactionAudio: {fileID: 1384344316}
+  completeTaskSfx: {fileID: 8300000, guid: f232d1ad5424b684b85c1eb9e04a7bbf, type: 3}
+  taskAppearSfx: {fileID: 8300000, guid: 41f6231367d0c544792d0cfc6795aebb, type: 3}
+  taskReactionAudioVolumeRange: {x: 0.35, y: 1}
   completeAudioDelay: 0.4
 --- !u!82 &1384344316
 AudioSource:
@@ -15545,7 +15547,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3524170287731032160, guid: 629fe577beb2ea049ac53fdefbbf3552, type: 2}
-  m_audioClip: {fileID: 8300000, guid: f232d1ad5424b684b85c1eb9e04a7bbf, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.35
   m_Pitch: 1

@@ -7,8 +7,10 @@ public class TasksManager : DifficultySingleton<TasksManager>
 {
     [SerializeField] Task[] tasks;
     [SerializeField][DisableInEditMode, DisableInPlayMode] List<Task> availableTasks;
-    [SerializeField] AudioSource completeTaskAudio;
-    [SerializeField][MinMaxSlider(0, 1)] Vector2 completeTaskAudioVolumeRange;
+    [SerializeField] AudioSource taskReactionAudio;
+    [SerializeField] AudioClip completeTaskSfx;
+    [SerializeField] AudioClip taskAppearSfx;
+    [SerializeField][MinMaxSlider(0, 1)] Vector2 taskReactionAudioVolumeRange;
     [SerializeField] float completeAudioDelay;
 
     public float DifficultyFraction => (float)difficulty / MAX_DIFFICULTY;
@@ -37,7 +39,9 @@ public class TasksManager : DifficultySingleton<TasksManager>
 
         Task task = Instance.availableTasks[randomIndex];
         task.Trigger();
+
         Instance.availableTasks.Remove(task);
+        Instance.PlayTaskReactionAudio(Instance.taskAppearSfx);
     }
 
     public static void TaskComplete(Task task)
@@ -51,11 +55,16 @@ public class TasksManager : DifficultySingleton<TasksManager>
 
     void PlayCompleteAudio()
     {
-        Instance.completeTaskAudio.volume = Mathf.Lerp(
-            Instance.completeTaskAudioVolumeRange.x,
-            Instance.completeTaskAudioVolumeRange.y,
+        PlayTaskReactionAudio(completeTaskSfx);
+    }
+
+    void PlayTaskReactionAudio(AudioClip clip)
+    {
+        Instance.taskReactionAudio.volume = Mathf.Lerp(
+            Instance.taskReactionAudioVolumeRange.x,
+            Instance.taskReactionAudioVolumeRange.y,
             PanicManager.Instance.PanicFraction);
 
-        Instance.completeTaskAudio.PlayOneShot(Instance.completeTaskAudio.clip);
+        Instance.taskReactionAudio.PlayOneShot(clip);
     }
 }

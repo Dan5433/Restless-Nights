@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float speed = 1f;
     [SerializeField] bool locked = false;
     [SerializeField] Rigidbody2D rigidBody;
+    SpriteRenderer spriteRenderer;
 
     [SerializeField][DisableInEditMode, DisableInPlayMode] Direction facingDirection;
 
@@ -16,6 +17,11 @@ public class PlayerMovement : MonoBehaviour
 
     public bool Locked { get { return locked; } set { locked = value; } }
     public Direction FacingDirection => facingDirection;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     void FixedUpdate()
     {
@@ -35,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         rigidBody.velocity = new Vector2(horizontalInput, verticalInput).normalized * speed;
 
         UpdateFacingDirection(verticalInput, horizontalInput);
+        UpdateSprite();
     }
 
     void UpdateFacingDirection(float verticalInput, float horizontalInput)
@@ -49,6 +56,29 @@ public class PlayerMovement : MonoBehaviour
             facingDirection = Direction.Up;
         if (verticalInput < 0)
             facingDirection = Direction.Down;
+    }
+
+    void UpdateSprite()
+    {
+        switch (facingDirection)
+        {
+            case Direction.Up:
+                spriteRenderer.flipY = false;
+                transform.rotation = Quaternion.identity;
+                break;
+            case Direction.Left:
+                spriteRenderer.flipY = false;
+                transform.rotation = Quaternion.Euler(0, 0, 90);
+                break;
+            case Direction.Down:
+                spriteRenderer.flipY = true;
+                transform.rotation = Quaternion.identity;
+                break;
+            case Direction.Right:
+                spriteRenderer.flipY = true;
+                transform.rotation = Quaternion.Euler(0, 0, 90);
+                break;
+        }
     }
 
     [Serializable]

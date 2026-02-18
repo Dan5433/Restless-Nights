@@ -1,4 +1,6 @@
 using EditorAttributes;
+using Extensions;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -23,25 +25,23 @@ public class TasksManager : DifficultySingleton<TasksManager>
         availableTasks = tasks.ToList();
     }
 
-    public static void TriggerRandomTask()
+    public IEnumerator TriggerRandomTask()
     {
-        if (!IsInstanceValid())
-            return;
-
-
         if (Instance.availableTasks.Count == 0)
         {
             Debug.Log("No available tasks");
-            return;
         }
+        else
+        {
+            int randomIndex = Random.Range(0, Instance.availableTasks.Count);
 
-        int randomIndex = Random.Range(0, Instance.availableTasks.Count);
+            Task task = Instance.availableTasks[randomIndex];
 
-        Task task = Instance.availableTasks[randomIndex];
-        task.Trigger();
+            yield return Instance.StartCoroutine(task.Trigger());
 
-        Instance.availableTasks.Remove(task);
-        Instance.PlayTaskReactionAudio(Instance.taskAppearSfx);
+            Instance.availableTasks.Remove(task);
+            Instance.PlayTaskReactionAudio(Instance.taskAppearSfx);
+        }
     }
 
     public static void TaskComplete(Task task)
@@ -65,6 +65,6 @@ public class TasksManager : DifficultySingleton<TasksManager>
             Instance.taskReactionAudioVolumeRange.y,
             PanicManager.Instance.PanicFraction);
 
-        Instance.taskReactionAudio.PlayOneShot(clip);
+        Instance.taskReactionAudio.PlayOneShotWithRandomPitch(clip);
     }
 }

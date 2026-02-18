@@ -18,12 +18,12 @@ public abstract class Task : MonoBehaviour
     }
 
     [Button("Trigger", 36)]
-    public void Trigger()
+    public IEnumerator Trigger()
     {
         Debug.Log($"{GetType().Name} triggered!");
         active = true;
 
-        StartCoroutine(TriggerTaskCoroutine());
+        yield return StartCoroutine(TriggerTaskCoroutine());
     }
 
     protected abstract IEnumerator TriggerTaskCoroutine();

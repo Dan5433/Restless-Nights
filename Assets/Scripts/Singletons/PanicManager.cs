@@ -13,9 +13,13 @@ public class PanicManager : DifficultySingleton<PanicManager>
 
     [Space(32)]
 
-    [SerializeField][MinMaxSlider(0, 1)] Vector2 audioVolumeRange;
-    [SerializeField][MinMaxSlider(0.5f, 1.5f)] Vector2 audioPitchRange;
     [SerializeField] AudioSource breathingAudio;
+    [SerializeField][MinMaxSlider(0, 1)] Vector2 breathingVolumeRange;
+    [SerializeField][MinMaxSlider(0.5f, 1.5f)] Vector2 breathingPitchRange;
+
+    [SerializeField] AudioSource heartbeatAudio;
+    [SerializeField][MinMaxSlider(0, 1)] Vector2 heartbeatVolumeRange;
+    [SerializeField][MinMaxSlider(0.5f, 1.5f)] Vector2 heartbeatPitchRange;
 
     const float LOSE_STATE_PANIC_THRESHOLD = 100f;
     const float DIFFICULTY_TO_BASE_PANIC_RATIO = 0.5f;
@@ -39,10 +43,12 @@ public class PanicManager : DifficultySingleton<PanicManager>
 
     void UpdateAudio()
     {
-        float volume = Mathf.Lerp(audioVolumeRange.x, audioVolumeRange.y, panicMeter / LOSE_STATE_PANIC_THRESHOLD);
-        float pitch = Mathf.Lerp(audioPitchRange.x, audioPitchRange.y, panicMeter / LOSE_STATE_PANIC_THRESHOLD);
+        float panicFraction = panicMeter / LOSE_STATE_PANIC_THRESHOLD;
 
-        breathingAudio.volume = volume;
-        breathingAudio.pitch = pitch;
+        breathingAudio.volume = Mathf.Lerp(breathingVolumeRange.x, breathingVolumeRange.y, panicFraction);
+        breathingAudio.pitch = Mathf.Lerp(breathingPitchRange.x, breathingPitchRange.y, panicFraction);
+
+        heartbeatAudio.volume = Mathf.Lerp(heartbeatVolumeRange.x, heartbeatVolumeRange.y, panicFraction);
+        heartbeatAudio.pitch = Mathf.Lerp(heartbeatPitchRange.x, heartbeatPitchRange.y, panicFraction);
     }
 }

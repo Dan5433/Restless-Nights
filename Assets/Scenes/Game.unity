@@ -22089,10 +22089,10 @@ MonoBehaviour:
   panicBase: 0
   breathingAudio: {fileID: 2020677438}
   breathingVolumeRange: {x: 0, y: 0.25}
-  breathingPitchRange: {x: 0.95, y: 1.05}
+  breathingPitchRange: {x: 0.95, y: 1.075}
   heartbeatAudio: {fileID: 2020677439}
   heartbeatVolumeRange: {x: 0, y: 0.5}
-  heartbeatPitchRange: {x: 0.95, y: 1.15}
+  heartbeatPitchRange: {x: 1, y: 1.5}
 --- !u!82 &2020677438
 AudioSource:
   m_ObjectHideFlags: 0

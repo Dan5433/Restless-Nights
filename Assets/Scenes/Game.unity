@@ -17592,7 +17592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c880c44e20a415844bba457f43edfec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nightDurationSeconds: 600
+  nightDurationSeconds: 540
 --- !u!1 &1628313567
 GameObject:
   m_ObjectHideFlags: 0

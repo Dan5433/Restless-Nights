@@ -11,6 +11,12 @@ public class PanicManager : DifficultySingleton<PanicManager>
     [SerializeField][DisableInEditMode, DisableInPlayMode] float pressure;
     [SerializeField][DisableInEditMode, DisableInPlayMode] float panicBase;
 
+    [Space(32)]
+
+    [SerializeField][MinMaxSlider(0, 1)] Vector2 audioVolumeRange;
+    [SerializeField][MinMaxSlider(0.5f, 1.5f)] Vector2 audioPitchRange;
+    [SerializeField] AudioSource breathingAudio;
+
     const float LOSE_STATE_PANIC_THRESHOLD = 100f;
     const float DIFFICULTY_TO_BASE_PANIC_RATIO = 0.5f;
 
@@ -27,5 +33,16 @@ public class PanicManager : DifficultySingleton<PanicManager>
 
         if (panicMeter > LOSE_STATE_PANIC_THRESHOLD)
             Debug.Log("NIGHT LOSE!");
+
+        UpdateAudio();
+    }
+
+    void UpdateAudio()
+    {
+        float volume = Mathf.Lerp(audioVolumeRange.x, audioVolumeRange.y, panicMeter / LOSE_STATE_PANIC_THRESHOLD);
+        float pitch = Mathf.Lerp(audioPitchRange.x, audioPitchRange.y, panicMeter / LOSE_STATE_PANIC_THRESHOLD);
+
+        breathingAudio.volume = volume;
+        breathingAudio.pitch = pitch;
     }
 }

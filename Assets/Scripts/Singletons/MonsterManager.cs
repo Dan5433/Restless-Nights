@@ -19,7 +19,7 @@ public class MonsterManager : DifficultySingleton<MonsterManager>
         if (taskTimer > 0)
             return;
 
-        TasksManager.TriggerRandomTask();
+        StartCoroutine(TasksManager.Instance.TriggerRandomTask());
         SetNextTaskTimer();
     }
 

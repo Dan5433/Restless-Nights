@@ -1,4 +1,6 @@
 using EditorAttributes;
+using Extensions;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,6 +9,11 @@ public class TasksManager : DifficultySingleton<TasksManager>
 {
     [SerializeField] Task[] tasks;
     [SerializeField][DisableInEditMode, DisableInPlayMode] List<Task> availableTasks;
+    [SerializeField] AudioSource taskReactionAudio;
+    [SerializeField] AudioClip completeTaskSfx;
+    [SerializeField] AudioClip taskAppearSfx;
+    [SerializeField][MinMaxSlider(0, 1)] Vector2 taskReactionAudioVolumeRange;
+    [SerializeField] float completeAudioDelay;
 
     public float DifficultyFraction => (float)difficulty / MAX_DIFFICULTY;
     public int ActiveTasksCount => tasks.Length - availableTasks.Count;
@@ -18,23 +25,23 @@ public class TasksManager : DifficultySingleton<TasksManager>
         availableTasks = tasks.ToList();
     }
 
-    public static void TriggerRandomTask()
+    public IEnumerator TriggerRandomTask()
     {
-        if (!IsInstanceValid())
-            return;
-
-
         if (Instance.availableTasks.Count == 0)
         {
             Debug.Log("No available tasks");
-            return;
         }
+        else
+        {
+            int randomIndex = Random.Range(0, Instance.availableTasks.Count);
 
-        int randomIndex = Random.Range(0, Instance.availableTasks.Count);
+            Task task = Instance.availableTasks[randomIndex];
 
-        Task task = Instance.availableTasks[randomIndex];
-        task.Trigger();
-        Instance.availableTasks.Remove(task);
+            yield return Instance.StartCoroutine(task.Trigger());
+
+            Instance.availableTasks.Remove(task);
+            Instance.PlayTaskReactionAudio(Instance.taskAppearSfx);
+        }
     }
 
     public static void TaskComplete(Task task)
@@ -43,6 +50,21 @@ public class TasksManager : DifficultySingleton<TasksManager>
             return;
 
         Instance.availableTasks.Add(task);
+        Instance.Invoke(nameof(PlayCompleteAudio), Instance.completeAudioDelay);
     }
 
+    void PlayCompleteAudio()
+    {
+        PlayTaskReactionAudio(completeTaskSfx);
+    }
+
+    void PlayTaskReactionAudio(AudioClip clip)
+    {
+        Instance.taskReactionAudio.volume = Mathf.Lerp(
+            Instance.taskReactionAudioVolumeRange.x,
+            Instance.taskReactionAudioVolumeRange.y,
+            PanicManager.Instance.PanicFraction);
+
+        Instance.taskReactionAudio.PlayOneShotWithRandomPitch(clip);
+    }
 }

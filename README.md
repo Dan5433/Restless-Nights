@@ -2,6 +2,8 @@
 **_(Version 0.2) 
 <br> In Development_**
 
+## **_Game relies heavily on audio. Headphones recommended!_**
+
 ### About
 A 2D, top-down, psychological horror game. <br>
 Survive a timed night inside a house where tasks appear, panic rises, and space is unpredictable.

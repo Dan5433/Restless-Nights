@@ -4,7 +4,8 @@ using UnityEngine;
 public class IntroTransition : MonoBehaviour
 {
     [SerializeField] ImageAlphaTransition transition;
-    [SerializeField] TextAlphaTransition textTransition;
+    [SerializeField] TextAlphaTransition timeTextTransition;
+    [SerializeField] TextAlphaTransition nightTextTransition;
     [SerializeField] PlayerMovement playerMovement;
 
     private void Start()
@@ -16,7 +17,8 @@ public class IntroTransition : MonoBehaviour
 
     IEnumerator StartTransition()
     {
-        StartCoroutine(textTransition.Play());
+        StartCoroutine(timeTextTransition.Play());
+        StartCoroutine(nightTextTransition.Play());
         yield return transition.FadeTransition();
 
         playerMovement.Locked = false;

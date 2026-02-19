@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DoorTransition : MonoBehaviour
+public class ImageAlphaTransition : MonoBehaviour
 {
     [SerializeField] Image image;
     [SerializeField] float easeTime = 1f;

@@ -37,7 +37,7 @@ public class TasksManager : DifficultySingleton<TasksManager>
 
             Task task = Instance.availableTasks[randomIndex];
 
-            yield return Instance.StartCoroutine(task.Trigger());
+            yield return task.Trigger();
 
             Instance.availableTasks.Remove(task);
             Instance.PlayTaskReactionAudio(Instance.taskAppearSfx);

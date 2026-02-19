@@ -26,7 +26,7 @@ public class BreakerResetTask : Task
 
         yield return new WaitWhile(() => circuitBreakerInteractable.IsAudioPlaying);
 
-        yield return StartCoroutine(RandomizeBreakers());
+        yield return RandomizeBreakers();
 
         circuitBreakerInteractable.PlayCloseSFX();
     }

@@ -23,7 +23,7 @@ public abstract class Task : MonoBehaviour
         Debug.Log($"{GetType().Name} triggered!");
         active = true;
 
-        yield return StartCoroutine(TriggerTaskCoroutine());
+        yield return TriggerTaskCoroutine();
     }
 
     protected abstract IEnumerator TriggerTaskCoroutine();

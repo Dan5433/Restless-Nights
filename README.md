@@ -10,6 +10,7 @@ Survive a timed night inside a house where tasks appear, panic rises, and space 
 
 ### How to Play or Download
 You can download from the [releases tab](https://github.com/Dan5433/Restless-Nights/releases) or [itch.io](https://4btu.itch.io/restless-nights?password=campfire+flagship)
+
 GitHub Release:
 - Go to the linked releases tab
 - Choose a release (recent ones are at the top)

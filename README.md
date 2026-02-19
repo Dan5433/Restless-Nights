@@ -31,7 +31,9 @@ Itch:
   - Linux
 
 ### Screenshots
-![](https://img.itch.zone/aW1nLzI1MzQ1MDU3LnBuZw==/original/zABm6L.png "Dark Basement")
+![](https://img.itch.zone/aW1nLzI1NjY5MTQwLnBuZw==/original/Bf7xEv.png "Bedroom")
+![](https://img.itch.zone/aW1hZ2UvNDI1NDEwOS8yNTY2OTE0Ny5wbmc=/original/aKaPc7.png "Washroom")
+![](https://img.itch.zone/aW1hZ2UvNDI1NDEwOS8yNTY2OTE0Ni5wbmc=/original/lakePp.png "Dark Basement")
 
 ### Inspiration
 Main inspiration is "FNAF 4, but you can walk around the house, and tasks replace the animatronics"

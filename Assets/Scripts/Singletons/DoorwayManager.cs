@@ -10,14 +10,14 @@ public class DoorwayManager : DifficultySingleton<DoorwayManager>
     [SerializeField] Sprite openDoorSprite;
     [SerializeField] Sprite closedDoorSprite;
     [SerializeField] PlayerMovement movement;
-    [SerializeField] DoorTransition transition;
+    [SerializeField] ImageAlphaTransition transition;
     [SerializeField] CinemachineConfiner2D cameraConfiner;
 
     public float ClosedDoorLightIntensity => closedDoorLightIntensity;
     public float OpenDoorLightIntensity => openDoorLightIntensity;
     public Sprite ClosedDoorSprite => closedDoorSprite;
     public Sprite OpenDoorSprite => openDoorSprite;
-    public DoorTransition Transition => transition;
+    public ImageAlphaTransition Transition => transition;
 
     public int DoorwayChoices
     {
@@ -42,7 +42,7 @@ public class DoorwayManager : DifficultySingleton<DoorwayManager>
     public static IEnumerator PlayDoorTransition()
     {
         PlayerMovement movement = Instance.movement;
-        DoorTransition transition = Instance.transition;
+        ImageAlphaTransition transition = Instance.transition;
 
         movement.Locked = true;
         transition.StartCoroutine(transition.FadeTransition());

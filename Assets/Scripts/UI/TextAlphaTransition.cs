@@ -1,11 +1,12 @@
 using EditorAttributes;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DoorTransition : MonoBehaviour
+public class TextAlphaTransition : MonoBehaviour
 {
-    [SerializeField] Image image;
+    [SerializeField] TMP_Text text;
     [SerializeField] float easeTime = 1f;
     [SerializeField] float holdTime = 0.25f;
 
@@ -16,43 +17,43 @@ public class DoorTransition : MonoBehaviour
     [Button("Play", 36)]
     void PlayTransition()
     {
-        StartCoroutine(FadeTransition());
+        StartCoroutine(Play());
     }
 #endif
 
-    public IEnumerator FadeTransition()
+    public IEnumerator Play()
     {
         float time = 0;
-        Color color = image.color;
+        Color color = text.color;
 
         while (time < easeTime)
         {
-            color = image.color;
+            color = text.color;
             color.a += 1 / (easeTime / Time.deltaTime);
-            image.color = color;
+            text.color = color;
 
             time += Time.deltaTime;
             yield return null;
         }
 
         color.a = 1;
-        image.color = color;
+        text.color = color;
 
         yield return new WaitForSeconds(holdTime);
 
         time = 0;
         while (time < easeTime)
         {
-            color = image.color;
+            color = text.color;
             color.a -= 1 / (easeTime / Time.deltaTime);
-            image.color = color;
+            text.color = color;
 
             time += Time.deltaTime;
             yield return null;
         }
 
         color.a = 0;
-        image.color = color;
+        text.color = color;
     }
 
 }

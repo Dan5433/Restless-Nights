@@ -41,26 +41,29 @@ public class EndTransition : MonoBehaviour
         foreach (AudioSource source in audioSources)
             source.mute = true;
 
-        endScreen.SetActive(true);
-
         audioSource.mute = false;
+        audioSource.Play();
+
+        endScreen.SetActive(true);
     }
 
     IEnumerator PlayLoseTransition()
     {
-        audioSource.Play();
-
+        if (!audioSource.isPlaying)
+        {
+            Debug.Log("not playing");
+            yield return null;
+        }
         yield return new WaitWhile(() => audioSource.isPlaying);
 
-        endScreen.GetComponent<Image>().color = loseColor;
         audioSource.clip = loseAudio;
         audioSource.Play();
+
+        endScreen.GetComponent<Image>().color = loseColor;
     }
 
     IEnumerator PlayWinTransition()
     {
-        audioSource.Play();
-
         yield return new WaitWhile(() => audioSource.isPlaying);
 
         audioSource.clip = winAudio;

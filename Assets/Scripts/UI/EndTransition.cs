@@ -1,5 +1,6 @@
 using EditorAttributes;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -49,31 +50,41 @@ public class EndTransition : MonoBehaviour
 
     IEnumerator PlayLoseTransition()
     {
-        if (!audioSource.isPlaying)
-        {
-            Debug.Log("not playing");
-            yield return null;
-        }
         yield return new WaitWhile(() => audioSource.isPlaying);
 
         audioSource.clip = loseAudio;
         audioSource.Play();
 
         endScreen.GetComponent<Image>().color = loseColor;
+        var text = endScreen.GetComponentInChildren<TMP_Text>();
+        text.color = Color.black;
+        text.text = "They found you.";
     }
 
     IEnumerator PlayWinTransition()
     {
         yield return new WaitWhile(() => audioSource.isPlaying);
 
+        var text = endScreen.GetComponentInChildren<TMP_Text>();
+        text.color = Color.black;
+        text.text = "7:00 AM";
+
         audioSource.clip = winAudio;
         audioSource.Play();
 
         Image endScreenImage = endScreen.GetComponent<Image>();
+        Color textColor = text.color;
+        float time = 0;
         while (audioSource.isPlaying)
         {
-            float playPosition = audioSource.time / audioSource.clip.length;
+            float playPosition = time / winAudio.length;
+
             endScreenImage.color = new(playPosition, playPosition, playPosition);
+
+            textColor.a = playPosition;
+            text.color = textColor;
+
+            time += Time.deltaTime;
             yield return null;
         }
     }

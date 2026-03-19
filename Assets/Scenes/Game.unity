@@ -4966,8 +4966,8 @@ MonoBehaviour:
   playerMovement: {fileID: 1835010573}
   endScreen: {fileID: 694153746}
   loseColor: {r: 0.9, g: 0, b: 0, a: 1}
-  loseAudio: {fileID: 8300000, guid: d71566b48ad397c49b56dd29d292f114, type: 3}
-  winAudio: {fileID: 8300000, guid: db366aff5c4bfbd4cbbd57e6ef365b1f, type: 3}
+  loseAudio: {fileID: 8300000, guid: 41f6231367d0c544792d0cfc6795aebb, type: 3}
+  winAudio: {fileID: 8300000, guid: 265cd3e718f6d9249b13632579009683, type: 3}
 --- !u!1 &390306584
 GameObject:
   m_ObjectHideFlags: 0
@@ -13329,12 +13329,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 24
-  m_fontSizeMax: 56
+  m_fontSizeMin: 100
+  m_fontSizeMax: 200
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512

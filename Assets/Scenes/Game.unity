@@ -18850,6 +18850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nightDurationSeconds: 540
+  endTransition: {fileID: 387163548}
 --- !u!1 &1628313567
 GameObject:
   m_ObjectHideFlags: 0

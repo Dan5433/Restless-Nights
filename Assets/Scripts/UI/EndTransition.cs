@@ -70,7 +70,9 @@ public class EndTransition : MonoBehaviour
             audioSource.PlayOneShotWithRandomPitch(loseAudio, 0.8f, 1.2f);
         }
 
-        yield return new WaitForSeconds(returnDelay);
+        yield return new WaitForSeconds(returnDelay * 3 / 5);
+        endScreenImage.color = Color.black;
+        yield return new WaitForSeconds(returnDelay * 2 / 5);
         ReturnToMainMenu();
     }
 

@@ -1,4 +1,5 @@
 using EditorAttributes;
+using Extensions;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -9,8 +10,10 @@ public class EndTransition : MonoBehaviour
 {
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] GameObject endScreen;
-    [SerializeField] Color loseColor = Color.red;
+    [SerializeField] Color[] loseColors = { Color.red, Color.red, Color.red, Color.red };
     [SerializeField] AudioClip loseAudio, winAudio;
+    [SerializeField] int loseAudioRepeats;
+    [SerializeField] float loseAudioRepeatRate, returnDelay;
     AudioSource[] audioSources;
     AudioSource audioSource;
 
@@ -52,13 +55,23 @@ public class EndTransition : MonoBehaviour
     {
         yield return new WaitWhile(() => audioSource.isPlaying);
 
-        audioSource.clip = loseAudio;
-        audioSource.Play();
-
-        endScreen.GetComponent<Image>().color = loseColor;
+        var endScreenImage = endScreen.GetComponent<Image>();
+        endScreenImage.color = loseColors[0];
         var text = endScreen.GetComponentInChildren<TMP_Text>();
         text.color = Color.black;
-        text.text = "They found you.";
+        text.text = string.Empty;
+
+        string[] words = { "They ", "found ", "you." };
+        for (int i = 0; i < loseAudioRepeats; i++)
+        {
+            yield return new WaitForSeconds(loseAudioRepeatRate);
+            endScreenImage.color = loseColors[i + 1];
+            text.text += words[i];
+            audioSource.PlayOneShotWithRandomPitch(loseAudio, 0.8f, 1.2f);
+        }
+
+        yield return new WaitForSeconds(returnDelay);
+        ReturnToMainMenu();
     }
 
     IEnumerator PlayWinTransition()
@@ -72,7 +85,7 @@ public class EndTransition : MonoBehaviour
         audioSource.clip = winAudio;
         audioSource.Play();
 
-        Image endScreenImage = endScreen.GetComponent<Image>();
+        var endScreenImage = endScreen.GetComponent<Image>();
         Color textColor = text.color;
         float time = 0;
         while (audioSource.isPlaying)
@@ -87,6 +100,13 @@ public class EndTransition : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
+
+        yield return new WaitForSeconds(returnDelay);
+        ReturnToMainMenu();
     }
 
+    void ReturnToMainMenu()
+    {
+        Debug.Log("return to menu");
+    }
 }

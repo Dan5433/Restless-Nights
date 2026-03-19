@@ -14,6 +14,9 @@ public class MonsterManager : DifficultySingleton<MonsterManager>
 
     private void Update()
     {
+        if (!GameManager.Instance.IsPlaying)
+            return;
+
         taskTimer -= Time.deltaTime;
 
         if (taskTimer > 0)

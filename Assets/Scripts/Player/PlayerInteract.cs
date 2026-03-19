@@ -13,6 +13,9 @@ public class PlayerInteract : MonoBehaviour
 
     private void Update()
     {
+        if (!GameManager.Instance.IsPlaying)
+            return;
+
         if (CanDisableUI())
         {
             activeUi.Close();

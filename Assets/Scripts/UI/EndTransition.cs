@@ -27,18 +27,18 @@ public class EndTransition : MonoBehaviour
     [Button("Test Lose", 36)]
     public void Lose()
     {
-        NightEnd();
+        SetupNightEnd();
         StartCoroutine(PlayLoseTransition());
     }
 
     [Button("Test Win", 36)]
     public void Win()
     {
-        NightEnd();
+        SetupNightEnd();
         StartCoroutine(PlayWinTransition());
     }
 
-    void NightEnd()
+    void SetupNightEnd()
     {
         playerMovement.Locked = true;
 

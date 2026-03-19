@@ -21,6 +21,10 @@ public class PanicManager : DifficultySingleton<PanicManager>
     [SerializeField][MinMaxSlider(0, 1)] Vector2 heartbeatVolumeRange;
     [SerializeField][MinMaxSlider(0.5f, 1.5f)] Vector2 heartbeatPitchRange;
 
+    [Space(32)]
+
+    [SerializeField] EndTransition endTransition;
+
     const float LOSE_STATE_PANIC_THRESHOLD = 100f;
     const float DIFFICULTY_TO_BASE_PANIC_RATIO = 0.5f;
 
@@ -28,6 +32,9 @@ public class PanicManager : DifficultySingleton<PanicManager>
 
     private void Update()
     {
+        if (!GameManager.Instance.IsPlaying)
+            return;
+
         float maxAddedPanic = maxPanicBase - MAX_DIFFICULTY * DIFFICULTY_TO_BASE_PANIC_RATIO;
 
         panicBase = difficulty * DIFFICULTY_TO_BASE_PANIC_RATIO;
@@ -38,7 +45,10 @@ public class PanicManager : DifficultySingleton<PanicManager>
         panicMeter = Mathf.MoveTowards(panicMeter, panicBase + pressure, Time.deltaTime * panicChangeSpeed);
 
         if (panicMeter > LOSE_STATE_PANIC_THRESHOLD)
-            Debug.Log("NIGHT LOSE!");
+        {
+            GameManager.EndNight();
+            endTransition.Lose();
+        }
 
         UpdateAudio();
     }

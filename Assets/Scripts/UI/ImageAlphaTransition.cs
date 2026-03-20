@@ -16,11 +16,11 @@ public class ImageAlphaTransition : MonoBehaviour
     [Button("Play", 36)]
     void PlayTransition()
     {
-        StartCoroutine(FadeTransition());
+        StartCoroutine(Play());
     }
 #endif
 
-    public IEnumerator FadeTransition()
+    public IEnumerator Play()
     {
         float time = 0;
         Color color = image.color;

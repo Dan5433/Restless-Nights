@@ -7,6 +7,7 @@ public class IntroTransition : MonoBehaviour
     [SerializeField] TextAlphaTransition timeTextTransition;
     [SerializeField] TextAlphaTransition nightTextTransition;
     [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] TextAlphaTransition dialogTextTransition;
 
     private void Start()
     {
@@ -19,8 +20,11 @@ public class IntroTransition : MonoBehaviour
     {
         StartCoroutine(timeTextTransition.Play());
         StartCoroutine(nightTextTransition.Play());
-        yield return transition.FadeTransition();
+        yield return transition.Play();
 
         playerMovement.Locked = false;
+
+        DialogManager.QueueMessage("You feel a foreign presence."); //TODO: play customized per night wake up message
+        DialogManager.QueueMessage("You begin to panic.");
     }
 }

@@ -10,4 +10,12 @@ namespace Extensions
             audioSource.PlayOneShot(clip);
         }
     }
+
+    public static class StringExtensions
+    {
+        public static int WordCount(this string text)
+        {
+            return text.Split(' ').Length;
+        }
+    }
 }

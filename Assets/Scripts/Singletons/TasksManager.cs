@@ -14,6 +14,7 @@ public class TasksManager : DifficultySingleton<TasksManager>
     [SerializeField] AudioClip taskAppearSfx;
     [SerializeField][MinMaxSlider(0, 1)] Vector2 taskReactionAudioVolumeRange;
     [SerializeField] float completeAudioDelay;
+    bool hasTaskAppeared;
 
     public float DifficultyFraction => (float)difficulty / MAX_DIFFICULTY;
     public int ActiveTasksCount => tasks.Length - availableTasks.Count;
@@ -27,20 +28,27 @@ public class TasksManager : DifficultySingleton<TasksManager>
 
     public IEnumerator TriggerRandomTask()
     {
-        if (Instance.availableTasks.Count == 0)
+        if (availableTasks.Count == 0)
         {
             Debug.Log("No available tasks");
         }
         else
         {
-            int randomIndex = Random.Range(0, Instance.availableTasks.Count);
+            int randomIndex = Random.Range(0, availableTasks.Count);
 
-            Task task = Instance.availableTasks[randomIndex];
+            Task task = availableTasks[randomIndex];
 
             yield return task.Trigger();
 
-            Instance.availableTasks.Remove(task);
-            Instance.PlayTaskReactionAudio(Instance.taskAppearSfx);
+            availableTasks.Remove(task);
+            PlayTaskReactionAudio(taskAppearSfx);
+
+            if (!hasTaskAppeared)
+            {
+                yield return new WaitWhile(() => taskReactionAudio.isPlaying);
+                DisplayFirstTaskMessage();
+                hasTaskAppeared = true;
+            }
         }
     }
 
@@ -60,11 +68,17 @@ public class TasksManager : DifficultySingleton<TasksManager>
 
     void PlayTaskReactionAudio(AudioClip clip)
     {
-        Instance.taskReactionAudio.volume = Mathf.Lerp(
-            Instance.taskReactionAudioVolumeRange.x,
-            Instance.taskReactionAudioVolumeRange.y,
+        taskReactionAudio.volume = Mathf.Lerp(
+            taskReactionAudioVolumeRange.x,
+            taskReactionAudioVolumeRange.y,
             PanicManager.Instance.PanicFraction);
 
-        Instance.taskReactionAudio.PlayOneShotWithRandomPitch(clip);
+        taskReactionAudio.PlayOneShotWithRandomPitch(clip);
+    }
+
+    void DisplayFirstTaskMessage()
+    {
+        DialogManager.QueueMessage("Something is wrong.", TMPro.FontStyles.Italic); //TODO: play customized per night first task message
+        DialogManager.QueueMessage("Find what is out of the ordinary and fix it.");
     }
 }

@@ -1278,6 +1278,7 @@ GameObject:
   - component: {fileID: 1706221592}
   - component: {fileID: 1706221591}
   - component: {fileID: 1706221593}
+  - component: {fileID: 1706221594}
   m_Layer: 5
   m_Name: Darkness
   m_TagString: Untagged
@@ -1317,7 +1318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.5019608}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1354,6 +1355,25 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &1706221594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706221589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b24e901aff95a2740b1ea636b9bce6a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 1706221591}
+  easeTime: 1.5
+  holdTime: 3
+  minAlpha: 0.2
+  maxAlpha: 0.8
+  playOnStart: 1
+  loop: 1
 --- !u!1 &1823747688
 GameObject:
   m_ObjectHideFlags: 0

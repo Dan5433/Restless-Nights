@@ -24,6 +24,7 @@ public class IntroTransition : MonoBehaviour
 
         playerMovement.Locked = false;
 
-        yield return dialogTextTransition.Play();
+        DialogManager.QueueMessage("You feel a foreign presence."); //TODO: play customized per night wake up message
+        DialogManager.QueueMessage("You begin to panic.");
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -55,7 +56,8 @@ public class DialogManager : Singleton<DialogManager>
         }
     }
 
-    struct Message
+    [Serializable]
+    public struct Message
     {
         public string text;
         public FontStyles fontStyle;

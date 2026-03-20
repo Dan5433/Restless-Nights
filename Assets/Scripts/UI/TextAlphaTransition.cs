@@ -1,4 +1,5 @@
 using EditorAttributes;
+using Extensions;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class TextAlphaTransition : MonoBehaviour
     [SerializeField] TMP_Text text;
     [SerializeField] float easeTime = 1f;
     [SerializeField] float holdTime = 0.25f;
+    [SerializeField] float holdPerWord = 0;
 
     public float EaseTime => easeTime;
     public float HoldTime => holdTime;
@@ -39,7 +41,7 @@ public class TextAlphaTransition : MonoBehaviour
         color.a = 1;
         text.color = color;
 
-        yield return new WaitForSeconds(holdTime);
+        yield return new WaitForSeconds(holdTime + holdPerWord * text.text.WordCount());
 
         time = 0;
         while (time < easeTime)

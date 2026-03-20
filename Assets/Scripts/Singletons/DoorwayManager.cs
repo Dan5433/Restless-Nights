@@ -45,7 +45,7 @@ public class DoorwayManager : DifficultySingleton<DoorwayManager>
         ImageAlphaTransition transition = Instance.transition;
 
         movement.Locked = true;
-        transition.StartCoroutine(transition.FadeTransition());
+        transition.StartCoroutine(transition.Play());
 
         yield return new WaitForSeconds(transition.HoldTime + transition.EaseTime * 2 + Instance.movementLockExtraTime);
 

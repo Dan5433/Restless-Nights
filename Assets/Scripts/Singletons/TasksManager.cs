@@ -42,15 +42,13 @@ public class TasksManager : DifficultySingleton<TasksManager>
 
             availableTasks.Remove(task);
             PlayTaskReactionAudio(taskAppearSfx);
-        }
 
-        if (!hasTaskAppeared)
-        {
-            yield return new WaitWhile(() => taskReactionAudio.isPlaying);
-
-            DialogManager.QueueMessage("Something is wrong.", TMPro.FontStyles.Italic); //TODO: play customized per night first task message
-            DialogManager.QueueMessage("Find what is out of the ordinary and fix it.");
-            hasTaskAppeared = true;
+            if (!hasTaskAppeared)
+            {
+                yield return new WaitWhile(() => taskReactionAudio.isPlaying);
+                DisplayFirstTaskMessage();
+                hasTaskAppeared = true;
+            }
         }
     }
 
@@ -70,11 +68,17 @@ public class TasksManager : DifficultySingleton<TasksManager>
 
     void PlayTaskReactionAudio(AudioClip clip)
     {
-        Instance.taskReactionAudio.volume = Mathf.Lerp(
-            Instance.taskReactionAudioVolumeRange.x,
-            Instance.taskReactionAudioVolumeRange.y,
+        taskReactionAudio.volume = Mathf.Lerp(
+            taskReactionAudioVolumeRange.x,
+            taskReactionAudioVolumeRange.y,
             PanicManager.Instance.PanicFraction);
 
-        Instance.taskReactionAudio.PlayOneShotWithRandomPitch(clip);
+        taskReactionAudio.PlayOneShotWithRandomPitch(clip);
+    }
+
+    void DisplayFirstTaskMessage()
+    {
+        DialogManager.QueueMessage("Something is wrong.", TMPro.FontStyles.Italic); //TODO: play customized per night first task message
+        DialogManager.QueueMessage("Find what is out of the ordinary and fix it.");
     }
 }

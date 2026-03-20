@@ -15,6 +15,8 @@ public class TextAlphaTransition : MonoBehaviour
     public float EaseTime => easeTime;
     public float HoldTime => holdTime;
 
+    public string Text { get { return text.text; } set { text.text = value; } }
+
 #if UNITY_EDITOR
     [Button("Play", 36)]
     void PlayTransition()

@@ -7,8 +7,13 @@ public class NightSO : ScriptableObject
     [SerializeField] DialogManager.Message[] nightStartMessages, firstTaskMessages;
     [SerializeField] Difficulty difficulty;
 
+    public DialogManager.Message[] NightStartMessages => nightStartMessages;
+    public DialogManager.Message[] FirstTaskMessages => firstTaskMessages;
+
+    public Difficulty NightDifficulty => difficulty;
+
     [Serializable]
-    struct Difficulty
+    public struct Difficulty
     {
         public int panic, doorways, tasks, monster;
     }

@@ -24,6 +24,7 @@ public class TasksManager : DifficultySingleton<TasksManager>
         base.Awake();
 
         availableTasks = tasks.ToList();
+        difficulty = GameManager.Instance.Night.NightDifficulty.tasks;
     }
 
     public IEnumerator TriggerRandomTask()
@@ -78,7 +79,7 @@ public class TasksManager : DifficultySingleton<TasksManager>
 
     void DisplayFirstTaskMessage()
     {
-        DialogManager.QueueMessage("Something is wrong.", TMPro.FontStyles.Italic); //TODO: play customized per night first task message
-        DialogManager.QueueMessage("Find what is out of the ordinary and fix it.");
+        foreach (DialogManager.Message message in GameManager.Instance.Night.FirstTaskMessages)
+            DialogManager.QueueMessage(message.text, message.fontStyle);
     }
 }

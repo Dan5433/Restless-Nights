@@ -626,6 +626,7 @@ GameObject:
   - component: {fileID: 1106052727}
   - component: {fileID: 1106052726}
   - component: {fileID: 1106052725}
+  - component: {fileID: 1106052729}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -718,6 +719,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1106052729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106052724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71839ac2330cdbc4cafd38b7d1bcdd41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nights:
+  - {fileID: 11400000, guid: 08ccd05512d88ba4590e6c66ea049e6d, type: 2}
+  - {fileID: 11400000, guid: 38c6057a70c179b418b9770b329c8ee5, type: 2}
+  - {fileID: 11400000, guid: 9c72781e23a3d5047a31ed265680db38, type: 2}
+  - {fileID: 11400000, guid: 22726bd3f586b444ea77c21fbceed808, type: 2}
+  - {fileID: 11400000, guid: b1cea26ff311ad04e91b7039b532a007, type: 2}
+  customNight: {fileID: 11400000, guid: b01b368a40725634ba6d9210932f00f7, type: 2}
+  newGameButton: {fileID: 1823747688}
+  continueGameButton: {fileID: 1493785768}
+  customNightButton: {fileID: 1660771694}
 --- !u!1 &1356154359
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,7 +960,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1493785771}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1106052729}
+        m_TargetAssemblyTypeName: TitleScreen, Assembly-CSharp
+        m_MethodName: Continue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1493785771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1401,7 +1436,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1823747691}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1106052729}
+        m_TargetAssemblyTypeName: TitleScreen, Assembly-CSharp
+        m_MethodName: NewGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1823747691
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -30,6 +30,13 @@ public class PanicManager : DifficultySingleton<PanicManager>
 
     public float PanicFraction => panicMeter / LOSE_STATE_PANIC_THRESHOLD;
 
+    protected override void Awake()
+    {
+        base.Awake();
+
+        difficulty = GameManager.Instance.Night.NightDifficulty.panic;
+    }
+
     private void Update()
     {
         if (!GameManager.Instance.IsPlaying)

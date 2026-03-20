@@ -39,6 +39,13 @@ public class DoorwayManager : DifficultySingleton<DoorwayManager>
         }
     }
 
+    protected override void Awake()
+    {
+        base.Awake();
+
+        difficulty = GameManager.Instance.Night.NightDifficulty.doorways;
+    }
+
     public static IEnumerator PlayDoorTransition()
     {
         PlayerMovement movement = Instance.movement;

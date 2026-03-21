@@ -3,17 +3,18 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(RectTransform))]
-public class TextRandomMove : MonoBehaviour
+public class RandomMoveAnimation : MonoBehaviour
 {
     [SerializeField][MinMaxSlider(0f, 5f)] Vector2 moveTimeRange, holdTimeRange;
     [SerializeField][MinMaxSlider(-20f, 20f)] Vector2 xMoveRange, yMoveRange;
     float moveTime;
-    Vector2 start, target;
+    Vector2 origin, start, target;
     RectTransform rectTransform;
 
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+        origin = rectTransform.anchoredPosition;
     }
 
     void Start()
@@ -27,8 +28,8 @@ public class TextRandomMove : MonoBehaviour
         moveTime = Random.Range(moveTimeRange.x, moveTimeRange.y);
 
         target = new(
-            Random.Range(xMoveRange.x, xMoveRange.y),
-            Random.Range(yMoveRange.x, yMoveRange.y));
+            origin.x + Random.Range(xMoveRange.x, xMoveRange.y),
+            origin.y + Random.Range(yMoveRange.x, yMoveRange.y));
     }
 
     IEnumerator MoveTowardsTarget()

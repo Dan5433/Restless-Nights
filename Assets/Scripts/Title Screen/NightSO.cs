@@ -10,7 +10,7 @@ public class NightSO : ScriptableObject
     public DialogManager.Message[] NightStartMessages => nightStartMessages;
     public DialogManager.Message[] FirstTaskMessages => firstTaskMessages;
 
-    public Difficulty NightDifficulty => difficulty;
+    public Difficulty NightDifficulty { get { return difficulty; } set { difficulty = value; } }
 
     [Serializable]
     public struct Difficulty

@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class TitleScreen : MonoBehaviour
 {
     [SerializeField] NightSO[] nights;
-    [SerializeField] NightSO customNight;
     [SerializeField] GameObject newGameButton, continueGameButton, customNightButton;
     SaveState save;
 

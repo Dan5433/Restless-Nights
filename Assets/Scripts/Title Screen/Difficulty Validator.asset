@@ -9,15 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 879e1ae4ad612274da2a73714bfa5ef4, type: 3}
-  m_Name: Custom Night
+  m_Script: {fileID: 11500000, guid: 5a9e4760f4dd36a488649b86a588d994, type: 3}
+  m_Name: Difficulty Validator
   m_EditorClassIdentifier: 
-  nightStartMessages:
-  - text: Good luck.
-    fontStyle: 2
-  firstTaskMessages: []
-  difficulty:
-    panic: 0
-    doorways: 0
-    tasks: 0
-    monster: 0

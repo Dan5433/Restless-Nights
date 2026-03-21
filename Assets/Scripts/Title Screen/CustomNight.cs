@@ -21,10 +21,10 @@ public class CustomNight : MonoBehaviour
         NightSO night = Instantiate(customNight);
         NightSO.Difficulty difficulty = new()
         {
-            panic = int.Parse(panic.text),
-            doorways = int.Parse(doorways.text),
-            tasks = int.Parse(tasks.text),
-            monster = int.Parse(monster.text),
+            panic = string.IsNullOrWhiteSpace(panic.text) ? 0 : int.Parse(panic.text),
+            doorways = string.IsNullOrWhiteSpace(doorways.text) ? 0 : int.Parse(doorways.text),
+            tasks = string.IsNullOrWhiteSpace(tasks.text) ? 0 : int.Parse(tasks.text),
+            monster = string.IsNullOrWhiteSpace(monster.text) ? 0 : int.Parse(monster.text),
         };
         night.NightDifficulty = difficulty;
         night.name = $"{customNight.name} ({difficulty.panic}, {difficulty.doorways}, {difficulty.tasks}, {difficulty.monster})";

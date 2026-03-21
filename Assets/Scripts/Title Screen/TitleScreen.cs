@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,8 @@ public class TitleScreen : MonoBehaviour
     [SerializeField] GameObject newGameButton, continueGameButton, customNightButton;
     SaveState save;
 
+    static NightSO wonNight;
+
     const string SAVE_STATE_KEY = "SaveState";
 
     void Awake()
@@ -18,6 +21,8 @@ public class TitleScreen : MonoBehaviour
         string savedjson = PlayerPrefs.GetString(SAVE_STATE_KEY);
         if (savedjson != string.Empty)
             save = JsonUtility.FromJson<SaveState>(savedjson);
+
+        CheckForWonNight();
 
         if (save.currentNightIndex > 0)
         {
@@ -49,6 +54,24 @@ public class TitleScreen : MonoBehaviour
     {
         string json = JsonUtility.ToJson(save);
         PlayerPrefs.SetString(SAVE_STATE_KEY, json);
+    }
+
+    void CheckForWonNight()
+    {
+        if (!wonNight)
+            return;
+
+        if (wonNight == nights.Last())
+            save.isCustomNightUnlocked = true;
+        else
+            save.currentNightIndex++;
+
+        WriteSaveState();
+    }
+
+    public static void WinNight(NightSO wonNight)
+    {
+        TitleScreen.wonNight = wonNight;
     }
 
     [Serializable]

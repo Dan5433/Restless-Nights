@@ -14,8 +14,10 @@ public class GameManager : Singleton<GameManager>
     {
         base.Awake();
 
+        if (loadedNight != null)
+            night = loadedNight;
+
         isPlaying = true;
-        night = loadedNight;
     }
 
     public static void EndNight()
@@ -29,5 +31,13 @@ public class GameManager : Singleton<GameManager>
     public static void LoadNight(NightSO night)
     {
         loadedNight = night;
+    }
+
+    public static void WinNight()
+    {
+        if (!IsInstanceValid())
+            return;
+
+        TitleScreen.WinNight(loadedNight);
     }
 }

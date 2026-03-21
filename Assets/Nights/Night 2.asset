@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 879e1ae4ad612274da2a73714bfa5ef4, type: 3}
+  m_Name: Night 2
+  m_EditorClassIdentifier: 
+  index: 1
+  nightStartMessages:
+  - text: You feel a foreign presence.
+    fontStyle: 0
+  - text: You begin to panic.
+    fontStyle: 0
+  firstTaskMessages:
+  - text: Something is wrong.
+    fontStyle: 2
+  - text: Find what is out of the ordinary and fix it.
+    fontStyle: 0
+  difficulty:
+    panic: 0
+    doorways: 0
+    tasks: 0
+    monster: 0

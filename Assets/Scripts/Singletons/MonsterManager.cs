@@ -7,6 +7,13 @@ public class MonsterManager : DifficultySingleton<MonsterManager>
 
     [SerializeField][DisableInEditMode, DisableInPlayMode] float taskTimer;
 
+    protected override void Awake()
+    {
+        base.Awake();
+
+        difficulty = GameManager.Instance.Night.NightDifficulty.monster;
+    }
+
     private void Start()
     {
         SetNextTaskTimer();

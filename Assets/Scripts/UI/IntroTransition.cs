@@ -9,6 +9,11 @@ public class IntroTransition : MonoBehaviour
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] TextAlphaTransition dialogTextTransition;
 
+    void Awake()
+    {
+        nightTextTransition.Text = GameManager.Instance.Night.name;
+    }
+
     private void Start()
     {
         playerMovement.Locked = true;
@@ -24,7 +29,7 @@ public class IntroTransition : MonoBehaviour
 
         playerMovement.Locked = false;
 
-        DialogManager.QueueMessage("You feel a foreign presence."); //TODO: play customized per night wake up message
-        DialogManager.QueueMessage("You begin to panic.");
+        foreach (DialogManager.Message message in GameManager.Instance.Night.NightStartMessages)
+            DialogManager.QueueMessage(message.text, message.fontStyle);
     }
 }

@@ -3,6 +3,7 @@ using Extensions;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
@@ -109,6 +110,6 @@ public class EndTransition : MonoBehaviour
 
     void ReturnToMainMenu()
     {
-        Debug.Log("return to menu");
+        SceneManager.LoadScene(0);
     }
 }

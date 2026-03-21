@@ -12,19 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879e1ae4ad612274da2a73714bfa5ef4, type: 3}
   m_Name: Night 4
   m_EditorClassIdentifier: 
-  index: 1
   nightStartMessages:
-  - text: You feel a foreign presence.
-    fontStyle: 0
-  - text: You begin to panic.
-    fontStyle: 0
-  firstTaskMessages:
-  - text: Something is wrong.
+  - text: It feels like you're getting closer...
     fontStyle: 2
-  - text: Find what is out of the ordinary and fix it.
+  firstTaskMessages:
+  - text: To overcoming...
+    fontStyle: 0
+  - text: Them
     fontStyle: 0
   difficulty:
-    panic: 0
-    doorways: 0
-    tasks: 0
-    monster: 0
+    panic: 10
+    doorways: 11
+    tasks: 14
+    monster: 13

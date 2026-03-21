@@ -66,6 +66,8 @@ public class TitleScreen : MonoBehaviour
         else
             save.currentNightIndex++;
 
+        wonNight = null;
+
         WriteSaveState();
     }
 

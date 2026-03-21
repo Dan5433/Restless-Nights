@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Custom Night
   m_EditorClassIdentifier: 
   nightStartMessages:
-  - text: Good Luck
+  - text: Good luck.
     fontStyle: 2
   firstTaskMessages: []
   difficulty:

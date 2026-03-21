@@ -1,5 +1,7 @@
 # Restless Nights
-**_(Version 0.3) 
+![](https://img.itch.zone/aW1nLzI2MjUzODQxLnBuZw==/original/7xryPC.png "Title Screen")
+
+**_(Version 1.0) 
 <br> In Development_**
 
 ## **_Game relies heavily on audio. Headphones recommended!_**
@@ -21,6 +23,7 @@ GitHub Release:
 - To play launch/open:
   - Windows: .exe executable
   - Linux: .x86_64 executable
+  - Mac: Mac.app
   - WebGL: index.html
 
 Itch:
@@ -29,6 +32,7 @@ Itch:
 - Download and play natively on:
   - Windows
   - Linux
+  - Mac
 
 ### Screenshots
 ![](https://img.itch.zone/aW1nLzI1NjY5MTQwLnBuZw==/original/Bf7xEv.png "Bedroom")

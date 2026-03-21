@@ -30,7 +30,7 @@ public class CustomNight : MonoBehaviour
         night.name = $"{customNight.name} ({difficulty.panic}, {difficulty.doorways}, {difficulty.tasks}, {difficulty.monster})";
 
         GameManager.LoadNight(night);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void ChangePanicDifficulty(int change)

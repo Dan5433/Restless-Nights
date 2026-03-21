@@ -40,13 +40,13 @@ public class TitleScreen : MonoBehaviour
         WriteSaveState();
 
         GameManager.LoadNight(nights[0]);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void Continue()
     {
         GameManager.LoadNight(nights[save.currentNightIndex]);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     void WriteSaveState()

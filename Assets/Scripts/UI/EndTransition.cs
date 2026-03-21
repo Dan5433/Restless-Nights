@@ -74,7 +74,7 @@ public class EndTransition : MonoBehaviour
         yield return new WaitForSeconds(returnDelay * 3 / 5);
         endScreenImage.color = Color.black;
         yield return new WaitForSeconds(returnDelay * 2 / 5);
-        ReturnToMainMenu();
+        ReturnToTitleScreen();
     }
 
     IEnumerator PlayWinTransition()
@@ -105,11 +105,11 @@ public class EndTransition : MonoBehaviour
         }
 
         yield return new WaitForSeconds(returnDelay);
-        ReturnToMainMenu();
+        ReturnToTitleScreen();
     }
 
-    void ReturnToMainMenu()
+    void ReturnToTitleScreen()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

@@ -21,15 +21,51 @@ public class CustomNight : MonoBehaviour
         NightSO night = Instantiate(customNight);
         NightSO.Difficulty difficulty = new()
         {
-            panic = string.IsNullOrWhiteSpace(panic.text) ? 0 : int.Parse(panic.text),
-            doorways = string.IsNullOrWhiteSpace(doorways.text) ? 0 : int.Parse(doorways.text),
-            tasks = string.IsNullOrWhiteSpace(tasks.text) ? 0 : int.Parse(tasks.text),
-            monster = string.IsNullOrWhiteSpace(monster.text) ? 0 : int.Parse(monster.text),
+            panic = ParseDifficultyInput(panic.text),
+            doorways = ParseDifficultyInput(doorways.text),
+            tasks = ParseDifficultyInput(tasks.text),
+            monster = ParseDifficultyInput(monster.text),
         };
         night.NightDifficulty = difficulty;
         night.name = $"{customNight.name} ({difficulty.panic}, {difficulty.doorways}, {difficulty.tasks}, {difficulty.monster})";
 
         GameManager.LoadNight(night);
         SceneManager.LoadScene(1);
+    }
+
+    public void ChangePanicDifficulty(int change)
+    {
+        ChangeDifficulty(change, panic);
+    }
+
+    public void ChangeDoorwaysDifficulty(int change)
+    {
+        ChangeDifficulty(change, doorways);
+    }
+
+    public void ChangeTasksDifficulty(int change)
+    {
+        ChangeDifficulty(change, tasks);
+    }
+
+    public void ChangeMonsterDifficulty(int change)
+    {
+        ChangeDifficulty(change, monster);
+    }
+
+    void ChangeDifficulty(int change, TMP_InputField field)
+    {
+        int difficulty = ParseDifficultyInput(field.text);
+        if (change > 0 && difficulty < DifficultySingleton<CustomNight>.MAX_DIFFICULTY
+            || change < 0 && difficulty > DifficultySingleton<CustomNight>.MIN_DIFFICULTY)
+        {
+            difficulty += change;
+            field.text = difficulty.ToString();
+        }
+    }
+
+    int ParseDifficultyInput(string text)
+    {
+        return string.IsNullOrWhiteSpace(text) ? 0 : int.Parse(text);
     }
 }
